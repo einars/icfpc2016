@@ -1,6 +1,6 @@
 (defpackage :origami/structures
   (:use :cl)
-  (:export :make-point :make-edge))
+  (:export :make-point :point- :make-edge :fold-over-edge))
 
 (in-package :origami/structures)
 

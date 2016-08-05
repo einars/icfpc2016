@@ -4,8 +4,7 @@
 (in-package :origami/sandman)
 
 (defvar *vertices* nil)
-(defvar *skeleton* nil)
-(defvar *silhouette* nil)
+(defvar *edges* nil)
 
 (defun read-vertex ()
   (let ((x) (y))
@@ -22,16 +21,7 @@
 	(b (read-vertex)))
     (update-vertices a)
     (update-vertices b)
-    (list a b)))
-
-(defun update-silhouette (vertices)
-  (when (cdr vertices)
-    (push (list (first vertices) (second vertices)) *silhouette*)
-    (update-silhouette (cdr vertices))))
-
-(defun generate-silhouette (vertices)
-  (push (list (first vertices) (car (last vertices))) *silhouette*)
-  (update-silhouette vertices))
+    (make-edge a b)))
 
 (defun read-input ()
   (let ((polygon-count (read)))
@@ -39,17 +29,25 @@
       (let ((vertex-count (read)))
 	(dotimes (j vertex-count)
 	  (push (read-vertex) *vertices*)))))
-  (generate-silhouette *vertices*) ;; FIXME
   (let ((edge-count (read)))
     (dotimes (i edge-count)
-      (push (read-edge) *skeleton*))))
+      (push (read-edge) *edges*))))
+
+(defun print-positions (vertices &key source)
+  (when source (format t "~A~%" (length vertices)))
+  (dolist (i vertices)
+    (format t "~A,~A~%" (first i) (second i))))
+
+(defun print-facets (facets)
+  (format t "~A~%" (length facets))
+  (dolist (i facets)
+    (format t "~A ~{~A ~}~%" (length i) i)))
 
 (defun start ()
   (let ((*vertices* nil)
-	(*skeleton* nil)
-	(*silhouette* nil))
+	(*edges* nil))
     (read-input)
-    (format t "VERTICES: ~A~%" *vertices*)
-    (format t "SKELETON: ~A~%" *skeleton*)
-    (format t "SILHOUETTE: ~A~%" *silhouette*)
+    (print-positions *vertices* :source t)	; TODO
+    (print-facets '((0 1 2 3)))			; TODO
+    (print-positions *vertices*)		; TODO
     (sb-ext:exit)))

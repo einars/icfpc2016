@@ -41,7 +41,7 @@ specs = {
 
 }
 
-angular.module('vis', [])
+angular.module('vis', ['sprintf'])
 .controller 'VisController', ($scope, $timeout) ->
 
   $scope.source = specs[32]
@@ -65,8 +65,6 @@ angular.module('vis', [])
     ctx.width = w
     ctx.height = h
 
-    log 'Canvas: ' + ctx.width + ' x ' + ctx.height
-
     scale = (h * 0.9) / (p.size)
 
     base_x = p.x_min - (0.05 * p.size)
@@ -76,26 +74,30 @@ angular.module('vis', [])
     log 'base_x ' + base_x
 
     ctx_moveto = (ctx, coords) ->
-      log 'moveto'
-      log JSON.stringify coords
       x = (coords.x - base_x) * scale
       y = h - (coords.y - base_y) * scale
-      log x + ' / ' + y
       ctx.moveTo x, y
 
     ctx_lineto = (ctx, coords) ->
-      log 'lineto'
-      log JSON.stringify coords
       x = (coords.x - base_x) * scale
       y = h - (coords.y - base_y) * scale
-      log x + ' / ' + y
       ctx.lineTo x, y
 
 
+    ctx.setLineDash [5, 3]
+    ctx.strokeStyle = '#555555'
+    ctx.lineWidth = 0.7
+    _.each p.skels, (line) ->
+      ctx.beginPath()
+      ctx_moveto ctx, line.p1
+      ctx_lineto ctx, line.p2
+      ctx.stroke()
 
+    ctx.setLineDash []
+    ctx.strokeStyle = '#339933'
+    ctx.lineWidth = 1.5
     _.each p.polys, (pts) ->
       ctx.beginPath()
-      ctx.strokeStyle = 'blue'
       ctx_moveto ctx, pts[0]
       for i in [1...pts.length]
         ctx_lineto ctx, pts[i]
@@ -139,6 +141,17 @@ angular.module('vis', [])
       y: make_coord xy[1]
     }
 
+  line_of_pts = (pt1, pt2) ->
+    return {
+      p1: pt1
+      p2: pt2
+      key: sprintf "%.4f %.4f %.4f %.4f", pt1.x, pt1.y, pt2.x, pt2.y
+    }
+
+  make_line = (pts) ->
+    ptpt = pts.match /[^ ]+/g
+    return line_of_pts (make_pt ptpt[0]), (make_pt ptpt[1])
+
   parse = (spec) ->
     lines = spec.match /[^\r\n]+/g
     return if not lines
@@ -178,6 +191,13 @@ angular.module('vis', [])
     log 'y min: ' + y_min
     log 'y max: ' + y_max
 
+    skels = []
+    n_skels = lines[cur]
+    cur++
+
+    for i in [1..n_skels]
+      skels.push make_line lines[cur]
+      cur++
 
     return {
       x_min: x_min
@@ -186,6 +206,7 @@ angular.module('vis', [])
       y_max: y_max
       size: Math.max (y_max - y_min), (x_max - x_min)
       polys: polys
+      skels: skels
     }
 
 

@@ -6,8 +6,8 @@
     32: "1\n8\n7/12,7/12\n2/3,2/3\n2/3,5/6\n5/6,1\n2/3,1\n5/6,7/6\n1/2,7/6\n1/2,2/3\n11\n7/12,7/12 2/3,2/3\n1/2,2/3 1/2,7/6\n7/12,3/4 7/12,1\n2/3,2/3 2/3,7/6\n1/2,2/3 5/6,1\n1/2,5/6 5/6,7/6\n7/12,7/12 1/2,2/3\n2/3,2/3 1/2,5/6\n2/3,5/6 1/2,1\n1/2,1 5/6,1\n1/2,7/6 5/6,7/6\n"
   };
 
-  angular.module('vis', []).controller('VisController', function($scope, $timeout) {
-    var log, make_coord, make_pt, parse;
+  angular.module('vis', ['sprintf']).controller('VisController', function($scope, $timeout) {
+    var line_of_pts, log, make_coord, make_line, make_pt, parse;
     $scope.source = specs[32];
     $scope.updateCanvas = function() {
       var $cv, base_x, base_y, ctx, ctx_lineto, ctx_moveto, h, p, scale, w;
@@ -26,7 +26,6 @@
       $cv.get(0).height = h;
       ctx.width = w;
       ctx.height = h;
-      log('Canvas: ' + ctx.width + ' x ' + ctx.height);
       scale = (h * 0.9) / p.size;
       base_x = p.x_min - (0.05 * p.size);
       base_y = p.y_min - (0.05 * p.size);
@@ -34,26 +33,31 @@
       log('base_x ' + base_x);
       ctx_moveto = function(ctx, coords) {
         var x, y;
-        log('moveto');
-        log(JSON.stringify(coords));
         x = (coords.x - base_x) * scale;
         y = h - (coords.y - base_y) * scale;
-        log(x + ' / ' + y);
         return ctx.moveTo(x, y);
       };
       ctx_lineto = function(ctx, coords) {
         var x, y;
-        log('lineto');
-        log(JSON.stringify(coords));
         x = (coords.x - base_x) * scale;
         y = h - (coords.y - base_y) * scale;
-        log(x + ' / ' + y);
         return ctx.lineTo(x, y);
       };
+      ctx.setLineDash([5, 3]);
+      ctx.strokeStyle = '#555555';
+      ctx.lineWidth = 0.7;
+      _.each(p.skels, function(line) {
+        ctx.beginPath();
+        ctx_moveto(ctx, line.p1);
+        ctx_lineto(ctx, line.p2);
+        return ctx.stroke();
+      });
+      ctx.setLineDash([]);
+      ctx.strokeStyle = '#339933';
+      ctx.lineWidth = 1.5;
       return _.each(p.polys, function(pts) {
         var i, k, ref;
         ctx.beginPath();
-        ctx.strokeStyle = 'blue';
         ctx_moveto(ctx, pts[0]);
         for (i = k = 1, ref = pts.length; 1 <= ref ? k < ref : k > ref; i = 1 <= ref ? ++k : --k) {
           ctx_lineto(ctx, pts[i]);
@@ -100,8 +104,20 @@
         y: make_coord(xy[1])
       };
     };
+    line_of_pts = function(pt1, pt2) {
+      return {
+        p1: pt1,
+        p2: pt2,
+        key: sprintf("%.4f %.4f %.4f %.4f", pt1.x, pt1.y, pt2.x, pt2.y)
+      };
+    };
+    make_line = function(pts) {
+      var ptpt;
+      ptpt = pts.match(/[^ ]+/g);
+      return line_of_pts(make_pt(ptpt[0]), make_pt(ptpt[1]));
+    };
     return parse = function(spec) {
-      var all_pts, cur, i, j, k, l, lines, n_poly, poly, poly_len, polys, pt, ref, ref1, x_max, x_min, y_max, y_min;
+      var all_pts, cur, i, j, k, l, lines, m, n_poly, n_skels, poly, poly_len, polys, pt, ref, ref1, ref2, skels, x_max, x_min, y_max, y_min;
       lines = spec.match(/[^\r\n]+/g);
       if (!lines) {
         return;
@@ -143,13 +159,21 @@
       log('x max: ' + x_max);
       log('y min: ' + y_min);
       log('y max: ' + y_max);
+      skels = [];
+      n_skels = lines[cur];
+      cur++;
+      for (i = m = 1, ref2 = n_skels; 1 <= ref2 ? m <= ref2 : m >= ref2; i = 1 <= ref2 ? ++m : --m) {
+        skels.push(make_line(lines[cur]));
+        cur++;
+      }
       return {
         x_min: x_min,
         x_max: x_max,
         y_min: y_min,
         y_max: y_max,
         size: Math.max(y_max - y_min, x_max - x_min),
-        polys: polys
+        polys: polys,
+        skels: skels
       };
     };
   });

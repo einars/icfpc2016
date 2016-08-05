@@ -44,24 +44,23 @@
     (format t "~A ~{~A ~}~%" (length i) i)))
 
 (defun find-bottom ()
-  (first (last *edges*)))
+  (fourth *edges*))
 
 (defun rotate-pos (pos b)
-  (make-point (- (* (edge-dx b) (point-x pos)) (* (edge-dy b) (point-y pos)))
-	      (+ (* (edge-dy b) (point-x pos)) (* (edge-dx b) (point-y pos)))))
+  (make-point (- (* (edge-dx b) (px pos)) (* (edge-dy b) (py pos)))
+	      (+ (* (edge-dy b) (px pos)) (* (edge-dx b) (py pos)))))
 
 (defun translate-pos (pos bottom)
   (rotate-pos (point- pos (edge-start bottom)) bottom))
 
 (defun good-one (pos)
-  (and (<= 0 (point-x pos) 1) (<= 0 (point-y pos) 1)))
+  (and (<= 0 (px pos) 1) (<= 0 (py pos) 1)))
 
 (defun find-positions ()
   (let ((bottom (find-bottom))
 	(good-positions nil))
     (dolist (dst *vertices* good-positions)
       (let ((src (translate-pos dst bottom)))
-	(format t "SRC:~A DST:~A~%" src dst)
 	(when (good-one src) (push (list src dst) good-positions))))))
 
 (defun find-facets (pos-map)

@@ -1,17 +1,17 @@
 (defpackage :origami/structures
   (:use :cl)
   (:export :make-point :point- :make-edge :fold-over-edge :edge-start
-	   :point-x :point-y :edge-dy :edge-dx))
+	   :px :py :edge-dy :edge-dx))
 
 (in-package :origami/structures)
 
 (defun make-point (x y)
   (list x y))
 
-(defun point-x (p)
+(defun px (p)
   (first p))
 
-(defun point-y (p)
+(defun py (p)
   (second p))
 
 (defun point- (point1 point2)
@@ -26,10 +26,10 @@
   (first edge))
 
 (defun edge-dx (edge)
-  (point-x (second edge)))
+  (px (second edge)))
 
 (defun edge-dy (edge)
-  (point-y (second edge)))
+  (py (second edge)))
 
 (defun make-polygon (&rest points)
   points)

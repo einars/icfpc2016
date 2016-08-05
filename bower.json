@@ -1,0 +1,23 @@
+{
+  "name": "icfp-2016-visualizer",
+  "authors": [
+    "Einar Lielmanis <einars@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "^1.8.3",
+    "angular": "^1.5.8",
+    "jquery": "^3.1.0"
+  }
+}

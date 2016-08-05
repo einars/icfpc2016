@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./static/all.generated.css"/>
+    <script type="text/javascript" src="./static/libs/angular/angular.js"></script>
+    <script type="text/javascript" src="./static/libs/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/libs/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="./static/all.generated.js"></script>
+  </head>
+  <body ng-app="vis">
+    <div ng-controller="VisController">
+      <div class="canvas-wrapper">
+        <canvas class="js-canvas"></canvas>
+      </div>
+
+      <div class="input-wrapper">
+        <textarea class="source-input js-source" ng-model="source">
+        </textarea>
+        <div class="input-buttons">
+          <button class="input-clear" ng-click="clearCanvas()">Clear</button>
+          <button class="input-update" ng-click="updateCanvas()">Update canvas</button>
+        </div>
+      </div>
+
+      <div class="debug">
+        <div ng-repeat="line in dbg">{{ line.text }}</div>
+      </div>
+    </div>
+
+  </body>
+</html>

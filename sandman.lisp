@@ -53,9 +53,9 @@
 (defun find-bottom ()
   (fourth *edges*))
 
-(defun rotate-pos (pos b)
-  (make-point (- (* (edge-dx b) (px pos)) (* (edge-dy b) (py pos)))
-	      (+ (* (edge-dy b) (px pos)) (* (edge-dx b) (py pos)))))
+(defun rotate-pos (pos alpha)
+  (make-point (+ (* (edge-dx alpha) (px pos)) (* (edge-dy alpha) (py pos)))
+	      (- (* (edge-dx alpha) (py pos)) (* (edge-dy alpha) (px pos)))))
 
 (defun translate-pos (pos bottom)
   (rotate-pos (point- pos (edge-start bottom)) bottom))

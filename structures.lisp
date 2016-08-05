@@ -1,6 +1,6 @@
 (defpackage :origami/structures
   (:use :cl)
-  (:export :make-point :point- :make-edge :fold-over-edge :edge-start
+  (:export :make-point :point- :make-edge :fold-over-edge :align-polygon-to-edge :edge-start
 	   :px :py :edge-dy :edge-dx :polygon-fragment))
 
 (in-package :origami/structures)
@@ -61,3 +61,19 @@
 		  (make-point (+ x0 (* a (- x x0)) (* b (- y y0)))
 			      (+ y0 (* b (- x x0)) (* a (- y0 y)))))))
 	    polygon)))
+
+(defun align-polygon-to-edge (polygon unity-edge)
+  (destructuring-bind ((x0 y0) (dx2 dy2)) unity-edge
+    (destructuring-bind (dx1 dy1) (get-polygon-fragment polygon 0)
+      (destructuring-bind (px0 py0) (first polygon)
+	(let* ((cosa (+ (* dx1 dx2) (* dy1 dy2)))
+	       (sina (- (* dx1 dy2) (* dx2 dy1)))
+	       (px0rot (- (* px0 cosa) (* py0 sina)))
+	       (py0rot (+ (* px0 sina) (* py0 cosa)))
+	       (dx (+ x0 (- px0rot px0)))
+	       (dy (+ y0 (- py0rot py0))))
+	  (mapcar (lambda (point)
+		    (destructuring-bind (x y) point
+		      (make-point (- (* x cosa) (* y sina) dx)
+				  (- (* x sina) (* y cosa -1) dy))))
+		  polygon))))))

@@ -1,5 +1,7 @@
 (defpackage :origami/sandman
-  (:use :cl :origami/structures))
+  (:use :cl :origami/structures)
+  (:export :read-input
+	   :translate-pos))
 
 (in-package :origami/sandman)
 

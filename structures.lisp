@@ -1,7 +1,7 @@
 (defpackage :origami/structures
   (:use :cl)
   (:export :make-point :point- :make-edge :fold-over-edge :edge-start
-	   :px :py :edge-dy :edge-dx))
+	   :px :py :edge-dy :edge-dx :polygon-fragment))
 
 (in-package :origami/structures)
 
@@ -43,6 +43,12 @@
 			   polygon)
 		  :initial-value 0)
 	  2)))
+
+(defun get-polygon-fragment (polygon n)
+  (if (< n (1- (length polygon)))
+      (let ((rest (nthcdr n polygon)))
+	(point- (second rest) (first rest)))
+      (point- (first polygon) (car (last polygon)))))
 
 (defun fold-over-edge (polygon edge)
   (destructuring-bind ((x0 y0) (dx dy)) edge

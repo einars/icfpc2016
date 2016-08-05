@@ -5,6 +5,7 @@
 
 (defvar *vertices* nil)
 (defvar *edges* nil)
+(defvar *outer-silhouette* nil)
 
 (defun read-vertex ()
   (let ((x) (y))
@@ -24,11 +25,17 @@
     (make-edge a b)))
 
 (defun read-input ()
+  (setf *vertices* nil
+	*edges* nil
+	*outer-silhouette* nil)
   (let ((polygon-count (read)))
     (dotimes (i polygon-count)
       (let ((vertex-count (read)))
 	(dotimes (j vertex-count)
-	  (push (read-vertex) *vertices*)))))
+	  (let ((vertice (read-vertex)))
+	    (when (zerop i)
+	      (push vertice *outer-silhouette*))
+	    (push vertice *vertices*))))))
   (let ((edge-count (read)))
     (dotimes (i edge-count)
       (push (read-edge) *edges*))))

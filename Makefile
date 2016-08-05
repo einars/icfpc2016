@@ -1,5 +1,5 @@
 all:
 	@sbcl --noinform --noprint --load origami.asd \
 		--eval "(asdf::load-system 'origami)" \
-		--eval "(origami/sandman::start)" < 1.txt
+		--eval "(origami/sandman::start)" < 2.txt
 

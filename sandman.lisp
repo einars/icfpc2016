@@ -43,11 +43,39 @@
   (dolist (i facets)
     (format t "~A ~{~A ~}~%" (length i) i)))
 
+(defun find-bottom ()
+  (first (last *edges*)))
+
+(defun rotate-pos (pos b)
+  (make-point (- (* (edge-dx b) (point-x pos)) (* (edge-dy b) (point-y pos)))
+	      (+ (* (edge-dy b) (point-x pos)) (* (edge-dx b) (point-y pos)))))
+
+(defun translate-pos (pos bottom)
+  (rotate-pos (point- pos (edge-start bottom)) bottom))
+
+(defun good-one (pos)
+  (and (<= 0 (point-x pos) 1) (<= 0 (point-y pos) 1)))
+
+(defun find-positions ()
+  (let ((bottom (find-bottom))
+	(good-positions nil))
+    (dolist (dst *vertices* good-positions)
+      (let ((src (translate-pos dst bottom)))
+	(format t "SRC:~A DST:~A~%" src dst)
+	(when (good-one src) (push (list src dst) good-positions))))))
+
+(defun find-facets (pos-map)
+  '((0 1 2 3)))
+
+(defun print-output ()
+  (let ((pos-map (find-positions)))
+    (print-positions (mapcar #'first pos-map) :source t)
+    (print-facets (find-facets pos-map))
+    (print-positions (mapcar #'second pos-map))))
+
 (defun start ()
   (let ((*vertices* nil)
 	(*edges* nil))
     (read-input)
-    (print-positions *vertices* :source t)	; TODO
-    (print-facets '((0 1 2 3)))			; TODO
-    (print-positions *vertices*)		; TODO
+    (print-output)
     (sb-ext:exit)))

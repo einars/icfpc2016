@@ -1,0 +1,11 @@
+{
+  "name": "icfp-2016-render-all",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "devDependencies": {
+    "canvas": "^1.4.0",
+    "sprintf": "^0.1.5"
+  }
+}

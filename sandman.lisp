@@ -1,7 +1,10 @@
 (defpackage :origami/sandman
   (:use :cl :origami/structures)
   (:export :read-input
-	   :translate-pos))
+	   :translate-pos
+	   :*vertices*
+	   :*edges*
+	   :*outer-silhouette*))
 
 (in-package :origami/sandman)
 

@@ -45,6 +45,7 @@ angular.module('vis', ['sprintf'])
 .controller 'VisController', ($scope, $timeout) ->
 
   $scope.source = specs[32]
+  $scope.fit = false
 
   $scope.updateCanvas = ->
     $scope.dbg.length = 0
@@ -65,10 +66,18 @@ angular.module('vis', ['sprintf'])
     ctx.width = w
     ctx.height = h
 
-    scale = (h * 0.9) / (p.size)
+    if $scope.fit
+      # h × 0.1 — minor padding reserved
+      scale = (h * 0.9) / (p.size)
+      base_x = p.x_min - (0.05 * p.size)
+      base_y = p.y_min - (0.05 * p.size)
+    else
+      # h × 0.1 — minor padding reserved
+      scale = (h * 0.9)
+      # center object
+      base_x = p.x_min - (0.05 * p.size) - (1 - (p.x_max - p.x_min)) / 2
+      base_y = p.y_min - (0.05 * p.size) - (1 - (p.y_max - p.y_min)) / 2
 
-    base_x = p.x_min - (0.05 * p.size)
-    base_y = p.y_min - (0.05 * p.size)
 
     log 'scale ' + scale
     log 'base_x ' + base_x
@@ -95,6 +104,7 @@ angular.module('vis', ['sprintf'])
 
     ctx.setLineDash []
     ctx.strokeStyle = '#339933'
+    ctx.fillStyle = '#'
     ctx.lineWidth = 1.5
     _.each p.polys, (pts) ->
       ctx.beginPath()

@@ -17,6 +17,9 @@
       <div class="input-wrapper">
         <textarea class="source-input js-source" ng-model="source">
         </textarea>
+        <div class="scale-box">
+          <label><input type="checkbox" ng-model="fit"> Fit to area</label>
+        </div>
         <div class="input-buttons">
           <button class="input-clear" ng-click="clearCanvas()">Clear</button>
           <button class="input-update" ng-click="updateCanvas()">Update canvas</button>

@@ -9,6 +9,7 @@
   angular.module('vis', ['sprintf']).controller('VisController', function($scope, $timeout) {
     var line_of_pts, log, make_coord, make_line, make_pt, parse;
     $scope.source = specs[32];
+    $scope.fit = false;
     $scope.updateCanvas = function() {
       var $cv, base_x, base_y, ctx, ctx_lineto, ctx_moveto, h, p, scale, w;
       $scope.dbg.length = 0;
@@ -26,9 +27,15 @@
       $cv.get(0).height = h;
       ctx.width = w;
       ctx.height = h;
-      scale = (h * 0.9) / p.size;
-      base_x = p.x_min - (0.05 * p.size);
-      base_y = p.y_min - (0.05 * p.size);
+      if ($scope.fit) {
+        scale = (h * 0.9) / p.size;
+        base_x = p.x_min - (0.05 * p.size);
+        base_y = p.y_min - (0.05 * p.size);
+      } else {
+        scale = h * 0.9;
+        base_x = p.x_min - (0.05 * p.size) - (1 - (p.x_max - p.x_min)) / 2;
+        base_y = p.y_min - (0.05 * p.size) - (1 - (p.y_max - p.y_min)) / 2;
+      }
       log('scale ' + scale);
       log('base_x ' + base_x);
       ctx_moveto = function(ctx, coords) {
@@ -54,6 +61,7 @@
       });
       ctx.setLineDash([]);
       ctx.strokeStyle = '#339933';
+      ctx.fillStyle = '#';
       ctx.lineWidth = 1.5;
       return _.each(p.polys, function(pts) {
         var i, k, ref;

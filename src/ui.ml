@@ -1,5 +1,9 @@
 open Core.Std
 
 let run () =
-  
-  printf "It's alive!\n"
+
+  Tests.run ();
+
+  printf "Nothing to do.\n";
+
+  ()

@@ -1,7 +1,8 @@
-(defpackage :structures
-  (:use :cl))
+(defpackage :origami/structures
+  (:use :cl)
+  (:export :make-point :make-edge))
 
-(in-package :structures)
+(in-package :origami/structures)
 
 (defun make-point (x y)
   (list x y))

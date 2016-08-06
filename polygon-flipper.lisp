@@ -5,7 +5,8 @@
 	   :edge :make-edge :make-vertex1 :make-vertex2
 	   :graph :make-graph :graph-vertices :graph-edges
 	   :graph-add-vertex :graph-add-edge
-	   :vertex- :vertex+ :vertex-on-edge-p :vertex-signum))
+	   :vertex- :vertex+ :vertex-on-edge-p :vertex-signum
+	   :find-outer-path :vect-angle :vect-pseudoangle))
 
 (in-package :origami/polygon-flipper)
 
@@ -78,6 +79,16 @@
   (destructuring-bind (dx1 dy1) v1
     (destructuring-bind (dx2 dy2) v2
       (- (atan dy1 dx1) (atan dy2 dx2)))))
+
+(defun vect-pseudoangle (v1 v2)
+  (- (pseudoangle1 v2) (pseudoangle1 v1)))
+
+(defun pseudoangle1 (v)
+  (destructuring-bind (dx dy) v
+    (let ((pa (/ dx (+ (abs dx) (abs dy)))))
+      (if (< dy 0)
+	  (1- pa)
+	  (- 1 pa)))))
 
 (defun find-left-path (vertex1 vertex2)
   (find-left-path1 vertex1 vertex2 vertex1))

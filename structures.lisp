@@ -3,7 +3,7 @@
   (:export :make-point :point- :point+ :make-edge :fold-over-edge :edge-start
 	   :px :py :edge-dy :edge-dx :polygon-fragment
 	   :edge-end :distance :align-polygon-to-edge
-	   :dot-product))
+	   :dot-product :polygon-area))
 
 (in-package :origami/structures)
 

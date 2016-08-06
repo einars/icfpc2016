@@ -40,3 +40,6 @@ val reflect_plane_point_around_line : plane_point_t -> line_t -> plane_point_t
 val reflect_point_around_line : point_t -> line_t -> point_t
 
 val unit_facet : unit -> facet_t
+
+val pt_add : point_t -> point_t -> point_t
+val pt_sub : point_t -> point_t -> point_t

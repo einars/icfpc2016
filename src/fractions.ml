@@ -77,6 +77,7 @@ let max p1 p2 = if gt p1 p2 then p1 else p2
 
 let zero = zero_big_int, unit_big_int
 let one = unit_big_int, unit_big_int
+let minus_one = (big_int_of_int (-1)), unit_big_int
 
 let with_human_output fn =
   display_mode := Decimal;

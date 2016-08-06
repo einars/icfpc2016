@@ -36,5 +36,6 @@ val min : Fract.t -> Fract.t -> Fract.t
 
 val zero : Fract.t
 val one : Fract.t
+val minus_one : Fract.t
 
 

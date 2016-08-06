@@ -299,3 +299,15 @@ let pp_eq p1 p2 =
   (F.eq p1.actual.x p2.actual.x) && (F.eq p1.actual.y p2.actual.y) &&
   (F.eq p1.original.x p2.original.x) && (F.eq p1.original.y p2.original.y)
 ;;
+
+let pt_add p1 p2 =
+  make_point
+    (F.add p1.x p2.x)
+    (F.add p1.y p2.y)
+;;
+
+let pt_sub p1 p2 =
+  make_point
+    (F.sub p1.x p2.x)
+    (F.sub p1.y p2.y)
+;;

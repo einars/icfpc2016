@@ -8,6 +8,7 @@ let debug = true
 
 let triangle () = 
 
+  (*
   let n = Random.int 5 in
   let n = n * 2 + 1 in (* odd *)
   let o = n + 2 in
@@ -16,6 +17,8 @@ let triangle () =
   let t3 = (t1 * t1 + t2 * t2) |> float_of_int |> sqrt |> int_of_float in
   if t1 * t1 + t2 * t2 <> t3 * t3 then
     failwithf "I suck at making triangles, I tried %d %d %d (base %d)\n" t1 t2 t3 n ();
+    *)
+  let t1, t2, t3 = 3,4,5 in
 
   F.of_int t1, F.of_int t2, F.of_int t3
 ;;

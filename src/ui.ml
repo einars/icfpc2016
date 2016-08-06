@@ -97,23 +97,51 @@ let get_solution facets =
 
 
 
-let choose_very_random_point facets =
+let choose_very_random_point facets bias =
   let a1,a2 = choose_random_edge facets in
   let dx,dy = (F.sub a2.x a1.x), (F.sub a2.y a1.y) in
 
   (* choose a point on this line *)
-  let rand = Random.int 3 in
+  let rand = Random.int (bias + 1) in
 
   Facets.make_point 
-    (F.add a1.x (F.mul dx (F.make rand 2)))
-    (F.add a1.y (F.mul dy (F.make rand 2)))
+    (F.add a1.x (F.mul dx (F.make rand bias)))
+    (F.add a1.y (F.mul dy (F.make rand bias)))
+;;
+
+
+let choose_line_vx facets =
+    let p1,p2 = (choose_very_random_point facets 4), (choose_very_random_point facets 4) in
+
+    let fatness = 4 in
+    let ppoint = (1 + Random.int fatness) in (* will choose 1/3, 2/3 or 3/3 *)
+    let divisor = F.make ppoint fatness in
+    let breakpoint = Facets.make_point (F.add p1.x (F.mul (F.sub p2.x p1.x) divisor)) (F.add p1.y (F.mul (F.sub p2.y p1.y) divisor)) in
+    let normal_vect = Facets.make_point (F.sub p2.y p1.y) (F.sub p1.x p2.x) in
+    let line = breakpoint, Facets.make_point (F.add breakpoint.x normal_vect.x) (F.add breakpoint.y normal_vect.y) in
+    line
+;;
+let choose_line_45 facets =
+  let pt = (choose_very_random_point facets 6) in
+  match Random.int 3 with
+  | 0 -> pt, Facets.pt_add pt (Facets.make_point F.one F.zero)
+  | 1 -> pt, Facets.pt_add pt (Facets.make_point F.zero F.one)
+  | 2 -> pt, Facets.pt_add pt (Facets.make_point F.one F.one)
+  | 3 -> pt, Facets.pt_add pt (Facets.make_point F.one F.minus_one)
+  | 4 -> pt, Facets.pt_add pt (Facets.make_point F.minus_one F.zero)
+  | 5 -> pt, Facets.pt_add pt (Facets.make_point F.zero F.minus_one)
+  | 6 -> pt, Facets.pt_add pt (Facets.make_point F.minus_one F.minus_one)
+  | _ -> pt, Facets.pt_add pt (Facets.make_point F.minus_one F.one)
+  
 ;;
 
 
 let rec fold_randomly facets = function
   | 0 -> facets
   | n -> 
-      let line = (choose_very_random_point facets), (choose_very_random_point facets) in
+      (* let line = choose_line_vx facets in *)
+      let line = choose_line_45 facets in
+
       if debug then eprintf "Folding over %s\n%!" (Facets.l_to_s line);
       let new_facets = List.map facets ~f:(fun f -> Facets.facet_fold f line) |> flatten in 
       fold_randomly (if List.length new_facets = List.length facets then facets else new_facets) (n - 1)
@@ -144,11 +172,18 @@ let run () =
   eprintf "Using seed %d\n%!" seed;
   Random.init seed;
 
+  (*
+  let fs = [ Facets.unit_facet () ] |> Pythagoras.pythamorph in
+  fold_until fs 3000 5000 |> get_solution |> printf "%s";
+  *)
+
   let fs = [ Facets.unit_facet () ] in
+  (* fold_until fs 3000 4000 |> Pythagoras.pythamorph |> get_solution |> printf "%s"; *)
 
-  (* fold_randomly fs 5 |> get_solution |> printf "%s"; *)
+  (* fold_until fs 1000 2000 |> Pythagoras.pythamorph |> get_solution |> printf "%s"; *)
 
-  fold_until fs 2500 4500 |> Pythagoras.pythamorph |> get_solution |> printf "%s";
+  fold_until fs 4000 5000 |> get_solution |> printf "%s";
+
   (*
   let s1 = fold_until fs 2000 3000 in
   let sol_len_1 = s1 |> get_solution |> solution_size in

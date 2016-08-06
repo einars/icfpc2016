@@ -110,7 +110,7 @@
 
 (defun translate-positions (bottom)
   (let ((good-positions nil))
-    (dolist (dst *vertices* good-positions)
+    (dolist (dst *vertices* (nreverse good-positions))
       (let ((src (translate-pos dst bottom)))
 	(when (good-one src) (push (list src dst) good-positions))))))
 
@@ -118,27 +118,68 @@
   (or (equal vertex (edge-start edge))
       (equal vertex (edge-end edge))))
 
-(defun find-single-facet (vertex edge)
-  '(0 1 2 3))
+(defun other-end (vertex edge)
+  (if (equal vertex (edge-end edge))
+      (edge-start edge)
+      (edge-end edge)))
+
+(defun index-of (vertex)
+  (position vertex *vertices* :test #'equal))
 
 (defun find-edges (v)
-  (remove-if-not (lambda (e) (is-vertex-edge v (first e))) *solved-edges*))
+  (remove-if-not (lambda (e) (is-vertex-edge v e)) *edges*))
+
+(defun normalize (edge)
+  (let* ((x (px (third edge)))
+	 (y (py (third edge)))
+	 (len (sqrt (+ (* x x) (* y y)))))
+    (make-point (/ x len) (/ y len))))
+
+(defun edge-angle (v edgeA edgeB)
+  (let* ((p1 (normalize (make-edge (other-end v edgeA) v)))
+	 (p2 (normalize (make-edge v (other-end v edgeB)))))
+    (- (* (px p1) (py p2)) (* (py p1) (px p2)))))
+
+(defun produce-angles (vertex prev-edge candidates)
+  (mapcar (lambda (edge) (list (edge-angle vertex prev-edge edge) edge))
+	  candidates))
+
+(defun look-for-edge (vertex prev-edge)
+  (let* ((candidates (remove prev-edge (find-edges vertex) :test #'equal))
+	 (angles (produce-angles vertex prev-edge candidates)))
+    (second (first (sort angles #'< :key #'first)))))
+
+(defun find-next-edge (vertex prev-edge facet)
+  (let ((index (index-of vertex)))
+    (or (and (member index facet) facet)
+	(let ((edge (look-for-edge vertex prev-edge)))
+	  (find-next-edge (other-end vertex edge) edge (cons index facet))))))
+
+(defun find-single-facet (vertex edge)
+  (find-next-edge (other-end vertex edge) edge (list (index-of vertex))))
 
 (defun find-vertex-facets (v)
-  (mapcar (lambda (e) (sort (find-single-facet v e) #'<)) (find-edges v)))
+  (mapcar (lambda (e) (find-single-facet v e)) (find-edges v)))
 
 (defun find-all-facets ()
-  (mapcar #'find-vertex-facets (mapcar #'first *solved-vertices*)))
+  (mapcar #'find-vertex-facets *vertices*))
+
+(defun normalize-facet (f)
+  (sort (copy-list f) #'<))
+
+(defun equal-facets (a b)
+  (equal (normalize-facet a) (normalize-facet b)))
 
 (defun find-facets ()
-  (remove-duplicates (flatten (find-all-facets)) :test #'equal))
+  (let ((*edges* (mapcar #'first *solved-edges*))
+	(*vertices* (mapcar #'first *solved-vertices*)))
+    (remove-duplicates (flatten (find-all-facets)) :test #'equal-facets)))
 
 (defun bail-out ()
   (format t "Could not find solution after ~A steps~%" *max-steps*)
   (sb-ext:exit))
 
 (defun add-sand ()
-  (format t "ADD-SAND:~A~%" (second *edges*))
   (seventh *edges*))
 
 (defun generate-sand-cloud (&optional (steps 0))

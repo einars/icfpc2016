@@ -1,6 +1,8 @@
 (screamer:define-screamer-package :origami/polygon-flipper
   (:use :cl :screamer :origami/sandman)
-  (:import-from :origami/structures :point- :point+))
+  (:import-from :origami/structures :point- :point+)
+  (:export :make-vertex :vertex-point :vertex-adjacent-vertices
+	   :make-edge :make-vertex1 :make-vertex2))
 
 (in-package :origami/polygon-flipper)
 

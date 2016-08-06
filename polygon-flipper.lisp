@@ -115,3 +115,30 @@
 				  (vertex-adjacent-vertices vertex2)
 				  :initial-value nil)))
 	(cons vertex1 (find-left-path1 vertex2 next-vertex start-vertex)))))
+
+(defun find-outer-path (graph)
+  (let ((lowest-vertex (reduce (lambda (v1 v2)
+				  (destructuring-bind (x1 y1) (vertex-point v1)
+				    (destructuring-bind (x2 y2) (vertex-point v2)
+				      (if (eql y1 y2)
+					  (if (> x1 x2) v2 v1)
+					  (if (> y1 y2) v2 v1)))))
+				(graph-vertices graph))))
+    (find-outer-path1 lowest-vertex '(0 -1) (list lowest-vertex) lowest-vertex)))
+
+(defun find-outer-path1 (curr-vertex prev-direction result start-vertex)
+  (multiple-value-bind (next-vertex direction)
+      (loop with leftmost-vertex and leftmost-direction
+	 with min-angle = 10.0
+	 as vertex in (vertex-adjacent-vertices curr-vertex)
+	 do (let* ((direction (vertex- vertex curr-vertex))
+		   (angle (vect-angle direction prev-direction)))
+	      (when (and (< angle min-angle)
+			 (not (equalp direction prev-direction)))
+		(setf min-angle angle
+		      leftmost-vertex vertex
+		      leftmost-direction direction)))
+	 finally (return (values leftmost-vertex (point- '(0 0) leftmost-direction))))
+    (if (eq next-vertex start-vertex)
+	result
+	(find-outer-path1 next-vertex direction (cons next-vertex result) start-vertex))))

@@ -73,9 +73,6 @@ draw_canvas = (ctx, spec, fit) ->
   for line in p.skels
     ctx_arc ctx, line.p1
     ctx_arc ctx, line.p2
-  for pts in p.polys
-    for p in pts
-      ctx_arc ctx, p
   ctx.fill()
 
 
@@ -163,6 +160,7 @@ main = ->
 
   for fit in [true, false]
     for i in [1..101]
+      #for i in [15..15]
       ca = new Canvas w, h
       ctx = ca.getContext '2d'
       spec = fs.readFileSync (sprintf './%03d.txt', i),

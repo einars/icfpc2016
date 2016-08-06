@@ -3,7 +3,7 @@ open Core.Std
 module F = Fractions
 module P = Printf
 
-let debug = false
+let debug = true
 
 let all_facet_points (facets:Facets.facet_t list) =
   let seen = ref String.Set.empty in
@@ -18,7 +18,7 @@ let all_facet_points (facets:Facets.facet_t list) =
 
   in
 
-  List.iter facets ~f:(fun facet -> List.iter facet.points ~f:look_at);
+  List.iter facets ~f:(fun facet -> List.iter facet ~f:look_at);
   !pts
 ;;
 
@@ -60,7 +60,6 @@ let get_solution facets =
   let repr = ref [] in
 
   let vertices = all_facet_points facets in
-  repr := (sprintf "%d\n" (List.length vertices)) :: !repr;
 
   let vert_map = ref String.Map.empty in
   let idx = ref 0 in
@@ -75,11 +74,13 @@ let get_solution facets =
       (* repr := (sprintf "%s, %s -> %s, %s\n" (F.to_s v.original.x) (F.to_s v.original.y) (F.to_s v.actual.x) (F.to_s v.actual.y)) :: !repr; *)
     end;
   );
+  let n_filtered_pts = List.length !repr in (* hackhackhack, prepend n_points *)
+  repr := List.append !repr [sprintf "%d\n" n_filtered_pts];
 
   repr := (sprintf "%d\n" (List.length facets)) :: !repr;
 
-  List.iter facets ~f:(fun f ->
-    let vertex_indices = List.map f.points ~f:(fun pp -> 
+  List.iter facets ~f:(fun facet ->
+    let vertex_indices = List.map facet ~f:(fun pp -> 
       Map.find_exn !vert_map (pp_key pp)
     ) in
     repr := (sprintf "%d " (List.length vertex_indices)) :: !repr;
@@ -141,8 +142,6 @@ let run () =
   let seed = if Array.length Sys.argv > 1 then int_of_string Sys.argv.(1) else Random.bits () in
   P.eprintf "Using seed %d\n%!" seed;
   Random.init seed;
-
-  (* Random.init 5000; *)
 
   let fs = [ Facets.unit_facet () ] in
 

@@ -15,16 +15,10 @@ type line_t = point_t * point_t (* just two points *)
 type segment_t = plane_point_t * plane_point_t (* line segment *)
 type side_t = Left | Right
 
-type winding_t = Cw | Ccw
-
-
 (* intersection of line and segment *)
 type intersection_t = Miss of side_t | Intersect of segment_t * segment_t * point_t (* left seg, right seg, intersection *)
 
-type facet_t = {
-  points: plane_point_t list;
-  winding: winding_t
-}
+type facet_t = plane_point_t list
 
 (* ~~~ end types ~~~ *)
 

@@ -3,9 +3,9 @@ open Core.Std
 module F = Fractions
 module P = Printf
 
-(* ~~~ begin types ~~~ *)
+let debug = true
 
-let debug = false
+(* ~~~ begin types ~~~ *)
 
 type point_t = {
   x: Fractions.Fract.t;
@@ -22,23 +22,12 @@ type line_t = point_t * point_t (* just two points *)
 type segment_t = plane_point_t * plane_point_t (* line segment *)
 type side_t = Left | Right
 
-type winding_t = Cw | Ccw
-
-
 (* intersection of line and segment *)
 type intersection_t = Miss of side_t | Intersect of segment_t * segment_t * point_t (* left seg, right seg, intersection *)
 
-type facet_t = {
-  points: plane_point_t list;
-  winding: winding_t
-}
+type facet_t = plane_point_t list
 
 (* ~~~ end types ~~~ *)
-
-let inverse_winding = function
-  | Cw -> Ccw
-  | Ccw -> Cw
-;;
 
 
 (* point to string *)
@@ -177,7 +166,7 @@ let segment_intersect_line s (l:line_t) =
 let facet_edges facet =
   let out = ref [] in
   let last_pt = ref None in
-  List.iter facet.points ~f:(fun pt ->
+  List.iter facet ~f:(fun pt ->
 
     match !last_pt with
     | None ->
@@ -186,7 +175,7 @@ let facet_edges facet =
         out := (lp, pt) :: !out;
         last_pt := Some pt;
   );
-  out := ((List.last_exn facet.points), (List.hd_exn facet.points)) :: !out;
+  out := ((List.last_exn facet), (List.hd_exn facet)) :: !out;
   List.rev !out
 ;;
 
@@ -246,8 +235,8 @@ let facet_fold facet line =
   (* ooh the windings will mess up *)
   List.iter edges ~f:(fun edge ->
     begin match segment_intersect_line edge line with
-    | Miss winding ->
-        if winding = Left
+    | Miss dir ->
+        if dir = Left
         then f_lt := edge :: !f_lt
         else f_rt := edge :: !f_rt;
     | Intersect (left, right, _)  -> 
@@ -256,7 +245,6 @@ let facet_fold facet line =
     end
   );
 
-  (* windings nemainās *)
   let pts_lt = gather_points (List.rev !f_lt) in
   let pts_rt = gather_points (List.rev !f_rt) in
 
@@ -267,25 +255,21 @@ let facet_fold facet line =
   if debug then eprintf "LT: %s\n" (pplist_to_s pts_lt);
   if debug then eprintf "RT: %s\n" (pplist_to_s pts_rt);
 
-  let maybe_add_facet pts wind accu =
+  let maybe_add_facet pts accu =
     if List.length pts < 3 then accu
-    else { points = pts; winding = wind } :: accu
+    else pts :: accu
   in
-  let result = [] |> maybe_add_facet pts_lt (facet.winding) |> maybe_add_facet pts_rt (inverse_winding facet.winding) in
+  let result = [] |> maybe_add_facet pts_lt |> maybe_add_facet pts_rt in
   if (List.length result) = 1 then [ facet ] else result
 
 ;;
 
-let unit_facet () =
-  {
-      points = [
-        make_plane_point (make_point F.zero F.zero);
-        make_plane_point (make_point F.zero F.one);
-        make_plane_point (make_point F.one F.one);
-        make_plane_point (make_point F.one F.zero);
-      ];
-      winding = Cw
-  }
+let unit_facet () = [
+      make_plane_point (make_point F.zero F.zero);
+      make_plane_point (make_point F.zero F.one);
+      make_plane_point (make_point F.one F.one);
+      make_plane_point (make_point F.one F.zero);
+    ];
 ;;
 
 let p_eq p1 p2 =

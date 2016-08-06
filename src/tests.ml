@@ -87,7 +87,4 @@ let run () =
 
   );
 
-  P.printf "Tests passed, it's alive!\n";
-
-
   ()

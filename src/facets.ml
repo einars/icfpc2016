@@ -79,7 +79,7 @@ let vector_of_line l =
 (* assumes that p actually is somewhere on the line given by s *)
 let planarize_segment_point s (p:point_t) =
 
-  P.printf "planarizing %s for %s\n" (seg_to_s s) (p_to_s p);
+  (* P.printf "planarizing %s for %s\n" (seg_to_s s) (p_to_s p); *)
 
   let pp1, pp2 = s in
 
@@ -91,8 +91,8 @@ let planarize_segment_point s (p:point_t) =
     let dx = F.sub pp2.actual.x pp1.actual.x in
     let dy = F.sub pp2.actual.y pp1.actual.y in
 
-    let frac_x = if F.is_zero dx then F.one else F.div (F.sub p.x pp1.actual.x) dx in
-    let frac_y = if F.is_zero dy then F.one else F.div (F.sub p.y pp1.actual.y) dy in
+    let frac_x = if F.is_zero dx then F.zero else F.div (F.sub p.x pp1.actual.x) dx in
+    let frac_y = if F.is_zero dy then F.zero else F.div (F.sub p.y pp1.actual.y) dy in
 
     let odx = F.sub pp2.original.x pp1.original.x in
     let ody = F.sub pp2.original.y pp1.original.y in
@@ -124,13 +124,15 @@ let segment_intersect_line s (l:line_t) =
 
   let cross a b =
     let det = (F.sub (F.mul a.x b.y) (F.mul b.x a.y)) in
+    (* printf "DET: %s\n" (F.to_s det); *)
     if F.gte det F.zero then Left else Right
   in
 
   let line_vector = vector_of_line l in
 
-  let det1 = cross line_vector { x = F.sub p1.x p3.x; y = F.sub p1.y p3.y }
-  and det2 = cross line_vector { x = F.sub p2.x p3.x; y = F.sub p2.y p3.y } in
+  let det1 = cross line_vector ( make_point (F.sub p1.x p3.x) (F.sub p1.y p3.y) )
+  and det2 = cross line_vector ( make_point (F.sub p2.x p3.x) (F.sub p2.y p3.y) ) in
+
 
   if det1 = det2 then Miss det1
   else begin
@@ -150,12 +152,17 @@ let segment_intersect_line s (l:line_t) =
 
     let pt_intersection = make_point ix iy in
 
-    P.printf "intersected %s and %s, got %s\n" (seg_to_s s) (l_to_s l) (p_to_s pt_intersection);
+    (* P.printf "intersected %s and %s, got %s\n" (seg_to_s s) (l_to_s l) (p_to_s pt_intersection); *)
 
     (* ix, iy — intersection point *)
 
     match planarize_segment_point s pt_intersection with
-    | None -> failwith "planarize_segment_point: should not happen"
+    | None ->
+        F.with_human_output (fun () ->
+          printf "Segment_intersect_line %s %s\n" (seg_to_s s) (l_to_s l);
+          printf "Planarize %s at %s\n" (seg_to_s s) (p_to_s pt_intersection);
+        );
+        failwith "planarize_segment_point: should not happen"
     | Some plane_pt -> 
         if det1 = Left then
           (Intersect ((pp1, plane_pt), (plane_pt, pp2), pt_intersection))
@@ -278,4 +285,13 @@ let unit_facet () =
       ];
       winding = Cw
   }
+;;
+
+let p_eq p1 p2 =
+  (F.eq p1.x p2.x) && (F.eq p1.y p2.y)
+;;
+
+let pp_eq p1 p2 =
+  (F.eq p1.actual.x p2.actual.x) && (F.eq p1.actual.y p2.actual.y) &&
+  (F.eq p1.original.x p2.original.x) && (F.eq p1.original.y p2.original.y)
 ;;

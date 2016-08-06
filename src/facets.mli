@@ -31,6 +31,9 @@ type facet_t = {
 (* val facet_fold: facet_t -> line_t -> facet_t list *)
 val facet_fold: facet_t -> line_t -> facet_t list
 
+val p_eq : point_t -> point_t -> bool
+val pp_eq : plane_point_t -> plane_point_t -> bool
+
 val p_to_s : point_t -> string
 val pp_to_s : plane_point_t -> string
 val l_to_s : line_t -> string

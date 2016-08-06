@@ -67,6 +67,7 @@
 
 (defun fold-over-edge (polygon edge)
   (destructuring-bind ((x0 y0) (x1 y1) (dx dy)) edge
+    (declare (ignore x1 y1))
     (mapcar (lambda (point)
 	      (destructuring-bind (x y) point
 		(let* ((a (/ (- (* dx dx) (* dy dy))
@@ -79,6 +80,7 @@
 
 (defun align-polygon-to-edge (polygon unity-edge)
   (destructuring-bind ((x0 y0) (x1 y1) (dx2 dy2)) unity-edge
+    (declare (ignore x1 y1))
     (destructuring-bind (dx1 dy1) (get-polygon-fragment polygon 0)
       (destructuring-bind (px0 py0) (first polygon)
 	(let* ((cosa (+ (* dx1 dx2) (* dy1 dy2)))

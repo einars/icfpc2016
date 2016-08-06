@@ -12,6 +12,7 @@
 (defvar *edges* nil)
 (defvar *outer-silhouette* nil)
 (defvar *silhouette-vertices* nil)
+(defvar *cers-solutions* nil)
 
 (defvar *solved-vertices* nil)
 (defvar *solved-edges* nil)
@@ -258,8 +259,16 @@
 	     (find-corner-vertex (rest vertices)))
 	    (t (fold-vertex-over-edge vertex edge))))))
 
-(defun fold-some-vertex-over-some-edge ()
-  (find-corner-vertex *solved-vertices*))
+(defun solve-cers ()
+  (let ((last-solve nil))
+    (dolist (solution *cers-solutions* last-solve)
+      (let ((edge (make-edge (first solution) (second solution))))
+	(dolist (vertex (rest (rest solution)))
+	  (setf last-solve (fold-vertex-over-edge vertex edge)))))))
+
+(defun fold-some-vertex-over-some-edge (solution)
+  (solve-cers))
+;  (find-corner-vertex *solved-vertices*))
 
 (defun generate-sand-cloud (&optional (steps 0))
   (or (and (> steps *max-steps*) (bail-out "max steps reached"))
@@ -290,7 +299,8 @@
     (print-positions (get-original pos-map))))
 
 (defun start ()
-  (let ((*vertices* nil)
+  (let ((*cers-solutions* nil)
+	(*vertices* nil)
 	(*edges* nil))
     (read-input)
     (print-output)

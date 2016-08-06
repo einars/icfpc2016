@@ -11,6 +11,7 @@
 (defvar *vertices* nil)
 (defvar *edges* nil)
 (defvar *outer-silhouette* nil)
+(defvar *skeletal-vertices* nil)
 
 (defvar *tracked* nil)
 
@@ -24,7 +25,9 @@
     (make-point x y)))
 
 (defun update-vertices (x)
-  (unless (member x *vertices* :test #'equal) (push x *vertices*)))
+  (unless (member x *vertices* :test #'equal)
+    (push x *skeletal-vertices*)
+    (push x *vertices*)))
 
 (defun read-edge ()
   (let ((a (read-vertex))
@@ -36,6 +39,7 @@
 (defun read-input ()
   (setf *vertices* nil
 	*edges* nil
+	*skeletal-vertices* nil
 	*outer-silhouette* nil)
   (let ((polygon-count (read)))
     (dotimes (i polygon-count)

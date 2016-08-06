@@ -189,9 +189,10 @@
 	 (member (make-point 1 1) vertices :test #'equal)
 	 (member-if-not #'is-outer-facet vertices))))
 
-(defun remove-outer-facet (facets)
-  (or (and (= 1 (length facets)) facets)
-      (remove-if #'is-outer-facet facets)))
+(defun remove-outer-facet (pos-map facets)
+  (let ((*solved-vertices* pos-map))
+    (or (and (= 1 (length facets)) facets)
+	(remove-if #'is-outer-facet facets))))
 
 (defun bail-out ()
   (format t "Could not find solution after ~A steps~%" *max-steps*)
@@ -228,6 +229,12 @@
     (setf *solved-vertices* upd-v)
     (setf *solved-edges* upd-e)))
 
+(defun fold-vertex-over-edge (vertex edge)
+  (let ((new-vertex (fold-over-edge (list vertex) edge)))
+    (clone-vertex/edge vertex (first new-vertex))
+    (remove-vertex/edge vertex)
+    (first new-vertex)))
+
 (defun fold-some-vertex ()
   (clone-vertex/edge '(1/3 1/3) '(1 1))
   (remove-vertex/edge '(1/3 1/3))
@@ -258,7 +265,7 @@
 	 (*solved-edges* (mapcar #'list *edges*))
 	 (pos-map (translate-positions (pre-generate))))
     (print-positions (mapcar #'first pos-map) :source t)
-    (print-facets (remove-outer-facet (find-facets)))
+    (print-facets (remove-outer-facet pos-map (find-facets)))
     (print-positions (get-original pos-map))))
 
 (defun start ()

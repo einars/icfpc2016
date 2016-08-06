@@ -27,19 +27,19 @@
       (make-point (+ x1 x2) (+ y1 y2)))))
 
 (defun make-edge (point1 point2)
-  (list point1 (point- point2 point1)))
+  (list point1 point2 (point- point2 point1)))
 
 (defun edge-start (edge)
   (first edge))
 
+(defun edge-end (edge)
+  (second edge))
+
 (defun edge-dx (edge)
-  (px (second edge)))
+  (px (third edge)))
 
 (defun edge-dy (edge)
-  (py (second edge)))
-
-(defun edge-end (edge)
-  (point+ (first edge) (second edge)))
+  (py (third edge)))
 
 (defun distance (p1 p2)
   (let ((diff (point- p2 p1)))
@@ -66,7 +66,7 @@
       (point- (first polygon) (car (last polygon)))))
 
 (defun fold-over-edge (polygon edge)
-  (destructuring-bind ((x0 y0) (dx dy)) edge
+  (destructuring-bind ((x0 y0) (x1 y1) (dx dy)) edge
     (mapcar (lambda (point)
 	      (destructuring-bind (x y) point
 		(let* ((a (/ (- (* dx dx) (* dy dy))
@@ -78,7 +78,7 @@
 	    polygon)))
 
 (defun align-polygon-to-edge (polygon unity-edge)
-  (destructuring-bind ((x0 y0) (dx2 dy2)) unity-edge
+  (destructuring-bind ((x0 y0) (x1 y1) (dx2 dy2)) unity-edge
     (destructuring-bind (dx1 dy1) (get-polygon-fragment polygon 0)
       (destructuring-bind (px0 py0) (first polygon)
 	(let* ((cosa (+ (* dx1 dx2) (* dy1 dy2)))

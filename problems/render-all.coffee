@@ -34,6 +34,13 @@ draw_canvas = (ctx, spec, fit) ->
     y = h - (coords.y - base_y) * scale
     ctx.moveTo x, y
 
+  ctx_arc = (ctx, coords) ->
+    x = (coords.x - base_x) * scale
+    y = h - (coords.y - base_y) * scale
+    ctx.moveTo x, y
+    ctx.arc x, y, 1.8, 0, Math.PI * 2, false
+
+
   ctx_lineto = (ctx, coords) ->
     x = (coords.x - base_x) * scale
     y = h - (coords.y - base_y) * scale
@@ -60,6 +67,16 @@ draw_canvas = (ctx, spec, fit) ->
       ctx_lineto ctx, pts[i]
     ctx_lineto ctx, pts[0]
     ctx.stroke()
+
+  ctx.beginPath()
+  ctx.fillStyle = '#333333'
+  for line in p.skels
+    ctx_arc ctx, line.p1
+    ctx_arc ctx, line.p2
+  for pts in p.polys
+    for p in pts
+      ctx_arc ctx, p
+  ctx.fill()
 
 
 

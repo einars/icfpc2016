@@ -147,6 +147,6 @@ let run () =
 
   (* fold_randomly fs 5 |> get_solution |> printf "%s"; *)
 
-  fold_until fs 2500 |> get_solution |> printf "%s";
+  fold_until fs 2000 |> get_solution |> printf "%s";
 
   ()

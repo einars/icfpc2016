@@ -66,6 +66,10 @@ let vector_of_line l =
   in make_point dx dy
 ;;
 
+let p_eq p1 p2 =
+  (F.eq p1.x p2.x) && (F.eq p1.y p2.y)
+;;
+
 
 (* assumes that p actually is somewhere on the line given by s *)
 let planarize_segment_point s (p:point_t) =
@@ -78,19 +82,29 @@ let planarize_segment_point s (p:point_t) =
   else if F.gt p.x (F.max pp1.actual.x pp2.actual.x) then None
   else if F.lt p.y (F.min pp1.actual.y pp2.actual.y) then None
   else if F.gt p.y (F.max pp1.actual.y pp2.actual.y) then None
+  else if p_eq pp1.actual p then Some pp1
+  else if p_eq pp2.actual p then Some pp2
   else 
     let dx = F.sub pp2.actual.x pp1.actual.x in
     let dy = F.sub pp2.actual.y pp1.actual.y in
 
-    let kinda_frac = F.div
-      (F.add (F.square (F.sub p.x pp1.actual.x)) (F.square (F.sub p.y pp1.actual.y)))
-      (F.add (F.square dx) (F.square dy)) in
+
+    let kinda_frac = F.one in
+    let kinda_frac = if F.is_zero dx then kinda_frac 
+      else F.div (F.sub p.x pp1.actual.x) dx in
+    let kinda_frac = if F.is_zero dy then kinda_frac 
+      else F.div (F.sub p.y pp1.actual.y) dy in
 
     let odx = F.sub pp2.original.x pp1.original.x in
     let ody = F.sub pp2.original.y pp1.original.y in
 
     if debug then eprintf "  (dx=%s dy=%s frac=%s odx=%s ody=%s)\n%!"
       (F.to_s dx) (F.to_s dy) (F.to_s kinda_frac) (F.to_s odx) (F.to_s ody);
+
+    if debug then eprintf "  (planarized as %s %s)\n%!"
+      (F.add pp1.original.x (F.mul kinda_frac odx) |> F.to_s)
+      (F.add pp1.original.y (F.mul kinda_frac ody) |> F.to_s);
+
 
     Some {
       actual = p;
@@ -107,7 +121,7 @@ let planarize_segment_point s (p:point_t) =
 
 
 let segment_intersect_line s (l:line_t) =
-  if debug then eprintf "(doing intersection %s; %s)\n" (seg_to_s s) (l_to_s l);
+  if false && debug then eprintf "(doing intersection %s; %s)\n" (seg_to_s s) (l_to_s l);
   let pp1, pp2 = s in
   let p1 = pp1.actual in
   let p2 = pp2.actual in
@@ -279,10 +293,6 @@ let unit_facet () = [
       make_plane_point (make_point F.one F.one);
       make_plane_point (make_point F.one F.zero);
     ];
-;;
-
-let p_eq p1 p2 =
-  (F.eq p1.x p2.x) && (F.eq p1.y p2.y)
 ;;
 
 let pp_eq p1 p2 =

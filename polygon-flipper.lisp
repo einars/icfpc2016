@@ -1,9 +1,9 @@
 (defpackage :origami/polygon-flipper
   (:use :cl :screamer :origami/sandman)
   (:import-from :origami/structures :point- :point+)
-  (:export :make-vertex :vertex-point :vertex-adjacent-vertices
-	   :make-edge :make-vertex1 :make-vertex2
-	   :make-graph :graph-vertices :graph-edges
+  (:export :vertex :make-vertex :vertex-point :vertex-adjacent-vertices
+	   :edge :make-edge :make-vertex1 :make-vertex2
+	   :graph :make-graph :graph-vertices :graph-edges
 	   :graph-add-vertex :graph-add-edge
 	   :vertex- :vertex+ :vertex-on-edge-p))
 
@@ -12,6 +12,18 @@
 (defstruct vertex point adjacent-vertices)
 (defstruct edge vertex1 vertex2)
 (defstruct graph vertices edges polygons)
+
+(defmethod print-object ((vertex vertex) stream)
+  (print-unreadable-object (vertex stream :type t)
+    (destructuring-bind (x y) (vertex-point vertex)
+      (format stream "~A,~A" x y))))
+
+(defmethod print-object ((edge edge) stream)
+  (print-unreadable-object (edge stream :type t)
+    (with-slots (vertex1 vertex2) edge
+      (destructuring-bind (x1 y1) (vertex-point vertex1)
+	(destructuring-bind (x2 y2) (vertex-point vertex2)
+	  (format stream "~A,~A -> ~A,~A" x1 y1 x2 y2))))))
 
 (defun graph-add-vertex (graph point)
   (push (make-vertex :point point) (graph-vertices graph)))

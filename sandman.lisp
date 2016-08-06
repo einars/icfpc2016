@@ -13,9 +13,13 @@
 (defvar *outer-silhouette* nil)
 (defvar *skeletal-vertices* nil)
 
-(defvar *tracked* nil)
+(defvar *solved-vertices* nil)
+(defvar *solved-edges* nil)
 
 (defparameter *max-steps* 100)
+
+(defun flatten (lists)
+  (when lists (nconc (first lists) (flatten (rest lists)))))
 
 (defun read-vertex ()
   (let ((x) (y))
@@ -97,28 +101,45 @@
 (defun find-bottom (pos)
   ;; FIXME (this is not correct)
   (let ((edges nil) (diags nil))
-    (dolist (grain *tracked*)
+    (dolist (grain *solved-vertices*)
       (let ((len (distance pos (first grain))))
 	(when (= 1 len) (push (first grain) edges))
 	(when (= 2 len) (push (first grain) diags))))
     (when (and (>= (length edges) 2) (>= (length diags) 1))
       (pick-bottom (cons pos (nconc edges diags))))))
 
-(defun find-positions (bottom)
+(defun translate-positions (bottom)
   (let ((good-positions nil))
     (dolist (dst *vertices* good-positions)
       (let ((src (translate-pos dst bottom)))
 	(when (good-one src) (push (list src dst) good-positions))))))
 
-(defun find-facets (pos-map)
-  '((0 1 2 3)))
+(defun is-vertex-edge (vertex edge)
+  (or (equal vertex (edge-start edge))
+      (equal vertex (edge-end edge))))
+
+(defun find-single-facet (vertex edge)
+  '(0 1 2 3))
+
+(defun find-edges (v)
+  (remove-if-not (lambda (e) (is-vertex-edge v (first e))) *solved-edges*))
+
+(defun find-vertex-facets (v)
+  (mapcar (lambda (e) (sort (find-single-facet v e) #'<)) (find-edges v)))
+
+(defun find-all-facets ()
+  (mapcar #'find-vertex-facets (mapcar #'first *solved-vertices*)))
+
+(defun find-facets ()
+  (remove-duplicates (flatten (find-all-facets)) :test #'equal))
 
 (defun bail-out ()
   (format t "Could not find solution after ~A steps~%" *max-steps*)
   (sb-ext:exit))
 
 (defun add-sand ()
-  (second *edges*))
+  (format t "ADD-SAND:~A~%" (second *edges*))
+  (seventh *edges*))
 
 (defun generate-sand-cloud (&optional (steps 0))
   (let ((grain (add-sand)))
@@ -132,10 +153,11 @@
       (generate-sand-cloud)))
 
 (defun print-output ()
-  (let* ((*tracked* (mapcar #'list *vertices*))
-	 (pos-map (find-positions (pre-generate))))
+  (let* ((*solved-vertices* (mapcar #'list *vertices*))
+	 (*solved-edges* (mapcar #'list *edges*))
+	 (pos-map (translate-positions (pre-generate))))
     (print-positions (mapcar #'first pos-map) :source t)
-    (print-facets (find-facets pos-map))
+    (print-facets (find-facets))
     (print-positions (mapcar #'second pos-map))))
 
 (defun start ()

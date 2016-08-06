@@ -5,7 +5,7 @@
 	   :make-edge :make-vertex1 :make-vertex2
 	   :make-graph :graph-vertices :graph-edges
 	   :graph-add-vertex :graph-add-edge
-	   :vertex- :vertex+))
+	   :vertex- :vertex+ :vertex-on-edge-p))
 
 (in-package :origami/polygon-flipper)
 
@@ -46,6 +46,16 @@
 
 (defun vertex+ (vertex1 vertex2)
   (point+ (vertex-point vertex1) (vertex-point vertex2)))
+
+(defun vertex-on-edge-p (vertex edge)
+  (with-slots (vertex1 vertex2) edge
+    (destructuring-bind (dx dy) (vertex- vertex2 vertex1)
+      (destructuring-bind (dpx dpy) (vertex- vertex vertex1)
+	(cond
+	  ((zerop dx) (zerop dpx))
+	  ((zerop dy) (zerop dpy))
+	  (t (eql (/ dpx dx)
+		  (/ dpy dy))))))))
 
 (defun vect-angle (v1 v2)
   (destructuring-bind (dx1 dy1) v1

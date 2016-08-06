@@ -2,8 +2,8 @@
   (:use :cl :screamer :origami/sandman)
   (:import-from :origami/structures :make-point :point- :point+ :dot-product :polygon-area)
   (:export :vertex :make-vertex :vertex-point :vertex-adjacent-vertices
-	   :edge :make-edge :make-vertex1 :make-vertex2
-	   :graph :make-graph :graph-vertices :graph-edges
+	   :edge :make-edge :edge-vertex1 :edge-vertex2
+	   :graph :make-graph :build-graph :graph-vertices :graph-edges
 	   :graph-add-vertex :graph-add-edge
 	   :vertex- :vertex+ :vertex-on-edge-p :vertex-signum :vertex-polygon-area
 	   :find-outer-path :vect-angle :vect-pseudoangle))
@@ -13,6 +13,30 @@
 (defstruct vertex point adjacent-vertices)
 (defstruct edge vertex1 vertex2)
 (defstruct graph vertices edges polygons)
+
+(defun build-graph ()
+  (let ((graph (make-graph)))
+    (dolist (vertex-point *vertices*)
+      (graph-add-vertex graph vertex-point))
+    (dolist (edge *edges*)
+      (destructuring-bind (point1 point2 diff) edge
+	(declare (ignore diff))
+	(graph-add-edge graph point1 point2)))
+    (dolist (vertex (graph-vertices graph))
+      (dolist (edge (graph-edges graph))
+	(let ((vertex1 (edge-vertex1 edge))
+	      (vertex2 (edge-vertex2 edge)))
+	  (when (and (zerop (vertex-signum vertex edge))
+		     (not (eq vertex vertex1))
+		     (not (eq vertex vertex2))
+		     (destructuring-bind (x1 y1) (vertex-point vertex1)
+		       (destructuring-bind (x2 y2) (vertex-point vertex2)
+			 (destructuring-bind (px py) (vertex-point vertex)
+			   (and (< x1 px x2)
+				(< y1 py y2))))))
+	    (setf (edge-vertex2 edge) vertex)
+	    (graph-add-edge graph (vertex-point vertex) (vertex-point vertex2))))))
+    graph))
 
 (defmethod print-object ((vertex vertex) stream)
   (print-unreadable-object (vertex stream :type t)
@@ -100,7 +124,8 @@
   (find-left-path1 vertex1 vertex2 vertex1))
 
 (defun find-left-path1 (vertex1 vertex2 start-vertex)
-  (format t "~A -> ~A (~A) ~%" (vertex-point vertex1) (vertex-point vertex2) (vertex-point start-vertex))
+  (format t "Habala Babala~%")
+  (format t "~A -> ~A (~A) ~%" vertex1 vertex2 start-vertex)
   (if (eq vertex2 start-vertex)
       (list vertex1)
       (let* ((prev-vector (vertex- vertex2 vertex1))
@@ -126,18 +151,20 @@
 				      (if (eql y1 y2)
 					  (if (> x1 x2) v2 v1)
 					  (if (> y1 y2) v2 v1)))))
-				(graph-vertices graph))))
+			       (graph-vertices graph))))
     (find-outer-path1 lowest-vertex '(0 -1) (list lowest-vertex) lowest-vertex)))
 
 (defun find-outer-path1 (curr-vertex prev-direction result start-vertex)
+  #+nil(cerror "Cont?" "~A ~A" curr-vertex prev-direction)
   (multiple-value-bind (next-vertex direction)
       (loop with leftmost-vertex and leftmost-direction
 	 with min-angle = 10.0
 	 as vertex in (vertex-adjacent-vertices curr-vertex)
 	 do (let* ((direction (vertex- vertex curr-vertex))
-		   (angle (vect-angle direction prev-direction)))
+		   (angle (vect-angle prev-direction direction)))
+	      #+nil(format t "~A ~A ~A ~A~%" vertex curr-vertex direction angle)
 	      (when (and (< angle min-angle)
-			 (not (equalp direction prev-direction)))
+			 (not (zerop angle)))
 		(setf min-angle angle
 		      leftmost-vertex vertex
 		      leftmost-direction direction)))

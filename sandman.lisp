@@ -236,10 +236,30 @@
       (remove-vertex/edge vertex)
       (find-bottom new-vertex))))
 
-(defun fold-some-vertex ()
-  (clone-vertex/edge '(1/3 1/3) '(1 1))
-  (remove-vertex/edge '(1/3 1/3))
-  '(1 1))
+(defun find-solved-edges (v)
+  (remove-if-not (lambda (e) (is-vertex-edge v (first e))) *solved-edges*))
+
+(defun find-adjacent (vertex solved-edge)
+  (find-solved-edges (other-end vertex (first solved-edge))))
+
+(defun test-corner-vertex (vertex)
+  (let ((edges (find-solved-edges vertex)))
+    (when (= 2 (length edges))
+      (first (first (intersection
+		     (find-adjacent vertex (first edges))
+		     (find-adjacent vertex (second edges))
+		     :test #'equal))))))
+
+(defun find-corner-vertex (vertices)
+  (unless (null vertices)
+    (let* ((vertex (first (first vertices)))
+	   (edge (test-corner-vertex vertex)))
+      (cond ((or (null edge) (> (length (first vertices)) 1))
+	     (find-corner-vertex (rest vertices)))
+	    (t (fold-vertex-over-edge vertex edge))))))
+
+(defun fold-some-vertex-over-some-edge ()
+  (find-corner-vertex *solved-vertices*))
 
 (defun generate-sand-cloud (&optional (steps 0))
   (or (and (> steps *max-steps*) (bail-out "max steps reached"))

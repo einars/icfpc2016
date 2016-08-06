@@ -11,7 +11,7 @@
     $scope.source = specs[32];
     $scope.fit = false;
     $scope.updateCanvas = function() {
-      var $cv, base_x, base_y, ctx, ctx_lineto, ctx_moveto, h, p, scale, w;
+      var $cv, base_x, base_y, ctx, ctx_arc, ctx_lineto, ctx_moveto, h, k, len, line, p, ref, scale, w;
       $scope.dbg.length = 0;
       log('updateCanvas');
       p = parse($scope.source);
@@ -50,6 +50,13 @@
         y = h - (coords.y - base_y) * scale;
         return ctx.lineTo(x, y);
       };
+      ctx_arc = function(ctx, coords) {
+        var x, y;
+        x = (coords.x - base_x) * scale;
+        y = h - (coords.y - base_y) * scale;
+        ctx.moveTo(x, y);
+        return ctx.arc(x, y, 1.8, 0, Math.PI * 2, false);
+      };
       ctx.setLineDash([5, 3]);
       ctx.strokeStyle = '#555555';
       ctx.lineWidth = 0.7;
@@ -63,7 +70,7 @@
       ctx.strokeStyle = '#339933';
       ctx.fillStyle = '#';
       ctx.lineWidth = 1.5;
-      return _.each(p.polys, function(pts) {
+      _.each(p.polys, function(pts) {
         var i, k, ref;
         ctx.beginPath();
         ctx_moveto(ctx, pts[0]);
@@ -73,6 +80,15 @@
         ctx_lineto(ctx, pts[0]);
         return ctx.stroke();
       });
+      ctx.beginPath();
+      ctx.fillStyle = '#333333';
+      ref = p.skels;
+      for (k = 0, len = ref.length; k < len; k++) {
+        line = ref[k];
+        ctx_arc(ctx, line.p1);
+        ctx_arc(ctx, line.p2);
+      }
+      return ctx.fill();
     };
     $scope.clearCanvas = function() {
       $scope.source = '';

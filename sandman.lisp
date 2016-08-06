@@ -130,9 +130,12 @@
     (make-point (/ x len) (/ y len))))
 
 (defun edge-angle (v edgeA edgeB)
-  (let* ((p1 (normalize (make-edge (other-end v edgeA) v)))
-	 (p2 (normalize (make-edge v (other-end v edgeB)))))
-    (- (* (px p1) (py p2)) (* (py p1) (px p2)))))
+  (let* ((p1 (normalize (make-edge v (other-end v edgeA))))
+	 (p2 (normalize (make-edge v (other-end v edgeB))))
+	 (angle (- (atan (py p1) (px p1)) (atan (py p2) (px p2)))))
+    (if (< angle 0)
+	(+ angle (* 2 pi))
+	angle)))
 
 (defun produce-angles (vertex prev-edge candidates)
   (mapcar (lambda (edge) (list (edge-angle vertex prev-edge edge) edge))

@@ -2,7 +2,8 @@
   (:use :cl)
   (:export :make-point :point- :point+ :make-edge :fold-over-edge :edge-start
 	   :px :py :edge-dy :edge-dx :polygon-fragment
-	   :edge-end :distance :align-polygon-to-edge))
+	   :edge-end :distance :align-polygon-to-edge
+	   :dot-product))
 
 (in-package :origami/structures)
 
@@ -91,3 +92,8 @@
 		      (make-point (- (* x cosa) (* y sina) dx)
 				  (- (* x sina) (* y cosa -1) dy))))
 		  polygon))))))
+
+(defun dot-product (d1 d2)
+  (destructuring-bind (x1 y1) d1
+    (destructuring-bind (x2 y2) d2
+      (+ (* x1 x2) (* y1 y2)))))

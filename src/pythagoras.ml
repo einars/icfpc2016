@@ -4,12 +4,12 @@ open Facets
 
 module F = Fractions
 
-let debug = false
+let debug = true
 
 let triangle () = 
 
-  let n = Random.int 100 in
-  let n = n + (n mod 2) + 1 in (* odd *)
+  let n = Random.int 5 in
+  let n = n * 2 + 1 in (* odd *)
   let o = n + 2 in
   let t1 = n + o in
   let t2 = n * o in
@@ -34,7 +34,6 @@ let pythamorph facets =
       x = (F.sub (F.mul p.x p_cos) (F.mul p.y p_sin));
       y = (F.add (F.mul p.x p_sin) (F.mul p.y p_cos));
     } in
-    if debug then eprintf "Rotated %s to %s\n" (Facets.p_to_s p) (Facets.p_to_s tgt);
     tgt
   
   in

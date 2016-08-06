@@ -116,21 +116,22 @@ let rec fold_randomly facets = function
       let line = (choose_very_random_point facets), (choose_very_random_point facets) in
       if debug then eprintf "Folding over %s\n%!" (Facets.l_to_s line);
       let new_facets = List.map facets ~f:(fun f -> Facets.facet_fold f line) |> flatten in 
-      fold_randomly new_facets (n - 1)
+      fold_randomly (if List.length new_facets = List.length facets then facets else new_facets) (n - 1)
 ;;
 
 let solution_size s =
-  String.filter s ~f:(fun c -> c <> ' ' && c <> ',' && c <> '\n') |> String.length
+  String.filter s ~f:(fun c -> c <> ' ' && c <> '\n') |> String.length
 ;;
 
-let rec fold_until facets min_size =
+let rec fold_until facets min_size max_size =
   let new_facets = fold_randomly facets 1 in
   let solution = get_solution new_facets in
   let sol_len = solution_size solution in
   if debug then eprintf "solution_size: %d\n%!" sol_len; 
   if debug then eprintf "%s\n%!" solution;
-  if sol_len >= min_size then new_facets
-  else fold_until new_facets min_size
+  if sol_len >= min_size && sol_len < max_size then new_facets
+  else if sol_len > max_size then fold_until facets min_size max_size
+  else fold_until new_facets min_size max_size
 ;;
 
 
@@ -147,6 +148,13 @@ let run () =
 
   (* fold_randomly fs 5 |> get_solution |> printf "%s"; *)
 
-  fold_until fs 200 |> Pythagoras.pythamorph |> get_solution |> printf "%s";
+  fold_until fs 2500 4500 |> Pythagoras.pythamorph |> get_solution |> printf "%s";
+  (*
+  let s1 = fold_until fs 2000 3000 in
+  let sol_len_1 = s1 |> get_solution |> solution_size in
+  let s2 = s1 |> Pythagoras.pythamorph in
+  let sol_len_2 = s2 |> get_solution |> solution_size in
+  eprintf "Solution size change: %d -> %d\n" sol_len_1 sol_len_2;
+  *)
 
   ()

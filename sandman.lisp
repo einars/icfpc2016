@@ -230,10 +230,11 @@
     (setf *solved-edges* upd-e)))
 
 (defun fold-vertex-over-edge (vertex edge)
-  (let ((new-vertex (fold-over-edge (list vertex) edge)))
-    (clone-vertex/edge vertex (first new-vertex))
-    (remove-vertex/edge vertex)
-    (first new-vertex)))
+  (let ((new-vertex (first (fold-over-edge (list vertex) edge))))
+    (when (<= (distance vertex new-vertex) 1)
+      (clone-vertex/edge vertex new-vertex)
+      (remove-vertex/edge vertex)
+      (find-bottom new-vertex))))
 
 (defun fold-some-vertex ()
   (clone-vertex/edge '(1/3 1/3) '(1 1))
@@ -242,7 +243,7 @@
 
 (defun generate-sand-cloud (&optional (steps 0))
   (or (and (> steps *max-steps*) (bail-out "max steps reached"))
-      (find-bottom (fold-some-vertex))
+      (fold-some-vertex-over-some-edge)
       (generate-sand-cloud (1+ steps))))
 
 (defun pre-generate ()

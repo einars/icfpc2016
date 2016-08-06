@@ -231,7 +231,9 @@ let facet_fold facet line =
   let f_lt = ref [] and f_rt = ref []  in (* new edges *)
 
   let edges = (facet_edges facet) in
+  (*
   List.iter edges ~f:(fun x -> P.printf ": %s\n" (seg_to_s x));
+  *)
   (* ooh the windings will mess up *)
   List.iter edges ~f:(fun edge ->
     begin match segment_intersect_line edge line with
@@ -252,14 +254,28 @@ let facet_fold facet line =
   let pts_rt = List.map pts_rt ~f:(fun pt -> reflect_plane_point_around_line pt line) in
 
   (* now reflect the correct *)
+  (*
   printf "Resulting facet points\n";
   P.printf "LT: %s\n" (pplist_to_s pts_lt);
   P.printf "RT: %s\n" (pplist_to_s pts_rt);
+  *)
 
   let maybe_add_facet pts wind accu =
-    if pts = [] then accu
+    if List.length pts < 3 then accu
     else { points = pts; winding = wind } :: accu
   in
   [] |> maybe_add_facet pts_lt (facet.winding) |> maybe_add_facet pts_rt (inverse_winding facet.winding)
 
+;;
+
+let unit_facet () =
+  {
+      points = [
+        make_plane_point (make_point F.zero F.zero);
+        make_plane_point (make_point F.zero F.one);
+        make_plane_point (make_point F.one F.one);
+        make_plane_point (make_point F.one F.zero);
+      ];
+      winding = Cw
+  }
 ;;

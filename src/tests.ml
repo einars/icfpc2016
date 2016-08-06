@@ -70,16 +70,7 @@ let run () =
     assert_fold_over_line (3, 0) (1, 1) (+0, +3);
     assert_fold_over_line (0, 3) (1, 1) (+3, +0);
 
-    let unit_facet_l = {
-      points = [
-        make_plane_point (make_point F.zero F.zero);
-        make_plane_point (make_point F.zero F.one);
-        make_plane_point (make_point F.one F.one);
-        make_plane_point (make_point F.one F.zero);
-      ];
-      winding = Cw; (* front plane *)
-    } in
-
+    let unit_facet_l = Facets.unit_facet () in
     let unit_facet_r = {
       points = List.rev unit_facet_l.points;
       winding = Ccw; (* back plane *)

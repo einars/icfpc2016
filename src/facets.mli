@@ -41,3 +41,5 @@ val make_plane_point : point_t -> plane_point_t
 val segment_intersect_line : segment_t -> line_t -> intersection_t
 val reflect_plane_point_around_line : plane_point_t -> line_t -> plane_point_t
 val reflect_point_around_line : point_t -> line_t -> point_t
+
+val unit_facet : unit -> facet_t

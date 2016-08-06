@@ -1,9 +1,8 @@
 open Core.Std
 
 module F = Fractions
-module P = Printf
 
-let debug = true
+let debug = false
 
 let all_facet_points (facets:Facets.facet_t list) =
   let seen = ref String.Set.empty in
@@ -54,6 +53,7 @@ type map_string_int_t = int String.Map.t
 
 let pp_orig_to_s (pp:Facets.plane_point_t) =
   sprintf "%s,%s" (F.to_s pp.original.x) (F.to_s pp.original.y)
+
 
 let get_solution facets =
 
@@ -140,7 +140,7 @@ let run () =
 
   Random.self_init ();
   let seed = if Array.length Sys.argv > 1 then int_of_string Sys.argv.(1) else Random.bits () in
-  P.eprintf "Using seed %d\n%!" seed;
+  eprintf "Using seed %d\n%!" seed;
   Random.init seed;
 
   let fs = [ Facets.unit_facet () ] in

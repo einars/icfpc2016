@@ -3,7 +3,7 @@ open Core.Std
 module F = Fractions
 module P = Printf
 
-let debug = true
+let debug = false
 
 (* ~~~ begin types ~~~ *)
 
@@ -70,7 +70,7 @@ let vector_of_line l =
 (* assumes that p actually is somewhere on the line given by s *)
 let planarize_segment_point s (p:point_t) =
 
-  (* P.printf "planarizing %s for %s\n" (seg_to_s s) (p_to_s p); *)
+  if debug then eprintf "  (planarizing %s for %s)\n" (seg_to_s s) (p_to_s p);
 
   let pp1, pp2 = s in
 
@@ -82,17 +82,21 @@ let planarize_segment_point s (p:point_t) =
     let dx = F.sub pp2.actual.x pp1.actual.x in
     let dy = F.sub pp2.actual.y pp1.actual.y in
 
-    let frac_x = if F.is_zero dx then F.zero else F.div (F.sub p.x pp1.actual.x) dx in
-    let frac_y = if F.is_zero dy then F.zero else F.div (F.sub p.y pp1.actual.y) dy in
+    let kinda_frac = F.div
+      (F.add (F.square (F.sub p.x pp1.actual.x)) (F.square (F.sub p.y pp1.actual.y)))
+      (F.add (F.square dx) (F.square dy)) in
 
     let odx = F.sub pp2.original.x pp1.original.x in
     let ody = F.sub pp2.original.y pp1.original.y in
 
+    if debug then eprintf "  (dx=%s dy=%s frac=%s odx=%s ody=%s)\n%!"
+      (F.to_s dx) (F.to_s dy) (F.to_s kinda_frac) (F.to_s odx) (F.to_s ody);
+
     Some {
       actual = p;
       original = {
-        x = F.add pp1.original.x (F.mul frac_x odx);
-        y = F.add pp1.original.y (F.mul frac_y ody);
+        x = F.add pp1.original.x (F.mul kinda_frac odx);
+        y = F.add pp1.original.y (F.mul kinda_frac ody);
       }
     }
 ;;
@@ -103,6 +107,7 @@ let planarize_segment_point s (p:point_t) =
 
 
 let segment_intersect_line s (l:line_t) =
+  if debug then eprintf "(doing intersection %s; %s)\n" (seg_to_s s) (l_to_s l);
   let pp1, pp2 = s in
   let p1 = pp1.actual in
   let p2 = pp2.actual in
@@ -115,7 +120,6 @@ let segment_intersect_line s (l:line_t) =
 
   let cross a b =
     let det = (F.sub (F.mul a.x b.y) (F.mul b.x a.y)) in
-    (* printf "DET: %s\n" (F.to_s det); *)
     if F.gte det F.zero then Left else Right
   in
 
@@ -143,7 +147,7 @@ let segment_intersect_line s (l:line_t) =
 
     let pt_intersection = make_point ix iy in
 
-    (* P.printf "intersected %s and %s, got %s\n" (seg_to_s s) (l_to_s l) (p_to_s pt_intersection); *)
+    (* eprintf "intersected %s and %s, got %s\n" (seg_to_s s) (l_to_s l) (p_to_s pt_intersection); *)
 
     (* ix, iy — intersection point *)
 
@@ -155,10 +159,11 @@ let segment_intersect_line s (l:line_t) =
         );
         failwith "planarize_segment_point: should not happen"
     | Some plane_pt -> 
+        if debug then eprintf "(%s; plan: %s)\n" (if det1 = Left then "lt" else "rt") (pp_to_s plane_pt);
         if det1 = Left then
-          (Intersect ((pp1, plane_pt), (plane_pt, pp2), pt_intersection))
+          Intersect ((pp1, plane_pt), (plane_pt, pp2), pt_intersection)
         else
-          (Intersect ((plane_pt, pp2), (pp1, plane_pt), pt_intersection))
+          Intersect ((plane_pt, pp2), (pp1, plane_pt), pt_intersection)
   end
 ;;
 
@@ -230,7 +235,7 @@ let facet_fold facet line =
 
   let edges = (facet_edges facet) in
 
-  if debug then List.iter edges ~f:(fun x -> P.eprintf ": %s\n" (seg_to_s x));
+  if debug then List.iter edges ~f:(fun x -> P.eprintf ": %s\n%!" (seg_to_s x));
 
   (* ooh the windings will mess up *)
   List.iter edges ~f:(fun edge ->
@@ -240,6 +245,8 @@ let facet_fold facet line =
         then f_lt := edge :: !f_lt
         else f_rt := edge :: !f_rt;
     | Intersect (left, right, _)  -> 
+        if debug then eprintf " (while intersect %s %s)\n" (seg_to_s edge) (l_to_s line);
+        if debug then eprintf " (intersect %s %s)\n" (seg_to_s left) (seg_to_s right);
         f_lt := left :: !f_lt;
         f_rt := right :: !f_rt;
     end
@@ -248,19 +255,21 @@ let facet_fold facet line =
   let pts_lt = gather_points (List.rev !f_lt) in
   let pts_rt = gather_points (List.rev !f_rt) in
 
+  let pts_rt_bef = pts_rt in
   let pts_rt = List.map pts_rt ~f:(fun pt -> reflect_plane_point_around_line pt line) in
 
   (* now reflect the correct *)
   if debug then eprintf "Resulting facet points\n";
   if debug then eprintf "LT: %s\n" (pplist_to_s pts_lt);
-  if debug then eprintf "RT: %s\n" (pplist_to_s pts_rt);
+  if debug then eprintf "RT-bef: %s\n" (pplist_to_s pts_rt_bef);
+  if debug then eprintf "RT-aft: %s\n%!" (pplist_to_s pts_rt);
 
   let maybe_add_facet pts accu =
     if List.length pts < 3 then accu
     else pts :: accu
   in
-  let result = [] |> maybe_add_facet pts_lt |> maybe_add_facet pts_rt in
-  if (List.length result) = 1 then [ facet ] else result
+  let res = [] |> maybe_add_facet pts_lt |> maybe_add_facet pts_rt in
+  res
 
 ;;
 

@@ -3,7 +3,8 @@
   (:import-from :origami/structures :point- :point+)
   (:export :make-vertex :vertex-point :vertex-adjacent-vertices
 	   :make-edge :make-vertex1 :make-vertex2
-	   :make-graph :graph-vertices :graph-edges))
+	   :make-graph :graph-vertices :graph-edges
+	   :graph-add-vertex :graph-add-edge))
 
 (in-package :origami/polygon-flipper)
 

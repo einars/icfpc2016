@@ -78,7 +78,10 @@
 (defun vect-angle (v1 v2)
   (destructuring-bind (dx1 dy1) v1
     (destructuring-bind (dx2 dy2) v2
-      (- (atan dy1 dx1) (atan dy2 dx2)))))
+      (let ((a (- (atan dy1 dx1) (atan dy2 dx2))))
+	(if (< a 0)
+	    (+ a (* 2 pi))
+	    a)))))
 
 (defun vect-pseudoangle (v1 v2)
   (- (pseudoangle1 v2) (pseudoangle1 v1)))

@@ -18,6 +18,10 @@
 
 (defparameter *max-steps* 100)
 
+(defun bail-out (msg)
+  (format t "ERROR: ~A~%" msg)
+  (sb-ext:exit))
+
 (defun flatten (lists)
   (when lists (nconc (first lists) (flatten (rest lists)))))
 
@@ -143,6 +147,7 @@
 (defun look-for-edge (vertex prev-edge)
   (let* ((candidates (remove prev-edge (find-edges vertex) :test #'equal))
 	 (angles (produce-angles vertex prev-edge candidates)))
+    (when (null candidates) (bail-out "edge candidates absent"))
     (second (first (sort angles #'< :key #'first)))))
 
 (defun find-next-edge (vertex prev-edge facet)
@@ -193,10 +198,6 @@
     (or (and (= 1 (length facets)) facets)
 	(remove-if #'is-outer-facet facets))))
 
-(defun bail-out ()
-  (format t "Could not find solution after ~A steps~%" *max-steps*)
-  (sb-ext:exit))
-
 (defun match-vertice (vertice)
   (lambda (x) (equal (first x) vertice)))
 
@@ -240,7 +241,7 @@
   '(1 1))
 
 (defun generate-sand-cloud (&optional (steps 0))
-  (or (and (> steps *max-steps*) (bail-out))
+  (or (and (> steps *max-steps*) (bail-out "max steps reached"))
       (find-bottom (fold-some-vertex))
       (generate-sand-cloud (1+ steps))))
 

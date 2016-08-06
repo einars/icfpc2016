@@ -1,11 +1,11 @@
 (defpackage :origami/polygon-flipper
   (:use :cl :screamer :origami/sandman)
-  (:import-from :origami/structures :point- :point+)
+  (:import-from :origami/structures :make-point :point- :point+ :dot-product)
   (:export :vertex :make-vertex :vertex-point :vertex-adjacent-vertices
 	   :edge :make-edge :make-vertex1 :make-vertex2
 	   :graph :make-graph :graph-vertices :graph-edges
 	   :graph-add-vertex :graph-add-edge
-	   :vertex- :vertex+ :vertex-on-edge-p))
+	   :vertex- :vertex+ :vertex-on-edge-p :vertex-signum))
 
 (in-package :origami/polygon-flipper)
 
@@ -68,6 +68,11 @@
 	  ((zerop dy) (zerop dpy))
 	  (t (eql (/ dpx dx)
 		  (/ dpy dy))))))))
+
+(defun vertex-signum (vertex edge)
+  (with-slots (vertex1 vertex2) edge
+    (destructuring-bind (dx dy) (vertex- vertex2 vertex1)
+      (signum (dot-product (vertex- vertex vertex1) (make-point dy (* -1 dx)))))))
 
 (defun vect-angle (v1 v2)
   (destructuring-bind (dx1 dy1) v1

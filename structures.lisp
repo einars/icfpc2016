@@ -25,11 +25,6 @@
     (destructuring-bind (x2 y2) point2
       (make-point (+ x1 x2) (+ y1 y2)))))
 
-(defun point+ (point1 point2)
-  (destructuring-bind (x1 y1) point1
-    (destructuring-bind (x2 y2) point2
-      (make-point (+ x1 x2) (+ y1 y2)))))
-
 (defun make-edge (point1 point2)
   (list point1 (point- point2 point1)))
 

@@ -175,6 +175,27 @@
 	(*vertices* (mapcar #'first *solved-vertices*)))
     (remove-duplicates (flatten (find-all-facets)) :test #'equal-facets)))
 
+(defun fetch-positions (index)
+  (first (nth index *solved-vertices*)))
+
+(defun is-outer-vertex (vertex)
+  (or (= 0 (px vertex))
+      (= 0 (py vertex))
+      (= 1 (px vertex))
+      (= 1 (py vertex))))
+
+(defun is-outer-facet (facet)
+  (let ((vertices (mapcar #'fetch-positions facet)))
+    (and (member (make-point 0 0) vertices :test #'equal)
+	 (member (make-point 0 1) vertices :test #'equal)
+	 (member (make-point 1 0) vertices :test #'equal)
+	 (member (make-point 1 1) vertices :test #'equal)
+	 (member-if-not #'is-outer-facet vertices))))
+
+(defun remove-outer-facet (facets)
+  (or (and (= 1 (length facets)) facets)
+      (remove-if #'is-outer-facet facets)))
+
 (defun bail-out ()
   (format t "Could not find solution after ~A steps~%" *max-steps*)
   (sb-ext:exit))
@@ -198,7 +219,7 @@
 	 (*solved-edges* (mapcar #'list *edges*))
 	 (pos-map (translate-positions (pre-generate))))
     (print-positions (mapcar #'first pos-map) :source t)
-    (print-facets (find-facets))
+    (print-facets (remove-outer-facet (find-facets)))
     (print-positions (mapcar #'second pos-map))))
 
 (defun start ()

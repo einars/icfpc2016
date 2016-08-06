@@ -3,6 +3,8 @@ open Core.Std
 module F = Fractions
 module P = Printf
 
+let debug = false
+
 let all_facet_points (facets:Facets.facet_t list) =
   let seen = ref String.Set.empty in
   let pts = ref [] in
@@ -63,17 +65,22 @@ let get_solution facets =
   let vert_map = ref String.Map.empty in
   let idx = ref 0 in
 
+  let pp_key (pp:Facets.plane_point_t) = Facets.p_to_s pp.original in
+
   List.iter vertices ~f:(fun v -> 
-    vert_map := Map.add !vert_map ~key:(Facets.pp_to_s v) ~data:!idx;
-    idx := !idx +1;
-    repr := (sprintf "%s,%s\n" (F.to_s v.original.x) (F.to_s v.original.y)) :: !repr;
+    if not (Map.mem !vert_map (pp_key v)) then begin
+      vert_map := Map.add !vert_map ~key:(pp_key v) ~data:!idx;
+      idx := !idx +1;
+      repr := (sprintf "%s,%s\n" (F.to_s v.original.x) (F.to_s v.original.y)) :: !repr;
+      (* repr := (sprintf "%s, %s -> %s, %s\n" (F.to_s v.original.x) (F.to_s v.original.y) (F.to_s v.actual.x) (F.to_s v.actual.y)) :: !repr; *)
+    end;
   );
 
   repr := (sprintf "%d\n" (List.length facets)) :: !repr;
 
   List.iter facets ~f:(fun f ->
     let vertex_indices = List.map f.points ~f:(fun pp -> 
-      Map.find_exn !vert_map (Facets.pp_to_s pp)
+      Map.find_exn !vert_map (pp_key pp)
     ) in
     repr := (sprintf "%d " (List.length vertex_indices)) :: !repr;
     let facet = String.concat ~sep:" " (List.map vertex_indices ~f:string_of_int) in
@@ -106,8 +113,7 @@ let rec fold_randomly facets = function
   | 0 -> facets
   | n -> 
       let line = (choose_very_random_point facets), (choose_very_random_point facets) in
-
-      (* printf "Folding over %s\n" (Facets.l_to_s line); *)
+      if debug then eprintf "Folding over %s\n%!" (Facets.l_to_s line);
       let new_facets = List.map facets ~f:(fun f -> Facets.facet_fold f line) |> flatten in 
       fold_randomly new_facets (n - 1)
 ;;
@@ -120,7 +126,8 @@ let rec fold_until facets min_size =
   let new_facets = fold_randomly facets 1 in
   let solution = get_solution new_facets in
   let sol_len = solution_size solution in
-  (*printf "solution_size: %d\n" sol_len; *)
+  if debug then eprintf "solution_size: %d\n%!" sol_len; 
+  if debug then eprintf "%s\n%!" solution;
   if sol_len >= min_size then new_facets
   else fold_until new_facets min_size
 ;;

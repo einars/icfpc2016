@@ -11,7 +11,7 @@
 (defvar *vertices* nil)
 (defvar *edges* nil)
 (defvar *outer-silhouette* nil)
-(defvar *skeletal-vertices* nil)
+(defvar *silhouette-vertices* nil)
 
 (defvar *solved-vertices* nil)
 (defvar *solved-edges* nil)
@@ -30,7 +30,6 @@
 
 (defun update-vertices (x)
   (unless (member x *vertices* :test #'equal)
-    (push x *skeletal-vertices*)
     (push x *vertices*)))
 
 (defun read-edge ()
@@ -43,7 +42,7 @@
 (defun read-input ()
   (setf *vertices* nil
 	*edges* nil
-	*skeletal-vertices* nil
+	*silhouette-vertices* nil
 	*outer-silhouette* nil)
   (let ((polygon-count (read)))
     (dotimes (i polygon-count)
@@ -52,7 +51,7 @@
 	  (let ((vertice (read-vertex)))
 	    (when (zerop i)
 	      (push vertice *outer-silhouette*))
-	    (push vertice *vertices*))))))
+	    (push vertice *silhouette-vertices*))))))
   (let ((edge-count (read)))
     (dotimes (i edge-count)
       (push (read-edge) *edges*))))

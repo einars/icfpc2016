@@ -4,7 +4,8 @@
   (:export :make-vertex :vertex-point :vertex-adjacent-vertices
 	   :make-edge :make-vertex1 :make-vertex2
 	   :make-graph :graph-vertices :graph-edges
-	   :graph-add-vertex :graph-add-edge))
+	   :graph-add-vertex :graph-add-edge
+	   :vertex- :vertex+))
 
 (in-package :origami/polygon-flipper)
 
@@ -42,6 +43,9 @@
 
 (defun vertex- (vertex1 vertex2)
   (point- (vertex-point vertex1) (vertex-point vertex2)))
+
+(defun vertex+ (vertex1 vertex2)
+  (point+ (vertex-point vertex1) (vertex-point vertex2)))
 
 (defun vect-angle (v1 v2)
   (destructuring-bind (dx1 dy1) v1

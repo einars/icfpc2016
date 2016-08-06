@@ -108,12 +108,6 @@
     (when (and (>= (length edges) 2) (>= (length diags) 1))
       (pick-bottom (cons pos (nconc edges diags))))))
 
-(defun translate-positions (bottom)
-  (let ((good-positions nil))
-    (dolist (dst *vertices* (nreverse good-positions))
-      (let ((src (translate-pos dst bottom)))
-	(when (good-one src) (push (list src dst) good-positions))))))
-
 (defun is-vertex-edge (vertex edge)
   (or (equal vertex (edge-start edge))
       (equal vertex (edge-end edge))))
@@ -200,19 +194,61 @@
   (format t "Could not find solution after ~A steps~%" *max-steps*)
   (sb-ext:exit))
 
-(defun add-sand ()
-  (seventh *edges*))
+(defun match-vertice (vertice)
+  (lambda (x) (equal (first x) vertice)))
+
+(defun match-edge (vertice)
+  (lambda (x) (is-vertex-edge vertice (first x))))
+
+(defun find-solved-vertice (vertice)
+  (first (member-if (match-vertice vertice) *solved-vertices*)))
+
+(defun find-solved-edges-for-vertice (v)
+  (remove-if-not (match-edge v) *solved-edges*))
+
+(defun clone-edge (old new edge-entry)
+  (make-edge new (other-end old (first edge-entry))))
+
+(defun replace-edge-endpoint (old new edges)
+  (mapcar (lambda (x) (cons (clone-edge old new x) x)) edges))
+
+(defun clone-vertex/edge (old new)
+  (let ((vertice (find-solved-vertice old))
+	(edges (find-solved-edges-for-vertice old)))
+    (push (cons new vertice) *solved-vertices*)
+    (dolist (i (replace-edge-endpoint old new edges))
+      (push i *solved-edges*))))
+
+(defun remove-vertex/edge (v)
+  (let ((upd-v (delete-if (match-vertice v) *solved-vertices*))
+	(upd-e (delete-if (match-edge v) *solved-edges*)))
+    (setf *solved-vertices* upd-v)
+    (setf *solved-edges* upd-e)))
+
+(defun fold-some-vertex ()
+  (clone-vertex/edge '(1/3 1/3) '(1 1))
+  (remove-vertex/edge '(1/3 1/3))
+  '(1 1))
 
 (defun generate-sand-cloud (&optional (steps 0))
-  (let ((grain (add-sand)))
-    (cond (grain grain)
-	  ((< steps *max-steps*)
-	   (generate-sand-cloud (1+ steps)))
-	  (t (bail-out)))))
+  (or (and (> steps *max-steps*) (bail-out))
+      (find-bottom (fold-some-vertex))
+      (generate-sand-cloud (1+ steps))))
 
 (defun pre-generate ()
   (or (find-bottom (first *vertices*))
       (generate-sand-cloud)))
+
+(defun get-original (pos-map)
+  (mapcar (lambda (x) (first (last (second x)))) pos-map))
+
+(defun translate-positions (bottom)
+  (let ((good-positions nil))
+    (dolist (dst (copy-list *solved-vertices*) (nreverse good-positions))
+      (let ((src (translate-pos (first dst) bottom)))
+	(if (good-one src)
+	    (push (list src dst) good-positions)
+	    (remove-vertex/edge (first dst)))))))
 
 (defun print-output ()
   (let* ((*solved-vertices* (mapcar #'list *vertices*))
@@ -220,7 +256,7 @@
 	 (pos-map (translate-positions (pre-generate))))
     (print-positions (mapcar #'first pos-map) :source t)
     (print-facets (remove-outer-facet (find-facets)))
-    (print-positions (mapcar #'second pos-map))))
+    (print-positions (get-original pos-map))))
 
 (defun start ()
   (let ((*vertices* nil)

@@ -21,7 +21,7 @@
 (defun unfold-valid (graph &key visualise)
   (let ((valid-graph (next-valid graph)))
     (when visualise
-      (format t "Processing graph - ~A edges~%" (length (graph-edges graph))))
+      (format t "Processing graph - ~A edges~%" (length (graph-edges valid-graph))))
     (unfold valid-graph :visualise visualise)))
 
 (defun next-valid (graph)

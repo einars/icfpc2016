@@ -19,8 +19,8 @@ global $stats;
 // 3646 congruent
 
 // define('SOLVER', './cers.bin');
-define('SOLVER', 'timeout 30 ./cers.bin');
-define('VERSION', 'v24');
+define('SOLVER', 'timeout 5 ./cers.bin');
+define('VERSION', 'v25');
 define('RMT_ID', '28');
 
 $lock_file = fopen('.lock', 'w+');
@@ -172,27 +172,36 @@ function solve($key, $force = false)
 
                 echo "Submitting solution to {$k}\n";
                 file_put_contents('/tmp/solution.txt', $out);
-                ob_start();
-                sleep(4);
-                system('curl --silent --compressed -L -H Expect: -H "X-API-Key: 28-b27a5c60566badcfc5d975f3dffdb627" -F "problem_id=' . $v['id'] . '" -F "solution_spec=@/tmp/solution.txt" http://2016sv.icfpcontest.org/api/solution/submit');
-                $sub_res = ob_get_clean();
+                $retry = false;
+                do {
+                    $retry = false;
+                    ob_start();
+                    system('curl --silent --compressed -L -H Expect: -H "X-API-Key: 28-b27a5c60566badcfc5d975f3dffdb627" -F "problem_id=' . $v['id'] . '" -F "solution_spec=@/tmp/solution.txt" http://2016sv.icfpcontest.org/api/solution/submit');
+                    $sub_res = ob_get_clean();
 
-                $res = json_decode($sub_res, true);
-                if ($res['ok']) {
-                    $stats[$k]['solved'] = true;
-                    save_problem($k);
-                    show_numbers();
-                } else {
-                    echo "Submission failed, check it out:\n";
-                    echo $sub_res, "\n";
-                    if (strpos($sub_res, 'not mapped congruently')) {
-                        echo "Ah, that's just the congruence bug. I'll go on\n";
-                    } else if (strpos($sub_res, 'not lie on an edge')) {
-                        echo "Ah, that's just the edge bug. I'll go on\n";
+                    $res = json_decode($sub_res, true);
+                    if ($res['ok']) {
+                        $stats[$k]['solved'] = true;
+                        save_problem($k);
+                        show_numbers();
                     } else {
-                        die();
+                        echo "Submission failed, check it out:\n";
+                        echo $sub_res, "\n";
+                        if (strpos($sub_res, 'Rate limit exceeded')) {
+                            echo "Oh, limits exceeded, need to retry\n";
+                            $retry = true;
+                        } else if (strpos($sub_res, 'not mapped congruently')) {
+                            echo "Ah, that's just the congruence bug. I'll go on\n";
+                        } else if (strpos($sub_res, 'not lie on an edge')) {
+                            echo "Ah, that's just the edge bug. I'll go on\n";
+                        } else {
+                            die();
+                        }
                     }
-                }
+                    if ($retry) {
+                        sleep(mt_rand(2, 5));
+                    }
+                } while($retry);
             }
         }
     }
@@ -264,15 +273,16 @@ if ( ! file_exists('stats.json')) {
 
 read_new_problems();
 
+$strategy = 'easy';
 if (isset($argv[1])) {
-    solve('p' . $argv[1], true);
-} else {
-    show_numbers();
-    do {
-        solve_easiest();
-        // solve_sequentially();
-        // solve_something_random();
-    } while(true);
+    $strategy = $argv[1];
 }
-// solve('p50');
-
+if (is_numeric($strategy)) {
+    solve('p' . $strategy, true);
+} else if ($strategy == 'easy') {
+    while (true) solve_easiest();
+} else if ($strategy == 'seq') {
+    while (true) solve_sequentially();
+} else {
+    while (true) solve_something_random();
+}

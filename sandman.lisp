@@ -32,6 +32,10 @@
 (defun flatten (lists)
   (when lists (nconc (first lists) (flatten (rest lists)))))
 
+(defun point-eq (p1 p2)
+  (and (= (px p1) (px p2))
+       (= (py p1) (py p2))))
+
 (defun read-vertex ()
   (let ((x) (y))
     (setf x (read))
@@ -194,10 +198,10 @@
 
 (defun is-outer-facet (facet)
   (let ((vertices (mapcar #'fetch-positions facet)))
-    (and (member (make-point 0 0) vertices :test #'equal)
-	 (member (make-point 0 1) vertices :test #'equal)
-	 (member (make-point 1 0) vertices :test #'equal)
-	 (member (make-point 1 1) vertices :test #'equal)
+    (and (member (make-point 0 0) vertices :test #'point-eq)
+	 (member (make-point 0 1) vertices :test #'point-eq)
+	 (member (make-point 1 0) vertices :test #'point-eq)
+	 (member (make-point 1 1) vertices :test #'point-eq)
 	 (not (member-if-not #'is-outer-vertex vertices)))))
 
 (defun remove-outer-facet (pos-map facets)

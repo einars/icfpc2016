@@ -20,11 +20,35 @@ global $stats;
 
 // define('SOLVER', './cers.bin');
 define('SOLVER', 'timeout 30 ./cers.bin');
-define('VERSION', 'v21');
+define('VERSION', 'v22');
 define('RMT_ID', '28');
 
-function save()
+$lock_file = fopen('.lock', 'w+');
+
+function save_problem($pkey)
 {
+    global $stats, $lock_file;
+    do {
+        $locked = (flock($lock_file, LOCK_EX | LOCK_NB));
+        if ( ! $locked) {
+            echo 'lock wait...';
+            flush();
+            sleep(1);
+        }
+    } while( ! $locked);
+    $f = json_decode(file_get_contents('stats.json'), true);
+    $f[$pkey] = $stats[$pkey];
+    file_put_contents('stats.json', json_encode($f));
+    flock($lock_file, LOCK_UN);
+    $stats = $f;
+
+}
+
+function save($x = null)
+{
+    if ($x !== 'i fuck concurrency') {
+        die('DO NOT CALL SAVE');
+    }
     global $stats;
 
     file_put_contents('stats.json', json_encode($stats, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
@@ -59,7 +83,9 @@ function read_new_problems()
                 'solved' => false,
                 'version' => null,
                 'spec-file' => $spec_file,
-                'md5' => md5_file($spec_file)
+                'md5' => md5_file($spec_file),
+                'problem_size' => $p['problem_size'],
+                'solution_size' => $p['solution_size'],
             );
 
             foreach($stats as $k=>$v) {
@@ -74,7 +100,7 @@ function read_new_problems()
 
     }
 
-    if ($have_new) save();
+    if ($have_new) save('i fuck concurrency');
 
 }
 
@@ -104,7 +130,8 @@ function solve($key, $force = false)
     $spec = $stats[$key];
     $md5 = $spec['md5'];
     printf('%-5s... ', $spec['id']);
-    foreach($stats as $k=>$v) {
+    foreach(array_keys($stats) as $k) {
+        $v = $stats[$k];
         if ($v['md5'] == $md5) {
             if ($v['solved'] && $k != $key) {
                 // if ($force) {
@@ -115,9 +142,9 @@ function solve($key, $force = false)
             }
             $stats[$k]['tried'] = true;
             $stats[$k]['version'] = VERSION;
+            save_problem($k);
         }
     }
-    save(); // mark tried, for case of timeout
 
     $cmd = "cat {$spec['spec-file']} | " . SOLVER;
     ob_start();
@@ -129,29 +156,31 @@ function solve($key, $force = false)
         if (strpos($out, 'SOLUTION: NIL')) $reason = ' (NIL)';
         if (strpos($out, 'absent')) $reason = ' (Candidates)';
         echo "Failed$reason\n";
-        foreach($stats as $k=>$v) {
+        foreach(array_keys($stats) as $k) {
+            $v = $stats[$k];
             if ($v['md5'] == $md5) {
                 $v['tried'] = true;
                 $v['version'] = VERSION;
+                save_problem($k);
             }
         }
-        save();
     } else {
         echo "Incredible, solution found!\n";
-        foreach($stats as $k => $v) {
+        foreach(array_keys($stats) as $k) {
+            $v = $stats[$k];
             if ($v['md5'] == $md5 and ! $v['solved']) {
 
                 echo "Submitting solution to {$k}\n";
                 file_put_contents('/tmp/solution.txt', $out);
                 ob_start();
-                sleep(3);
+                sleep(4);
                 system('curl --silent --compressed -L -H Expect: -H "X-API-Key: 28-b27a5c60566badcfc5d975f3dffdb627" -F "problem_id=' . $v['id'] . '" -F "solution_spec=@/tmp/solution.txt" http://2016sv.icfpcontest.org/api/solution/submit');
                 $sub_res = ob_get_clean();
 
                 $res = json_decode($sub_res, true);
                 if ($res['ok']) {
                     $stats[$k]['solved'] = true;
-                    save();
+                    save_problem($k);
                     show_numbers();
                 } else {
                     echo "Submission failed, check it out:\n";
@@ -186,7 +215,8 @@ function solve_easiest()
     foreach($stats as $k=>$v) {
         if ($v['solved']) continue;
         if ($v['tried'] && $v['version'] == VERSION) continue;
-        $flt[$k] = filesize($v['spec-file']);
+        // $flt[$k] = filesize($v['spec-file']);
+        $flt[$k] = $v['solution_size'];
     }
     asort($flt);
     $keys = array_keys($flt);
@@ -210,7 +240,7 @@ function solve_sequentially()
 
 if ( ! file_exists('stats.json')) {
     $stats = [];
-    save();
+    save('i fuck concurrency');
 } else {
     $stats = json_decode(file_get_contents('stats.json'), true);
 
@@ -223,9 +253,9 @@ if (isset($argv[1])) {
 } else {
     show_numbers();
     do {
-        // solve_easiest();
+        solve_easiest();
         // solve_sequentially();
-        solve_something_random();
+        // solve_something_random();
     } while(true);
 }
 // solve('p50');

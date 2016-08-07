@@ -15,10 +15,12 @@
       </div>
 
       <div class="input-wrapper">
-        <textarea class="source-input js-source" ng-model="source">
+        <textarea class="source-input js-source" ng-model="source" ng-change="updateCanvas()">
         </textarea>
         <div class="scale-box">
-          <label><input type="checkbox" ng-model="fit"> Fit to area</label>
+          <a class="load-sample" href="#" ng-click="loadSample()">load sample</a>
+          <label style="display:block"><input type="checkbox" ng-model="fit"> Fit to area</label>
+          <label style="display:block"><input type="checkbox" ng-model="debug"> Show debug</label>
         </div>
         <div class="input-buttons">
           <button class="input-clear" ng-click="clearCanvas()">Clear</button>
@@ -26,7 +28,7 @@
         </div>
       </div>
 
-      <div class="debug">
+      <div class="debug" ng-class="{hidden: ! debug}">
         <div ng-repeat="line in dbg">{{ line.text }}</div>
       </div>
     </div>

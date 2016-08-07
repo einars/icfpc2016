@@ -54,3 +54,10 @@ canvas {
   font-size: 10px;
   padding: 8px;
   color: #777; }
+
+.hidden {
+  display: none; }
+
+.load-sample {
+  color: #339;
+  float: right; }

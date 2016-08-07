@@ -105,8 +105,8 @@ function solve($key, $force = false)
     $md5 = $spec['md5'];
     echo "Solving {$spec['id']}\n";
     foreach($stats as $k=>$v) {
-        if ($v['md5'] == $md5 && $k != $key) {
-            if ($v['solved']) {
+        if ($v['md5'] == $md5) {
+            if ($v['solved'] && $k != $key) {
                 if ($force) {
                     echo("Heresy: $key is already solved as $k!\n");
                 } else {

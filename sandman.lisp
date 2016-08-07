@@ -236,8 +236,8 @@
     (setf *solved-edges* upd-e)))
 
 (defun fold-vertex-over-edge (vertex edge)
-  (when (not (is-vertex-edge vertex edge))
-    (let ((new-vertex (first (fold-over-edge (list vertex) edge))))
+  (let ((new-vertex (first (fold-over-edge (list vertex) edge))))
+    (when (not (equal vertex new-vertex))
       (clone-vertex/edge vertex new-vertex)
       (remove-vertex/edge vertex)
       (find-bottom new-vertex))))

@@ -20,7 +20,7 @@ global $stats;
 
 // define('SOLVER', './cers.bin');
 define('SOLVER', 'timeout 30 ./cers.bin');
-define('VERSION', 'v23');
+define('VERSION', 'v24');
 define('RMT_ID', '28');
 
 $lock_file = fopen('.lock', 'w+');
@@ -38,7 +38,7 @@ function save_problem($pkey)
     } while( ! $locked);
     $f = json_decode(file_get_contents('stats.json'), true);
     $f[$pkey] = $stats[$pkey];
-    file_put_contents('stats.json', json_encode($f));
+    file_put_contents('stats.json', json_encode($f, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
     flock($lock_file, LOCK_UN);
     $stats = $f;
 
@@ -216,12 +216,14 @@ function solve_easiest()
         if ($v['solved']) continue;
         if ($v['tried'] && $v['version'] == VERSION) continue;
         // $flt[$k] = filesize($v['spec-file']);
-        $flt[$k] = $v['solution_size'];
+        // $flt[$k] = $v['solution_size'];
+        $flt[$k] = skeleton_size($v['id']);
     }
     asort($flt);
     $keys = array_keys($flt);
     solve($keys[0]);
 }
+
 
 
 function solve_sequentially()
@@ -237,6 +239,20 @@ function solve_sequentially()
     solve('p' . $flt[0]);
 }
 
+
+
+
+function skeleton_size($id)
+{
+    $spec = file('../all-problems/' . sprintf('%05d', $id) . '.txt');
+    $poly = (int)$spec[0];
+    $line = 1;
+    for($i = 0; $i < $poly; $i++) {
+        $line += (int)$spec[$line] + 1;
+    }
+    $ret = (int)$spec[$line];
+    return $ret;
+}
 
 if ( ! file_exists('stats.json')) {
     $stats = [];
@@ -259,3 +275,4 @@ if (isset($argv[1])) {
     } while(true);
 }
 // solve('p50');
+

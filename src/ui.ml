@@ -98,8 +98,7 @@ let get_solution facets =
 
 
 let choose_very_random_point facets bias =
-  let a1,a2 = choose_random_edge facets in a1
-  (*
+  let a1,a2 = choose_random_edge facets in
   let dx,dy = (F.sub a2.x a1.x), (F.sub a2.y a1.y) in
 
   (* choose a point on this line *)
@@ -108,7 +107,6 @@ let choose_very_random_point facets bias =
   Facets.make_point 
     (F.add a1.x (F.mul dx (F.make rand bias)))
     (F.add a1.y (F.mul dy (F.make rand bias)))
-*)
 ;;
 
 
@@ -125,7 +123,7 @@ let choose_line_vx facets =
 ;;
 let choose_line_45 facets =
   let pt = (choose_very_random_point facets 6) in
-  match Random.int 4 with
+  match Random.int 8 with
   | 0 -> pt, Facets.pt_add pt (Facets.make_point F.one F.zero)
   | 1 -> pt, Facets.pt_add pt (Facets.make_point F.zero F.one)
   | 2 -> pt, Facets.pt_add pt (Facets.make_point F.one F.one)
@@ -141,8 +139,11 @@ let choose_line_45 facets =
 let rec fold_randomly facets = function
   | 0 -> facets
   | n -> 
-      let line = choose_line_vx facets in
-      (* let line = choose_line_45 facets in *)
+
+      let line = 
+        if false
+        then choose_line_vx facets
+        else choose_line_45 facets in
 
       if debug then eprintf "Folding over %s\n%!" (Facets.l_to_s line);
       let new_facets = List.map facets ~f:(fun f -> Facets.facet_fold f line) |> flatten in 

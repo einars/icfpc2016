@@ -374,7 +374,7 @@
     (setf *debug* debug)
     (when call-cers
       (setf *cers-solutions* (archa-solve))
-      (print *cers-solutions*))
+      (when *debug* (format t "CERS: ~A~%" *cers-solutions*)))
     (print-output)
     (unless call-cers
       (sb-ext:exit))))

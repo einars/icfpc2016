@@ -271,8 +271,8 @@
 (defun solve-cers-or-dump ()
   (let ((result (solve-cers)))
     (when (or (null result) *debug-cers*)
-      (format t "VERTICES~%~A~%~%" *solved-vertices*)
-      (format t "EDGES~%~{~A~%~}~%~%" *solved-edges*))
+      (format t "=== VERTICES ===~%~{~A~%~}~%~%" *solved-vertices*)
+      (format t "=== EDGES ===~%~{~A~%~}~%~%" *solved-edges*))
     result))
 
 (defun fold-some-vertex-over-some-edge ()

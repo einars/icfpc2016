@@ -4,7 +4,7 @@
   (:export :vertex :make-vertex :vertex-point :vertex-adjacent-vertices
 	   :edge :make-edge :edge-vertex1 :edge-vertex2
 	   :graph :make-graph :build-graph :graph-vertices :graph-edges
-	   :graph-add-vertex :graph-add-edge :visualise-graph
+	   :graph-add-vertex :graph-add-edge :graph-add-vertex-edge :graph-remove-edge :visualise-graph
 	   :vertex- :vertex+ :vertex-on-edge-p :vertex-signum :vertex-polygon-area
 	   :find-outer-path :vect-angle :vect-pseudoangle
 	   :total-dot-product :check-square))
@@ -12,8 +12,28 @@
 (in-package :origami/polygon-flipper)
 
 (defstruct vertex point adjacent-vertices)
-(defstruct edge vertex1 vertex2)
+(defstruct edge vertex1 vertex2 (special nil))
 (defstruct graph vertices edges polygons)
+
+(defun connect-all (graph edge)
+  (let ((edge-vertices (mapcan (lambda (vertex)
+				 (when (vertex-on-edge-p vertex edge)
+				   (list vertex)))
+			       (graph-vertices graph))))
+    (loop as vertex1 in edge-vertices
+       do (loop as vertex2 in edge-vertices
+	     do (unless (eq vertex1 vertex2)
+		  (when (loop as neighbor in (vertex-adjacent-vertices vertex1)
+			   never (eq neighbor vertex2))
+		    (graph-add-vertex-edge graph vertex1 vertex2 :special :guess)))))))
+
+(defun unconnect-all (graph edge)
+  (loop as edge1 in (graph-edges graph)
+     do (with-slots (vertex1 vertex2 special) edge1
+	  (when (and (eql special :guess)
+		     (vertex-on-edge-p vertex1 edge)
+		     (vertex-on-edge-p vertex2 edge))
+	    (graph-remove-edge graph edge1)))))
 
 (defun build-graph ()
   (let ((graph (make-graph)))
@@ -65,6 +85,11 @@
 (defun graph-add-vertex (graph point)
   (push (make-vertex :point point) (graph-vertices graph)))
 
+(defun graph-add-vertex-edge (graph vertex1 vertex2 &key special)
+  (push vertex2 (vertex-adjacent-vertices vertex1))
+  (push vertex1 (vertex-adjacent-vertices vertex2))
+  (push (make-edge :vertex1 vertex1 :vertex2 vertex2 :special special) (graph-edges graph)))
+
 (defun graph-add-edge (graph point1 point2)
   (let ((vertex1 (find point1 (graph-vertices graph) :key #'vertex-point :test #'equalp))
 	(vertex2 (find point2 (graph-vertices graph) :key #'vertex-point :test #'equalp)))
@@ -73,6 +98,15 @@
     (push vertex2 (vertex-adjacent-vertices vertex1))
     (push vertex1 (vertex-adjacent-vertices vertex2))
     (push (make-edge :vertex1 vertex1 :vertex2 vertex2) (graph-edges graph))))
+
+(defun graph-remove-edge (graph edge)
+  (with-slots (vertex1 vertex2) edge
+    (setf (vertex-adjacent-vertices vertex1)
+	  (delete vertex2 (vertex-adjacent-vertices vertex1))
+	  (vertex-adjacent-vertices vertex2)
+	  (delete vertex1 (vertex-adjacent-vertices vertex2))
+	  (graph-edges graph)
+	  (delete edge (graph-edges graph)))))
 
 (defun extract-skeleton-polygons ()
   (let ((graph (make-graph)))

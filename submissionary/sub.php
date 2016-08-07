@@ -9,6 +9,7 @@ global $stats;
 // 4980 edge
 // 3637 edge
 // 3352 edge
+// 3959 edge
 
 // define('SOLVER', './cers.bin');
 define('SOLVER', 'timeout --kill-after=10 15 ./cers.bin');

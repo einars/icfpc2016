@@ -64,7 +64,7 @@ function read_new_problems()
 
             foreach($stats as $k=>$v) {
                 if ($v['solved'] && $v['md5'] == $stats[$key]['md5']) {
-                    echo ("Warning: the new problem, $key, is already solved as $k.");
+                    echo ("Warning: the new problem, $key, is already solved as $k.\n");
                 }
             }
 
@@ -136,7 +136,7 @@ function solve($key, $force = false)
     } else {
         echo "Incredible, solution found!\n";
         foreach($stats as $k => $v) {
-            if ($v['md5'] == $md5) {
+            if ($v['md5'] == $md5 and ! $v['solved']) {
 
                 echo "Submitting solution to {$k}\n";
                 file_put_contents('/tmp/solution.txt', $out);

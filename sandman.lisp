@@ -267,15 +267,22 @@
 	(dolist (vertex (third solution))
 	  (setf last-solve (fold-vertex-over-edge vertex edge)))))))
 
+(defun solve-cers-or-dump ()
+  (let ((result (solve-cers)))
+    (when (null result)
+      (format t "VERTICES~%~A~%~%" *solved-vertices*)
+      (format t "EDGES~%~{~A~%~}~%~%" *solved-edges*))
+    result))
+
 (defun fold-some-vertex-over-some-edge ()
-  (if (null *cers-solutions*)
-      (find-corner-vertex *solved-vertices*)
-      (solve-cers)))
+  (find-corner-vertex *solved-vertices*))
 
 (defun generate-sand-cloud (&optional (steps 0))
-  (or (and (> steps *max-steps*) (bail-out "max steps reached"))
-      (fold-some-vertex-over-some-edge)
-      (generate-sand-cloud (1+ steps))))
+  (if *cers-solutions*
+      (solve-cers-or-dump)
+      (or (and (> steps *max-steps*) (bail-out "max steps reached"))
+	  (fold-some-vertex-over-some-edge)
+	  (generate-sand-cloud (1+ steps)))))
 
 (defun pre-generate ()
   (or (find-bottom (first *vertices*))

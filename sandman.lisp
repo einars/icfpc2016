@@ -4,7 +4,9 @@
 	   :translate-pos
 	   :*vertices*
 	   :*edges*
-	   :*outer-silhouette*))
+	   :*outer-silhouette*
+	   :*cers-solutions*
+	   :archa-solve))
 
 (in-package :origami/sandman)
 
@@ -232,10 +234,9 @@
 
 (defun fold-vertex-over-edge (vertex edge)
   (let ((new-vertex (first (fold-over-edge (list vertex) edge))))
-    (when (<= (distance vertex new-vertex) 1)
-      (clone-vertex/edge vertex new-vertex)
-      (remove-vertex/edge vertex)
-      (find-bottom new-vertex))))
+    (clone-vertex/edge vertex new-vertex)
+    (remove-vertex/edge vertex)
+    (find-bottom new-vertex)))
 
 (defun find-solved-edges (v)
   (remove-if-not (lambda (e) (is-vertex-edge v (first e))) *solved-edges*))
@@ -263,12 +264,13 @@
   (let ((last-solve nil))
     (dolist (solution *cers-solutions* last-solve)
       (let ((edge (make-edge (first solution) (second solution))))
-	(dolist (vertex (rest (rest solution)))
+	(dolist (vertex (third solution))
 	  (setf last-solve (fold-vertex-over-edge vertex edge)))))))
 
-(defun fold-some-vertex-over-some-edge (solution)
-  (solve-cers))
-;  (find-corner-vertex *solved-vertices*))
+(defun fold-some-vertex-over-some-edge ()
+  (if (null *cers-solutions*)
+      (find-corner-vertex *solved-vertices*)
+      (solve-cers)))
 
 (defun generate-sand-cloud (&optional (steps 0))
   (or (and (> steps *max-steps*) (bail-out "max steps reached"))
@@ -298,10 +300,14 @@
     (print-facets (remove-outer-facet pos-map (find-facets)))
     (print-positions (get-original pos-map))))
 
-(defun start ()
+(defun start (&key call-cers)
   (let ((*cers-solutions* nil)
 	(*vertices* nil)
 	(*edges* nil))
     (read-input)
+    (when call-cers
+      (setf *cers-solutions* (archa-solve))
+      (print *cers-solutions*))
     (print-output)
-    (sb-ext:exit)))
+    (unless call-cers
+      (sb-ext:exit))))

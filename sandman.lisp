@@ -319,7 +319,7 @@
     (translate-and-format-vertex pos-map (edge-start (first edge)) " ")
     (translate-and-format-vertex pos-map (edge-end (first edge)) "~%")))
 
-(defun is-lonely-vertice (vertex edges)
+(defun is-lonely-vertice (edges)
   (and (= 2 (length edges))
        (let ((edge1 (first (first edges)))
 	     (edge2 (first (second edges))))
@@ -347,7 +347,7 @@
   (dolist (record *solved-vertices*)
     (let* ((vertex (first record))
 	   (edges (find-solved-edges vertex)))
-      (when (is-lonely-vertice vertex edges)
+      (when (is-lonely-vertice edges)
 	(construct-edges vertex facets edges)))))
 
 (defun get-facets (pos-map)

@@ -271,6 +271,7 @@
 (defun solve-cers-or-dump ()
   (let ((result (solve-cers)))
     (when (or (null result) *debug-cers*)
+      (format t "~%SOLUTION: ~A~%~%" result)
       (format t "=== VERTICES ===~%~{~A~%~}~%~%" *solved-vertices*)
       (format t "=== EDGES ===~%~{~A~%~}~%~%" *solved-edges*))
     result))

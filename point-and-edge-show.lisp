@@ -65,7 +65,7 @@
     (local
       (unfold1 graph visualise))))
 
-(defparameter *min-min-prod* 10000.0)
+(defparameter *min-min-prod* -10000.0)
 
 (defun unfold1 (graph visualise)
   (declare (special *trace* *area* *dot-product* *added-edges*))

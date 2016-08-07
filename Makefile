@@ -2,7 +2,7 @@ all:
 	@sbcl --load origami-lucky.asd \
 		--eval "(ql:quickload 'origami)" \
 		--eval "(compile-file \"point-and-edge-show.lisp\")" \
-		--eval "(origami/polygon-flipper::pipe-start)" < 2768.txt
+		--eval "(origami/polygon-flipper::pipe-start)" < 42.txt
 
 sandman:
 	@sbcl --noinform --noprint --load origami.asd \

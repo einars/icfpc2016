@@ -236,10 +236,11 @@
     (setf *solved-edges* upd-e)))
 
 (defun fold-vertex-over-edge (vertex edge)
-  (let ((new-vertex (first (fold-over-edge (list vertex) edge))))
-    (clone-vertex/edge vertex new-vertex)
-    (remove-vertex/edge vertex)
-    (find-bottom new-vertex)))
+  (when (not (is-vertex-edge vertex edge))
+    (let ((new-vertex (first (fold-over-edge (list vertex) edge))))
+      (clone-vertex/edge vertex new-vertex)
+      (remove-vertex/edge vertex)
+      (find-bottom new-vertex))))
 
 (defun find-solved-edges (v)
   (remove-if-not (lambda (e) (is-vertex-edge v (first e))) *solved-edges*))
@@ -271,7 +272,12 @@
 	  (let ((result (fold-vertex-over-edge vertex edge)))
 	    (when result (setf last-solve result))))))))
 
+(defun add-edge (vertex1 vertex2)
+  (push (list (make-edge vertex1 vertex2)) *solved-edges*))
+
 (defun solve-cers-or-dump ()
+  (dolist (i *cers-edges*)
+    (add-edge (first i) (second i)))
   (let ((result (solve-cers)))
     (when (or (null result) *debug*)
       (format t "~%SOLUTION: ~A~%~%" result)
@@ -342,8 +348,7 @@
       (when (member index facet)
 	(dolist (i facet)
 	  (when (and (not (member i n-indices)) (not (= i index)))
-	    (push (list (make-edge vertex (first (elt *solved-vertices* i))))
-		  *solved-edges*)))))))
+	    (add-edge vertex (first (elt *solved-vertices* i)))))))))
 
 (defun find-lonely-vertices (facets)
   (dolist (record *solved-vertices*)
@@ -367,7 +372,7 @@
     (print-positions (get-original pos-map))
     (when *debug* (dump-solution-as-problem pos-map))))
 
-(defun start (&key call-cers debug)
+(defun start (&key call-cers (debug t))
   (let ((*cers-solutions* nil)
 	(*cers-vertices* nil)
 	(*cers-edges* nil)
@@ -377,8 +382,11 @@
     (read-input)
     (setf *debug* debug)
     (when call-cers
-      (setf *cers-solutions* (archa-solve))
-      (when *debug* (format t "CERS: ~A~%" *cers-solutions*)))
+      (multiple-value-bind (solutions edges)
+	  (archa-solve)
+	(setf *cers-edges* edges)
+	(setf *cers-solutions* solutions)
+	(when *debug* (format t "CERS: ~A~%" *cers-solutions*))))
     (print-output)
     (unless call-cers
       (sb-ext:exit))))

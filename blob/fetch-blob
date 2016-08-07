@@ -1,0 +1,2 @@
+blob=084895efa9777fc0af8c8fc854f2f814b85302b6
+curl -L -H 'X-API-Key: 28-b27a5c60566badcfc5d975f3dffdb627' --compressed -H Expect: http://2016sv.icfpcontest.org/api/blob/$blob > blob.json

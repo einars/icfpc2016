@@ -1,0 +1,1 @@
+curl -H 'X-API-Key: 28-b27a5c60566badcfc5d975f3dffdb627' --compressed -H Expect: http://2016sv.icfpcontest.org/api/snapshot/list 

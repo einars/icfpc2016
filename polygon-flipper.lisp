@@ -44,20 +44,6 @@
       (destructuring-bind (point1 point2 diff) edge
 	(declare (ignore diff))
 	(graph-add-edge graph point1 point2)))
-    (dolist (vertex (graph-vertices graph))
-      (dolist (edge (graph-edges graph))
-	(let ((vertex1 (edge-vertex1 edge))
-	      (vertex2 (edge-vertex2 edge)))
-	  (when (and (zerop (vertex-signum vertex edge))
-		     (not (eq vertex vertex1))
-		     (not (eq vertex vertex2))
-		     (destructuring-bind (x1 y1) (vertex-point vertex1)
-		       (destructuring-bind (x2 y2) (vertex-point vertex2)
-			 (destructuring-bind (px py) (vertex-point vertex)
-			   (and (< x1 px x2)
-				(< y1 py y2))))))
-	    (setf (edge-vertex2 edge) vertex)
-	    (graph-add-edge graph (vertex-point vertex) (vertex-point vertex2))))))
     graph))
 
 (defun visualise-graph (graph)
@@ -107,7 +93,12 @@
 	  (vertex-adjacent-vertices vertex2)
 	  (delete vertex1 (vertex-adjacent-vertices vertex2))
 	  (graph-edges graph)
-	  (delete edge (graph-edges graph)))))
+	  (delete-if (lambda (test-edge)
+		       (with-slots ((v11 vertex1) (v12 vertex2)) edge
+			 (with-slots ((v21 vertex1) (v22 vertex2)) test-edge
+			   (or (and (eq v11 v21) (eq v12 v22))
+			       (and (eq v11 v22) (eq v12 v21))))))
+		     (graph-edges graph)))))
 
 (defun extract-skeleton-polygons ()
   (let ((graph (make-graph)))
@@ -259,7 +250,8 @@
 			     summing (dot-product (vertex- vertex2 vertex) (vertex- vertex1 vertex))))))
 
 (defun find-possible-edges (graph)
-  (let ((possible-edges nil))
+  (let ((possible-edges nil)
+	(possible-removals nil))
     (loop as edge in (graph-edges graph)
        do (let ((dangling-vertices nil))
 	    (loop as vertex in (graph-vertices graph)
@@ -279,8 +271,10 @@
 	       do (let ((vertex1 (first vertex-tail)))
 		    (loop as vertex2 in (rest vertex-tail)
 		       do (unless (eq vertex1 vertex2)
-			    (push (list vertex1 vertex2) possible-edges)))))))
-    possible-edges))
+			    (push (list vertex1 vertex2) possible-edges)))))
+	    (when possible-edges
+	      (push edge possible-removals))))
+    (values possible-edges possible-removals)))
 
 (defun pipe-start ()
   (ignore-errors

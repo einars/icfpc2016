@@ -195,7 +195,7 @@
 	 (member (make-point 0 1) vertices :test #'equal)
 	 (member (make-point 1 0) vertices :test #'equal)
 	 (member (make-point 1 1) vertices :test #'equal)
-	 (member-if-not #'is-outer-facet vertices))))
+	 (not (member-if-not #'is-outer-vertex vertices)))))
 
 (defun remove-outer-facet (pos-map facets)
   (let ((*solved-vertices* pos-map))

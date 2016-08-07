@@ -251,3 +251,6 @@
      summing (loop as vertex1 in (vertex-adjacent-vertices vertex)
 		summing (loop as vertex2 in (vertex-adjacent-vertices vertex)
 			     summing (dot-product (vertex- vertex2 vertex) (vertex- vertex1 vertex))))))
+
+(defun pipe-start ()
+  (origami/sandman::start :call-cers t))

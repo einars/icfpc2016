@@ -12,29 +12,39 @@
 (defun archa-solve ()
   (one-value (unfold (build-graph))))
 
-(defun unfold (graph)
+(defun unfold (graph &key (visualise nil))
   (let ((*trace*)
 	(*area* 0)
 	(*dot-product* (total-dot-product graph)))
     (declare (special *trace* *area* *dot-product*))
-    (local (unfold1 graph))))
+    (local
+      (unfold1 graph visualise))))
 
-(defun unfold1 (graph)
+(defparameter *min-min-prod* -10000.0)
+
+(defun unfold1 (graph visualise)
   (declare (special *trace* *area* *dot-product*))
-  (format t "~%======~%")
-  (visualise-graph graph)
+  #+nil(format t "~%======~%")
+  #+nil(visualise-graph graph)
   (multiple-value-bind (edge subgraph) (find-fold graph)
     (unfold2 edge subgraph graph))
   (let ((new-dot-product (total-dot-product graph)))
     (cond
       ((check-square graph)
-       (format t "~%=======~%")
-       (visualise-graph graph)
+       (when visualise
+	 (format t "~%=======~%")
+	 (visualise-graph graph))
        (reverse *trace*))
       ((< new-dot-product *dot-product*)
-       (local
+       (let ((old-product *dot-product*))
+	 (when (< new-dot-product *min-min-prod*)
+	   (setf *min-min-prod* new-dot-product)
+	   (format t "NEW DP: ~F~%" new-dot-product)
+	   (when visualise
+	     (visualise-graph graph)))
 	 (setf *dot-product* new-dot-product)
-	 (unfold1 graph)))
+	 (trail (lambda () (setf *dot-product* old-product)))
+	 (unfold1 graph visualise)))
       (t (fail)))))
 
 (defun unfold2 (edge subgraph graph)
@@ -58,15 +68,16 @@
 		do (setf (vertex-point vertex) point))))))
 
 (defun find-fold (graph)
-  (let ((max-onside (- (length (graph-vertices graph)) 2)))
+  (let ((graph-size (length (graph-vertices graph))))
     (let ((edge (any-element (graph-edges graph)))
 	  (vertex (any-element (graph-vertices graph))))
       (assert! (not (vertex-on-edge-p vertex edge)))
-      (multiple-value-bind (subgraph complete) (find-same-side-subgraph vertex edge)
-	(if (and complete
-		 (< (length subgraph) max-onside))
-	    (values edge subgraph)
-	    (fail))))))
+      (let ((vertices-on-edge (count-if (lambda (vertex1) (vertex-on-edge-p vertex1 edge)) (graph-vertices graph))))
+	(multiple-value-bind (subgraph complete) (find-same-side-subgraph vertex edge)
+	  (if (and complete
+		   (< (length subgraph) (- graph-size vertices-on-edge)))
+	      (values edge subgraph)
+	      (fail)))))))
 
 (defun find-same-side-subgraph (vertex edge)
   (let ((*subgraph* (list (list vertex)))

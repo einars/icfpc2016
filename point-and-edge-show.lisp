@@ -16,7 +16,7 @@
       nil))
 
 (defun archa-solve ()
-  (one-value (unfold (build-graph))))
+  (one-value (unfold-valid (build-graph))))
 
 (defun unfold-valid (graph &key visualise)
   (let ((valid-graph (next-valid graph)))

@@ -9,8 +9,53 @@
       (either (first list) (any-element (rest list)))
       (fail)))
 
+(defun any-combination (list)
+  (if list
+      (either (any-combination (cdr list))
+	      (cons (car list) (any-combination (cdr list))))
+      nil))
+
 (defun archa-solve ()
   (one-value (unfold (build-graph))))
+
+(defun unfold-valid (graph &key visualise)
+  (let ((valid-graph (next-valid graph)))
+    (when visualise
+      (format t "Processing graph - ~A edges~%" (length (graph-edges graph))))
+    (unfold valid-graph :visualise visualise)))
+
+(defun next-valid (graph)
+  (let ((next-graph (gen-next-graph graph)))
+    (if (valid-graph-p next-graph)
+	next-graph
+	(fail))))
+
+(defun gen-next-graph (graph)
+  (let ((*added-edges* nil))
+    (declare (special *added-edges*))
+    (let ((possible-edges (find-possible-edges graph)))
+      (let ((new-edges (any-combination possible-edges)))
+	(when new-edges
+	  (let ((added-edges nil))
+	    (dolist (pseudo-edge new-edges)
+	      (destructuring-bind (vertex1 vertex2) pseudo-edge
+		(push (graph-add-vertex-edge graph vertex1 vertex2) added-edges)))
+	    (setf *added-edges* added-edges)
+	    (trail (lambda ()
+		     (dolist (edge added-edges)
+		       (graph-remove-edge graph edge))))))
+	graph))))
+
+(defun valid-graph-p (graph)
+  (let ((duplet-count (loop as vertex in (graph-vertices graph)
+			 counting (let ((edge-count (length (vertex-adjacent-vertices vertex))))
+				    (when (< edge-count 2)
+				      (return-from valid-graph-p nil))
+				    (eql edge-count 2)))))
+    (or (eql duplet-count 0)
+	(eql duplet-count 2)
+	(eql duplet-count 4))))
+
 
 (defun unfold (graph &key (visualise nil))
   (let ((*trace*)
@@ -20,32 +65,38 @@
     (local
       (unfold1 graph visualise))))
 
-(defparameter *min-min-prod* -10000.0)
+(defparameter *min-min-prod* 10000.0)
 
 (defun unfold1 (graph visualise)
-  (declare (special *trace* *area* *dot-product*))
+  (declare (special *trace* *area* *dot-product* *added-edges*))
   #+nil(format t "~%======~%")
   #+nil(visualise-graph graph)
   (multiple-value-bind (edge subgraph) (find-fold graph)
     (unfold2 edge subgraph graph))
   (let ((new-dot-product (total-dot-product graph)))
-    (cond
-      ((check-square graph)
-       (when visualise
-	 (format t "~%=======~%")
-	 (visualise-graph graph))
-       (reverse *trace*))
-      ((< new-dot-product *dot-product*)
-       (let ((old-product *dot-product*))
-	 (when (< new-dot-product *min-min-prod*)
-	   (setf *min-min-prod* new-dot-product)
-	   (format t "NEW DP: ~F~%" new-dot-product)
-	   (when visualise
-	     (visualise-graph graph)))
-	 (setf *dot-product* new-dot-product)
-	 (trail (lambda () (setf *dot-product* old-product)))
-	 (unfold1 graph visualise)))
-      (t (fail)))))
+    (multiple-value-bind (valid square) (check-square graph)
+      (cond
+	((not valid) (fail))
+	(square
+	 (when visualise
+	   (format t "~%=======~%")
+	   (visualise-graph graph))
+	 (values (reverse *trace*)
+		 (mapcar (lambda (edge)
+			   (list (vertex-point (edge-vertex1 edge))
+				 (vertex-point (edge-vertex2 edge))))
+			 *added-edges*)))
+	((< new-dot-product *dot-product*)
+	 (let ((old-product *dot-product*))
+	   (when (< new-dot-product *min-min-prod*)
+	     (setf *min-min-prod* new-dot-product)
+	     (format t "NEW DP: ~F~%" new-dot-product)
+	     (when visualise
+	       (visualise-graph graph)))
+	   (setf *dot-product* new-dot-product)
+	   (trail (lambda () (setf *dot-product* old-product)))
+	   (unfold1 graph visualise)))
+	(t (fail))))))
 
 (defun unfold2 (edge subgraph graph)
   (declare (special *trace*))

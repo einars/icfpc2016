@@ -7,7 +7,8 @@
 	   :graph-add-vertex :graph-add-edge :graph-add-vertex-edge :graph-remove-edge :visualise-graph
 	   :vertex- :vertex+ :vertex-on-edge-p :vertex-signum :vertex-polygon-area
 	   :find-outer-path :vect-angle :vect-pseudoangle
-	   :total-dot-product :check-square))
+	   :total-dot-product :check-square
+	   :find-possible-edges))
 
 (in-package :origami/polygon-flipper)
 
@@ -88,7 +89,7 @@
 (defun graph-add-vertex-edge (graph vertex1 vertex2 &key special)
   (push vertex2 (vertex-adjacent-vertices vertex1))
   (push vertex1 (vertex-adjacent-vertices vertex2))
-  (push (make-edge :vertex1 vertex1 :vertex2 vertex2 :special special) (graph-edges graph)))
+  (car (push (make-edge :vertex1 vertex1 :vertex2 vertex2 :special special) (graph-edges graph))))
 
 (defun graph-add-edge (graph point1 point2)
   (let ((vertex1 (find point1 (graph-vertices graph) :key #'vertex-point :test #'equalp))
@@ -97,7 +98,7 @@
     (assert (not (eq vertex1 vertex2)))
     (push vertex2 (vertex-adjacent-vertices vertex1))
     (push vertex1 (vertex-adjacent-vertices vertex2))
-    (push (make-edge :vertex1 vertex1 :vertex2 vertex2) (graph-edges graph))))
+    (car (push (make-edge :vertex1 vertex1 :vertex2 vertex2) (graph-edges graph)))))
 
 (defun graph-remove-edge (graph edge)
   (with-slots (vertex1 vertex2) edge
@@ -209,13 +210,18 @@
 		      (setf rightest-low vertex)))))))
     (loop with diagl = nil and diagr = nil
        as vertex in (graph-vertices graph)
-       do (let ((lvect (vertex- vertex lowest-left))
-		(rvect (vertex- vertex rightest-low)))
-	    (when (eql 2 (dot-product lvect lvect))
+       do (let* ((lvect (vertex- vertex lowest-left))
+		 (rvect (vertex- vertex rightest-low))
+		 (llen (dot-product lvect lvect))
+		 (rlen (dot-product rvect rvect)))
+	    (when (or (> llen 2)
+		      (> rlen 2))
+	      (return-from check-square (values nil nil)))
+	    (when (eql 2 llen)
 	      (setf diagl t))
-	    (when (eql 2 (dot-product rvect rvect))
+	    (when (eql 2 rlen)
 	      (setf diagr t)))
-       finally (return (and diagl diagr)))))
+       finally (return (values t (and diagl diagr))))))
 
 (defun find-outer-path (graph)
   (let ((lowest-vertex (reduce (lambda (v1 v2)
@@ -252,7 +258,32 @@
 		summing (loop as vertex2 in (vertex-adjacent-vertices vertex)
 			     summing (dot-product (vertex- vertex2 vertex) (vertex- vertex1 vertex))))))
 
+(defun find-possible-edges (graph)
+  (let ((possible-edges nil))
+    (loop as edge in (graph-edges graph)
+       do (let ((dangling-vertices nil))
+	    (loop as vertex in (graph-vertices graph)
+	       do (with-slots (vertex1 vertex2) edge
+		    (unless (or (eq vertex vertex1)
+				(eq vertex vertex2))
+		      (when (and (vertex-on-edge-p vertex edge)
+				 (destructuring-bind (x y) (vertex-point vertex)
+				   (destructuring-bind (x1 y1) (vertex-point vertex1)
+				     (destructuring-bind (x2 y2) (vertex-point vertex2)
+				       (and (<= (* (- x x1) (- x x2)) 0)
+					    (<= (* (- y y1) (- y y2)) 0))))))
+			(push vertex dangling-vertices)
+			(push (list vertex1 vertex) possible-edges)
+			(push (list vertex vertex2) possible-edges)))))
+	    (loop as vertex-tail on dangling-vertices
+	       do (let ((vertex1 (first vertex-tail)))
+		    (loop as vertex2 in (rest vertex-tail)
+		       do (unless (eq vertex1 vertex2)
+			    (push (list vertex1 vertex2) possible-edges)))))))
+    possible-edges))
+
 (defun pipe-start ()
   (ignore-errors
     (origami/sandman::start :call-cers t))
   (sb-ext:exit))
+

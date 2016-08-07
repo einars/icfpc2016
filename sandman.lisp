@@ -15,6 +15,7 @@
 (defvar *outer-silhouette* nil)
 (defvar *silhouette-vertices* nil)
 (defvar *cers-solutions* nil)
+(defvar *debug-cers* nil)
 
 (defvar *solved-vertices* nil)
 (defvar *solved-edges* nil)
@@ -269,7 +270,7 @@
 
 (defun solve-cers-or-dump ()
   (let ((result (solve-cers)))
-    (when (null result)
+    (when (or (null result) *debug-cers*)
       (format t "VERTICES~%~A~%~%" *solved-vertices*)
       (format t "EDGES~%~{~A~%~}~%~%" *solved-edges*))
     result))
@@ -307,12 +308,14 @@
     (print-facets (remove-outer-facet pos-map (find-facets)))
     (print-positions (get-original pos-map))))
 
-(defun start (&key call-cers)
+(defun start (&key call-cers debug-cers)
   (let ((*cers-solutions* nil)
+	(*debug-cers* nil)
 	(*vertices* nil)
 	(*edges* nil))
     (read-input)
     (when call-cers
+      (setf *debug-cers* debug-cers)
       (setf *cers-solutions* (archa-solve))
       (print *cers-solutions*))
     (print-output)

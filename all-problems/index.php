@@ -1,4 +1,7 @@
+<head>
+<title>All problems</title>
 <meta charset="utf-8">
+</head>
 <style>
 table {
     border-collapse: collapse;

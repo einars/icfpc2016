@@ -10,9 +10,7 @@
       (fail)))
 
 (defun archa-solve ()
-  (multiple-value-bind (new-graph solution) (one-value (unfold (build-graph)))
-    (declare (ignore new-graph))
-    solution))
+  (one-value (unfold (build-graph))))
 
 (defun unfold (graph)
   (let ((*trace*)
@@ -23,21 +21,23 @@
 
 (defun unfold1 (graph)
   (declare (special *trace* *area* *dot-product*))
-  (format t "DP: ~F~%" (total-dot-product graph))
+  (format t "~%======~%")
+  (visualise-graph graph)
   (multiple-value-bind (edge subgraph) (find-fold graph)
-    (unfold2 edge subgraph))
-  (let ((new-area (vertex-polygon-area (find-outer-path graph)))
-	(new-dot-product (total-dot-product graph)))
-    (format t "Is square: ~A~%" (check-square graph))
+    (unfold2 edge subgraph graph))
+  (let ((new-dot-product (total-dot-product graph)))
     (cond
-      ((=  new-area 1) (values graph (reverse *trace*)))
+      ((check-square graph)
+       (format t "~%=======~%")
+       (visualise-graph graph)
+       (reverse *trace*))
       ((< new-dot-product *dot-product*)
-       (setf *area* new-area)
-       (setf *dot-product* new-dot-product)
-       (unfold1 graph))
+       (local
+	 (setf *dot-product* new-dot-product)
+	 (unfold1 graph)))
       (t (fail)))))
 
-(defun unfold2 (edge subgraph)
+(defun unfold2 (edge subgraph graph)
   (declare (special *trace*))
   (let* ((polygon (mapcar #'vertex-point subgraph))
 	 (folded-polygon (fold-over-edge polygon
@@ -45,12 +45,14 @@
 								       (vertex-point (edge-vertex2 edge))))))
     (push (list (vertex-point (edge-vertex1 edge)) (vertex-point (edge-vertex2 edge)) polygon) *trace*)
     #+nil(cerror "ok?" "Moving ~A to ~A" polygon folded-polygon)
+    #+nil(origami/polygon-flipper::connect-all graph edge)
     (loop as vertex in subgraph
        as new-point in folded-polygon
        do (setf (vertex-point vertex) new-point))
     (trail (lambda ()
 	     #+nil(cerror "ok?" "Returning ~A to ~A" folded-polygon polygon)
 	     (pop *trace*)
+	     #+nil(origami/polygon-flipper::unconnect-all graph edge)
 	     (loop as vertex in subgraph
 		as point in polygon
 		do (setf (vertex-point vertex) point))))))

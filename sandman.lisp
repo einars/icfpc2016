@@ -266,7 +266,8 @@
     (dolist (solution *cers-solutions* last-solve)
       (let ((edge (make-edge (first solution) (second solution))))
 	(dolist (vertex (third solution))
-	  (setf last-solve (fold-vertex-over-edge vertex edge)))))))
+	  (let ((result (fold-vertex-over-edge vertex edge)))
+	    (when result (setf last-solve result))))))))
 
 (defun solve-cers-or-dump ()
   (let ((result (solve-cers)))

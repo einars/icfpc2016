@@ -312,7 +312,7 @@
 
 (defun dump-solution-as-problem (pos-map)
   (format t "=== SOLUTION-AS-PROBLEM ===~%")
-  (format t "1~%4~%0 0~%1 0~%1 1~%0 1~%")
+  (format t "1~%4~%0,0~%1,0~%1,1~%0,1~%")
   (format t "~A~%" (length *solved-edges*))
   (dolist (edge *solved-edges*)
     (translate-and-format-vertex pos-map (edge-start (first edge)) " ")

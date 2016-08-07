@@ -9,6 +9,9 @@ table {
 th, td {
     padding: 4px 8px;
 }
+th {
+    text-align: left;
+}
 .r {
     text-align: right;
 }
@@ -18,6 +21,9 @@ a {
 tr.ours td {
   background-color: #dfd;
 }
+td b {
+  color: #36c;
+}
 </style>
 <?php
 
@@ -25,7 +31,18 @@ $team_id = 28;
 
 $b = json_decode(file_get_contents('../blob/blob.json'), $assoc = true);
 
-echo '<h1>All problems</h1>';
+$users = array();
+foreach($b['users'] as $u) {
+    $users[ $u['username'] ] = htmlspecialchars($u['display_name']);
+}
+
+foreach($b['leaderboard'] as $l) {
+    if ($l['score'] > 100000) {
+        $users[ $l['username'] ] = '☆ ' . $users[$l['username']];
+    }
+}
+
+printf('<h1>All %d problems</h1>', sizeof($b['problems']));
 
 echo '<table>';
 echo '<tr>
@@ -36,14 +53,18 @@ echo '<tr>
     <th>Published</th>
     <th>prob_size</th>
     <th>sol_size</th>
-    <th>perfect</th>
-    <th>imperfect</th>
+    <th>perf.</th>
+    <th>imperf.</th>
+    <th>perf bounty</th>
+    <th>imperf. bounty</th>
+    <th>auth</th>
 </tr>';
 
 $pt_total = 0;
 
 foreach($b['problems'] as $p) {
     $id = $p['problem_id'];
+    $id5 = sprintf('%05d', $p['problem_id']);
 
     if ($p['owner'] == $team_id) {
         echo '<tr class="ours">';
@@ -55,7 +76,7 @@ foreach($b['problems'] as $p) {
     $t = sprintf('../problems/t%05d.png', $id);
 
     if (file_exists($t)) {
-        printf('<img src="%s">', $t);
+        printf('<img width="50" height="50" src="%s">', $t);
     }
 
     echo '</td>';
@@ -66,10 +87,14 @@ foreach($b['problems'] as $p) {
         , $p['problem_id']
         , 'contest page'
     );
-    printf('<td><a href="%05d.txt">%s</a></td>'
-        , $p['problem_id']
-        , 'text'
-    );
+    if (file_exists("$id5.txt")) {
+        printf('<td><a href="%05d.txt">%s</a></td>'
+            , $p['problem_id']
+            , 'text'
+        );
+    } else {
+        echo '<td><span style="color:#ccc">text</span></td>';
+    }
     printf('<td>%s</td>',
         date('d.m.Y H:i', $p['publish_time'])
     );
@@ -83,11 +108,13 @@ foreach($b['problems'] as $p) {
     $n_perfect = 0;
     $n_inperfect = 0;
 
+    $imp_share = 0.0;
     foreach($p['ranking'] as $r) {
         if (sprintf('%.3f', $r['resemblance']) == '1.000') {
             $n_perfect += 1;
         } else {
             $n_inperfect += 1;
+            $imp_share += $r['resemblance'];
         }
     }
     printf('<td class="r">%s</td>',
@@ -95,6 +122,20 @@ foreach($b['problems'] as $p) {
     );
     printf('<td class="r">%s</td>',
         $n_inperfect
+    );
+
+    $bounty_perfect = $p['problem_size'] / ($n_perfect + 1 + 1);
+    $bounty_imperfect = $p['problem_size'] / ($imp_share + 0.999999);
+
+    printf('<td class="r">%d</td>'
+        , $bounty_perfect
+    );
+    printf('<td class="r">%d</td>'
+        , $bounty_imperfect
+    );
+
+    printf('<td>%s</td>',
+        isset($users[ $p['owner'] ]) ? $users[ $p['owner'] ] : 'system-' . $p['owner']
     );
 
     echo '</tr>';

@@ -19,8 +19,8 @@ global $stats;
 // 3646 congruent
 
 // define('SOLVER', './cers.bin');
-define('SOLVER', 'timeout 5 ./cers.bin');
-define('VERSION', 'v25');
+define('SOLVER', 'timeout 20 ./cers.bin');
+define('VERSION', 'v26');
 define('RMT_ID', '28');
 
 $lock_file = fopen('.lock', 'w+');
@@ -120,7 +120,7 @@ function show_numbers()
     }
     if ( $n_tried == 0) return;
 
-    printf("Solved %d out of %d: %d%% efficiency. Good job!\n", $n_solved, $n_tried, ($n_solved * 100 / ($n_solved + $n_tried)));
+    printf("Solved %d out of %d: %d%% efficiency. Good job!\n", $n_solved, ($n_solved + $n_tried), ($n_solved * 100 / ($n_solved + $n_tried)));
 }
 
 

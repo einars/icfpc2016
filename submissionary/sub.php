@@ -10,6 +10,13 @@ global $stats;
 // 3637 edge
 // 3352 edge
 // 3959 edge
+// 23 congruent
+// 519 congruent
+// 4952 congruent
+// 5220 congruent
+// 3638 congruent
+// 4165 congruent
+// 3646 congruent
 
 // define('SOLVER', './cers.bin');
 define('SOLVER', 'timeout --kill-after=10 15 ./cers.bin');
@@ -57,7 +64,7 @@ function read_new_problems()
 
             foreach($stats as $k=>$v) {
                 if ($v['solved'] && $v['md5'] == $stats[$key]['md5']) {
-                    die("The new problem, $key, is already solved as $k");
+                    echo ("Warning: the new problem, $key, is already solved as $k.");
                 }
             }
 
@@ -98,9 +105,13 @@ function solve($key, $force = false)
     $md5 = $spec['md5'];
     echo "Solving {$spec['id']}\n";
     foreach($stats as $k=>$v) {
-        if ($v['md5'] == $md5) {
+        if ($v['md5'] == $md5 && $k != $key) {
             if ($v['solved']) {
-                die("What is this heresy? $key is already solved as $k!");
+                if ($force) {
+                    echo("Heresy: $key is already solved as $k!\n");
+                } else {
+                    die("What is this heresy? $key is already solved as $k!");
+                }
             }
             $stats[$k]['tried'] = true;
             $stats[$k]['version'] = VERSION;
@@ -143,6 +154,9 @@ function solve($key, $force = false)
                     echo $sub_res;
                     die();
                 }
+
+                show_numbers();
+
             }
         }
     }

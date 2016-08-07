@@ -151,8 +151,14 @@ function solve($key, $force = false)
                     save();
                 } else {
                     echo "Submission failed, check it out:\n";
-                    echo $sub_res;
-                    die();
+                    echo $sub_res, "\n";
+                    if (strpos($sub_res, 'not mapped congruently')) {
+                        echo "Ah, that's just the congruence bug. I'll go on\n";
+                    } else if (strpos($sub_res, 'not lie on an edge')) {
+                        echo "Ah, that's just the edge bug. I'll go on\n";
+                    } else {
+                        die();
+                    }
                 }
 
                 show_numbers();

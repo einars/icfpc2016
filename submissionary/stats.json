@@ -145,9 +145,9 @@
     },
     "p19": {
         "id": 19,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00019.txt",
         "md5": "28236f4089f5662826399f728312b5f7"
     },
@@ -169,9 +169,9 @@
     },
     "p22": {
         "id": 22,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00022.txt",
         "md5": "aff13412c00d3d7d8a6353dd3a538e21"
     },
@@ -217,9 +217,9 @@
     },
     "p28": {
         "id": 28,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00028.txt",
         "md5": "1583fb3c209e3873e15ea5bb3674c8fc"
     },
@@ -337,17 +337,17 @@
     },
     "p43": {
         "id": 43,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00043.txt",
         "md5": "b5b82740cecea5d4c1c6a7141df530c9"
     },
     "p44": {
         "id": 44,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00044.txt",
         "md5": "87f20ddef8b9078ed04730d6e2a37589"
     },
@@ -361,9 +361,9 @@
     },
     "p46": {
         "id": 46,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/00046.txt",
         "md5": "08c82dfd6f1b25ed9a142c4cbd051844"
     },
@@ -425,9 +425,9 @@
     },
     "p54": {
         "id": 54,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00054.txt",
         "md5": "f7449f6062c7b4779c4607b217815dc8"
     },
@@ -473,9 +473,9 @@
     },
     "p60": {
         "id": 60,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00060.txt",
         "md5": "dc1e94b634c20ff61a109b2c49b2dc46"
     },
@@ -505,17 +505,17 @@
     },
     "p64": {
         "id": 64,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00064.txt",
         "md5": "373721a34447f9bb742ef152e8d97161"
     },
     "p65": {
         "id": 65,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00065.txt",
         "md5": "61629e2166b0ccc42ac16d7d3d69c9f0"
     },
@@ -545,9 +545,9 @@
     },
     "p69": {
         "id": 69,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00069.txt",
         "md5": "a69c83381b972517a920a1cd6d93c0d3"
     },
@@ -569,9 +569,9 @@
     },
     "p72": {
         "id": 72,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00072.txt",
         "md5": "cd596dc50578f0e61e93850fd5235ef4"
     },
@@ -593,9 +593,9 @@
     },
     "p75": {
         "id": 75,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00075.txt",
         "md5": "1d57b0b0d14de07be232f9f8b865ea86"
     },
@@ -609,9 +609,9 @@
     },
     "p77": {
         "id": 77,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00077.txt",
         "md5": "ea8f0a9c33799e5a6676e2e6b11203a1"
     },
@@ -633,9 +633,9 @@
     },
     "p80": {
         "id": 80,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00080.txt",
         "md5": "ac8ca763f9a7f3362bf54c577983e217"
     },
@@ -649,9 +649,9 @@
     },
     "p82": {
         "id": 82,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00082.txt",
         "md5": "49b5f8e223891f648b8156e3c8d3c930"
     },
@@ -705,9 +705,9 @@
     },
     "p89": {
         "id": 89,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00089.txt",
         "md5": "61160493e4295d40997a03fbc4c35530"
     },
@@ -721,9 +721,9 @@
     },
     "p91": {
         "id": 91,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00091.txt",
         "md5": "a52f5b47a5e3e6b5e272e00115778a34"
     },
@@ -737,9 +737,9 @@
     },
     "p93": {
         "id": 93,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00093.txt",
         "md5": "6802386a10699a06d9ace736095670c2"
     },
@@ -801,9 +801,9 @@
     },
     "p101": {
         "id": 101,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00101.txt",
         "md5": "36bb240ed616d3ed925d8559e3a3df9e"
     },
@@ -897,9 +897,9 @@
     },
     "p181": {
         "id": 181,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00181.txt",
         "md5": "5694d4f34e4cd1ba4dbc7981093d2a60"
     },
@@ -1073,9 +1073,9 @@
     },
     "p712": {
         "id": 712,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/00712.txt",
         "md5": "6ee4fb84328633f52fff403d9e31665e"
     },
@@ -1129,9 +1129,9 @@
     },
     "p762": {
         "id": 762,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00762.txt",
         "md5": "1f9f7ab68fb189e3f74ba01d01b4f4a6"
     },
@@ -1257,9 +1257,9 @@
     },
     "p107": {
         "id": 107,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00107.txt",
         "md5": "44383a7062f2bf34995345b212369e52"
     },
@@ -1417,9 +1417,9 @@
     },
     "p676": {
         "id": 676,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00676.txt",
         "md5": "9dc4881008fbe54520f37987fa9211ef"
     },
@@ -1633,9 +1633,9 @@
     },
     "p1080": {
         "id": 1080,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01080.txt",
         "md5": "87e4d898ea8c973d1dad1272ab60d68d"
     },
@@ -1689,25 +1689,25 @@
     },
     "p1095": {
         "id": 1095,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01095.txt",
         "md5": "a8b8478f1ff51f378e57363ebb002fed"
     },
     "p1096": {
         "id": 1096,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01096.txt",
         "md5": "82c69cd16b5ab186a451d2bbb950b852"
     },
     "p1097": {
         "id": 1097,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01097.txt",
         "md5": "3494d4377627c3a1dfba8ce969dae6ab"
     },
@@ -1785,9 +1785,9 @@
     },
     "p515": {
         "id": 515,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00515.txt",
         "md5": "31aa42b87ae1404bbaff0d0aad79db64"
     },
@@ -1905,9 +1905,9 @@
     },
     "p1107": {
         "id": 1107,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/01107.txt",
         "md5": "c0c61b2f5e4903d0ecd4535ece85876d"
     },
@@ -1961,9 +1961,9 @@
     },
     "p1136": {
         "id": 1136,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01136.txt",
         "md5": "6ab2ebb9e06003d59bdd4941f4a7a36c"
     },
@@ -1977,9 +1977,9 @@
     },
     "p1139": {
         "id": 1139,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/01139.txt",
         "md5": "ccbb3b2c24ea8d8ca9437169118d79b0"
     },
@@ -2105,9 +2105,9 @@
     },
     "p1239": {
         "id": 1239,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01239.txt",
         "md5": "bbc06d7fcbcaf96181bb4b2ec53670aa"
     },
@@ -2313,9 +2313,9 @@
     },
     "p1109": {
         "id": 1109,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/01109.txt",
         "md5": "a29c1f10e2fadd4a30b8ec88d4464602"
     },
@@ -2513,9 +2513,9 @@
     },
     "p1408": {
         "id": 1408,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/01408.txt",
         "md5": "c075b31b0eb80af0246699312645cd62"
     },
@@ -2537,9 +2537,9 @@
     },
     "p1411": {
         "id": 1411,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01411.txt",
         "md5": "67e59249a6bd1190af2f46b9bab3cb46"
     },
@@ -2577,9 +2577,9 @@
     },
     "p1460": {
         "id": 1460,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01460.txt",
         "md5": "681f16f557b8c34ca58e17356677d19b"
     },
@@ -2753,9 +2753,9 @@
     },
     "p1023": {
         "id": 1023,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01023.txt",
         "md5": "db26faf79abf841ddec7c1048ef8ecb1"
     },
@@ -2769,9 +2769,9 @@
     },
     "p1110": {
         "id": 1110,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/01110.txt",
         "md5": "a7090b7be4797652d2eff8c81a0402e3"
     },
@@ -3009,9 +3009,9 @@
     },
     "p1611": {
         "id": 1611,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01611.txt",
         "md5": "750861cd6665583546dcf7de0c176ac3"
     },
@@ -3241,9 +3241,9 @@
     },
     "p1159": {
         "id": 1159,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01159.txt",
         "md5": "34d5cace2bfee88aa9f1668b7474f661"
     },
@@ -3305,9 +3305,9 @@
     },
     "p1440": {
         "id": 1440,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01440.txt",
         "md5": "de4fe78d9bac63e7d52bcc710b6eea8f"
     },
@@ -3385,9 +3385,9 @@
     },
     "p1711": {
         "id": 1711,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01711.txt",
         "md5": "94e3b3ebc5caed5a2c44dadb7dcca949"
     },
@@ -3441,9 +3441,9 @@
     },
     "p1769": {
         "id": 1769,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01769.txt",
         "md5": "c09cea3e51362f7bc6460b9f1810a6e7"
     },
@@ -3473,9 +3473,9 @@
     },
     "p1790": {
         "id": 1790,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01790.txt",
         "md5": "59b473e704a0e36dd10abd4c6d85afba"
     },
@@ -3497,9 +3497,9 @@
     },
     "p1833": {
         "id": 1833,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01833.txt",
         "md5": "72ac90b0351bdafe9dcf7fe43bac3cfd"
     },
@@ -3705,9 +3705,9 @@
     },
     "p1160": {
         "id": 1160,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01160.txt",
         "md5": "13c49b6156500dc65e5c08e66f246a72"
     },
@@ -3769,17 +3769,17 @@
     },
     "p1425": {
         "id": 1425,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01425.txt",
         "md5": "4a32d1dc6c0174c0b5164f33b6d30fa0"
     },
     "p1457": {
         "id": 1457,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01457.txt",
         "md5": "d0a49d1639b59988daa1a307eaae96e6"
     },
@@ -3817,9 +3817,9 @@
     },
     "p1643": {
         "id": 1643,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01643.txt",
         "md5": "f3945759e29282fa1f6ed1042f759015"
     },
@@ -3889,9 +3889,9 @@
     },
     "p1875": {
         "id": 1875,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01875.txt",
         "md5": "93f4632c41ca6276b76f4d82ac3a75ed"
     },
@@ -3905,9 +3905,9 @@
     },
     "p1938": {
         "id": 1938,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01938.txt",
         "md5": "a6b9f5a63fb111f60e2d867204b4d764"
     },
@@ -3945,9 +3945,9 @@
     },
     "p2007": {
         "id": 2007,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02007.txt",
         "md5": "4ce8e18667f61fe09eda7c39eb3767a1"
     },
@@ -3969,9 +3969,9 @@
     },
     "p2067": {
         "id": 2067,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02067.txt",
         "md5": "37e9e59ebd5d4436e0a3d732f6454369"
     },
@@ -3993,9 +3993,9 @@
     },
     "p2070": {
         "id": 2070,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02070.txt",
         "md5": "7a440930b37ac461da24b34c7a61ef14"
     },
@@ -4073,17 +4073,17 @@
     },
     "p664": {
         "id": 664,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00664.txt",
         "md5": "62ab74a2adb4d4330ea891277e52ac91"
     },
     "p682": {
         "id": 682,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00682.txt",
         "md5": "df6b0417abfa582924c4de026c3d1403"
     },
@@ -4105,9 +4105,9 @@
     },
     "p832": {
         "id": 832,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00832.txt",
         "md5": "0bb0949d4bb74759e2ee48818fc8ebe5"
     },
@@ -4273,9 +4273,9 @@
     },
     "p1644": {
         "id": 1644,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01644.txt",
         "md5": "acc97a0a8f012a7d52c16b237bd8be7c"
     },
@@ -4337,17 +4337,17 @@
     },
     "p1885": {
         "id": 1885,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01885.txt",
         "md5": "23d90315f51898611fd41bbd1727161d"
     },
     "p1942": {
         "id": 1942,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01942.txt",
         "md5": "25f8cf440709a51fef883a036dc2a163"
     },
@@ -4441,9 +4441,9 @@
     },
     "p2102": {
         "id": 2102,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02102.txt",
         "md5": "57011141d5495b95d7d0a2f1e2d18edb"
     },
@@ -4625,9 +4625,9 @@
     },
     "p1027": {
         "id": 1027,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01027.txt",
         "md5": "926b5384a7acf4501e9d38b1a54b8efa"
     },
@@ -4697,9 +4697,9 @@
     },
     "p1419": {
         "id": 1419,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01419.txt",
         "md5": "ea5d9a81b9dc6e6823c96f8f799d5c80"
     },
@@ -4713,9 +4713,9 @@
     },
     "p1490": {
         "id": 1490,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01490.txt",
         "md5": "30504111fa06d999d322c02224f8b646"
     },
@@ -4737,9 +4737,9 @@
     },
     "p1645": {
         "id": 1645,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01645.txt",
         "md5": "9e65e28bfbf131940f26b8e97102eddd"
     },
@@ -4833,9 +4833,9 @@
     },
     "p2106": {
         "id": 2106,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02106.txt",
         "md5": "9dc219aa8ffcf1ff887f50fef9dcf5ee"
     },
@@ -5049,9 +5049,9 @@
     },
     "p367": {
         "id": 367,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00367.txt",
         "md5": "512c4d4aae88faedd66476cae48b0f95"
     },
@@ -5097,9 +5097,9 @@
     },
     "p726": {
         "id": 726,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00726.txt",
         "md5": "7c44ede39655a19cca902448079967b0"
     },
@@ -5225,9 +5225,9 @@
     },
     "p1646": {
         "id": 1646,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01646.txt",
         "md5": "ae5dbd5c94b64c6cc39386cc52787556"
     },
@@ -5393,9 +5393,9 @@
     },
     "p2238": {
         "id": 2238,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02238.txt",
         "md5": "dc8523cb3ca3d33a03352680829631e5"
     },
@@ -5561,9 +5561,9 @@
     },
     "p685": {
         "id": 685,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00685.txt",
         "md5": "4e0992c226dc75945ecf8b82baa504e0"
     },
@@ -5665,9 +5665,9 @@
     },
     "p1465": {
         "id": 1465,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01465.txt",
         "md5": "09940e2bbe927184166b53ae18cba446"
     },
@@ -5745,9 +5745,9 @@
     },
     "p1947": {
         "id": 1947,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01947.txt",
         "md5": "c0206e3ac837e7ac06bf85e811afa9d5"
     },
@@ -5769,17 +5769,17 @@
     },
     "p2090": {
         "id": 2090,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02090.txt",
         "md5": "35b2d4815c07df04875bd06d8040a40c"
     },
     "p2104": {
         "id": 2104,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02104.txt",
         "md5": "000f256348082a917d54a6f314ae6478"
     },
@@ -5953,9 +5953,9 @@
     },
     "p2415": {
         "id": 2415,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/02415.txt",
         "md5": "f0cc92340ce515162d2cda0a4a983b9b"
     },
@@ -6057,9 +6057,9 @@
     },
     "p729": {
         "id": 729,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00729.txt",
         "md5": "c584fae5554b4f0af820ec6a59f09d38"
     },
@@ -6129,9 +6129,9 @@
     },
     "p1423": {
         "id": 1423,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01423.txt",
         "md5": "96dcac70054953959ae39278190078ee"
     },
@@ -6177,9 +6177,9 @@
     },
     "p1648": {
         "id": 1648,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01648.txt",
         "md5": "b5e101c8591cae9ec5fc7af4fdd03c5f"
     },
@@ -6305,9 +6305,9 @@
     },
     "p2333": {
         "id": 2333,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02333.txt",
         "md5": "6d321f21c7febcd8b5e40668f375d1c9"
     },
@@ -6377,9 +6377,9 @@
     },
     "p2474": {
         "id": 2474,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02474.txt",
         "md5": "fb3e540c20b6b919f377093b6d070ed5"
     },
@@ -6393,9 +6393,9 @@
     },
     "p2496": {
         "id": 2496,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02496.txt",
         "md5": "7b59b02cbf9f4167b9bff8743cd91777"
     },
@@ -6529,9 +6529,9 @@
     },
     "p360": {
         "id": 360,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00360.txt",
         "md5": "fd8809395d5a4891cb850d136a8c13c0"
     },
@@ -6681,9 +6681,9 @@
     },
     "p1950": {
         "id": 1950,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01950.txt",
         "md5": "99cf96eb0ce883bd3895c1bb51cffe61"
     },
@@ -6705,17 +6705,17 @@
     },
     "p2093": {
         "id": 2093,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02093.txt",
         "md5": "c03d464778d45504bfce0e8fb4e88ac7"
     },
     "p2191": {
         "id": 2191,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02191.txt",
         "md5": "3bee3c8d586d89c897f58176e491192f"
     },
@@ -6849,9 +6849,9 @@
     },
     "p2499": {
         "id": 2499,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02499.txt",
         "md5": "f789a147e2d10c64423e4adae07defcf"
     },
@@ -6977,9 +6977,9 @@
     },
     "p2569": {
         "id": 2569,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02569.txt",
         "md5": "d59b3842e5968f5c666588af87aff9d1"
     },
@@ -7161,9 +7161,9 @@
     },
     "p1629": {
         "id": 1629,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01629.txt",
         "md5": "2a9f3e70ff774bd3b9cb4ee73824f618"
     },
@@ -7241,17 +7241,17 @@
     },
     "p2211": {
         "id": 2211,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02211.txt",
         "md5": "d0513ea39e6a98c6b667b4c26b25e5aa"
     },
     "p2254": {
         "id": 2254,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02254.txt",
         "md5": "d21cc19532d787f8d0f1e3783291eab6"
     },
@@ -7281,9 +7281,9 @@
     },
     "p2354": {
         "id": 2354,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02354.txt",
         "md5": "62aed591ab8a6036daf726e2237df9e0"
     },
@@ -7433,9 +7433,9 @@
     },
     "p2625": {
         "id": 2625,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02625.txt",
         "md5": "3a12543154523cd4199720245076df20"
     },
@@ -7489,9 +7489,9 @@
     },
     "p2672": {
         "id": 2672,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02672.txt",
         "md5": "2942a137361e8e02ae21635ff58822af"
     },
@@ -7537,9 +7537,9 @@
     },
     "p2715": {
         "id": 2715,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02715.txt",
         "md5": "33e419ef425fd117e6412c1e718e0f31"
     },
@@ -7609,9 +7609,9 @@
     },
     "p365": {
         "id": 365,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00365.txt",
         "md5": "ba39957b994efad0c3088f0a289d6dbd"
     },
@@ -7697,17 +7697,17 @@
     },
     "p1596": {
         "id": 1596,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/01596.txt",
         "md5": "431e896088e90e24e25c79e988692499"
     },
     "p1630": {
         "id": 1630,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01630.txt",
         "md5": "62f20a5af1c394ccc0e90749f45fe086"
     },
@@ -7737,9 +7737,9 @@
     },
     "p1907": {
         "id": 1907,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01907.txt",
         "md5": "e411836777228f06bed8bc8019c4b67f"
     },
@@ -7857,9 +7857,9 @@
     },
     "p2469": {
         "id": 2469,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02469.txt",
         "md5": "5fe4ead6a5d37d849f975f11f7a0f0f5"
     },
@@ -7897,9 +7897,9 @@
     },
     "p2522": {
         "id": 2522,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02522.txt",
         "md5": "a919d67428ba44e08f2cfd8e18b6462b"
     },
@@ -7929,9 +7929,9 @@
     },
     "p2619": {
         "id": 2619,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02619.txt",
         "md5": "a2c8b98c8fa6cd26f09affa3bc0c03c4"
     },
@@ -8145,9 +8145,9 @@
     },
     "p578": {
         "id": 578,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00578.txt",
         "md5": "bc414199854e15abdbb95337cfab9703"
     },
@@ -8201,9 +8201,9 @@
     },
     "p1437": {
         "id": 1437,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01437.txt",
         "md5": "396447090ae4999d778b264ead45522b"
     },
@@ -8377,9 +8377,9 @@
     },
     "p2470": {
         "id": 2470,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02470.txt",
         "md5": "70843e247e6ee43c336867dc5234fb3b"
     },
@@ -8393,17 +8393,17 @@
     },
     "p2524": {
         "id": 2524,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02524.txt",
         "md5": "a38374effafd31cafc444c8121c2648c"
     },
     "p2544": {
         "id": 2544,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02544.txt",
         "md5": "58408bd2b2d4ecbd6b44d3b785237ea9"
     },
@@ -8601,17 +8601,17 @@
     },
     "p2903": {
         "id": 2903,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02903.txt",
         "md5": "4ac3d9a7ec60dbb61fb4a47e8a2ff531"
     },
     "p2910": {
         "id": 2910,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02910.txt",
         "md5": "ddca13ad34098ee482f35bb6be11d549"
     },
@@ -8641,9 +8641,9 @@
     },
     "p2968": {
         "id": 2968,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02968.txt",
         "md5": "c65ac4f1cf5f6ea31ceb424b11cf2524"
     },
@@ -8753,9 +8753,9 @@
     },
     "p1444": {
         "id": 1444,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01444.txt",
         "md5": "f5dc8c7d9a40319c9f091003d8dc7c76"
     },
@@ -8841,9 +8841,9 @@
     },
     "p2220": {
         "id": 2220,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02220.txt",
         "md5": "dc3b11bce595e8610b2eb072763cca5a"
     },
@@ -8961,9 +8961,9 @@
     },
     "p2718": {
         "id": 2718,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02718.txt",
         "md5": "1e33479f894c875f1c68c1c7ed5da425"
     },
@@ -9057,9 +9057,9 @@
     },
     "p2878": {
         "id": 2878,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/02878.txt",
         "md5": "40c029a0e6dd5f01a2cffea44ce1b325"
     },
@@ -9153,9 +9153,9 @@
     },
     "p3146": {
         "id": 3146,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03146.txt",
         "md5": "bf0f291d4d22e1c1b64e32e0a68d5105"
     },
@@ -9177,17 +9177,17 @@
     },
     "p3177": {
         "id": 3177,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03177.txt",
         "md5": "0c6dadb3869f03212eb55f269aee2c44"
     },
     "p3179": {
         "id": 3179,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03179.txt",
         "md5": "d41a6625d10a4ed982a8c3a62e732ab1"
     },
@@ -9209,9 +9209,9 @@
     },
     "p3182": {
         "id": 3182,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03182.txt",
         "md5": "6ec9d945ba9d0182d80f65786a1ee2aa"
     },
@@ -9233,9 +9233,9 @@
     },
     "p3190": {
         "id": 3190,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03190.txt",
         "md5": "7398446c7090e356bdcf28e4c811f987"
     },
@@ -9265,9 +9265,9 @@
     },
     "p739": {
         "id": 739,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00739.txt",
         "md5": "416525ab4f7cb12b85c2072697828177"
     },
@@ -9361,9 +9361,9 @@
     },
     "p1959": {
         "id": 1959,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01959.txt",
         "md5": "fd2b69d88a412882ca4f44572ae28fc1"
     },
@@ -9393,9 +9393,9 @@
     },
     "p2261": {
         "id": 2261,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02261.txt",
         "md5": "d9ae3c2038cd38a967f5bb81dfbcfac3"
     },
@@ -9425,9 +9425,9 @@
     },
     "p2413": {
         "id": 2413,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02413.txt",
         "md5": "e5552f85d605bc62237fd52f7afeaf47"
     },
@@ -9441,9 +9441,9 @@
     },
     "p2475": {
         "id": 2475,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02475.txt",
         "md5": "f7bb3b218cba17e281c1b540dee0656c"
     },
@@ -9481,9 +9481,9 @@
     },
     "p2630": {
         "id": 2630,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02630.txt",
         "md5": "3d3cc44ed5a5c73edca21f0d64fde729"
     },
@@ -9545,9 +9545,9 @@
     },
     "p2836": {
         "id": 2836,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02836.txt",
         "md5": "6b9255490bdf066c4d443080f2447cce"
     },
@@ -9569,9 +9569,9 @@
     },
     "p3130": {
         "id": 3130,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03130.txt",
         "md5": "60c71dbe214ee2bb820231d01a231349"
     },
@@ -9601,9 +9601,9 @@
     },
     "p3193": {
         "id": 3193,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03193.txt",
         "md5": "07a2cb2799b793ff6919d1ff89000953"
     },
@@ -9617,9 +9617,9 @@
     },
     "p3249": {
         "id": 3249,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03249.txt",
         "md5": "5ed34209644ebdf3152a518ddb446ed6"
     },
@@ -9649,9 +9649,9 @@
     },
     "p3286": {
         "id": 3286,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03286.txt",
         "md5": "f53b129c23df021d487414a4b5313144"
     },
@@ -9753,17 +9753,17 @@
     },
     "p3396": {
         "id": 3396,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/03396.txt",
         "md5": "d5680241fdfbb6c3883ad55014ecba52"
     },
     "p3397": {
         "id": 3397,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03397.txt",
         "md5": "7f16d67fd3e17fa64ff95fed80c47b28"
     },
@@ -9849,9 +9849,9 @@
     },
     "p741": {
         "id": 741,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00741.txt",
         "md5": "5eb3ea78a69fd0a667cdfec9db34720f"
     },
@@ -9889,9 +9889,9 @@
     },
     "p1474": {
         "id": 1474,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01474.txt",
         "md5": "e814049b4c3b62e5ad929b606c7b1c63"
     },
@@ -9905,9 +9905,9 @@
     },
     "p1600": {
         "id": 1600,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/01600.txt",
         "md5": "11e692a07bd641d1b74c3c2caea3bd3b"
     },
@@ -9953,9 +9953,9 @@
     },
     "p2110": {
         "id": 2110,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02110.txt",
         "md5": "b3e0b220f7866de38a70fce0bbecb222"
     },
@@ -10161,9 +10161,9 @@
     },
     "p3199": {
         "id": 3199,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03199.txt",
         "md5": "d6a0454ff597cd127ac7d07dfbcb9f9e"
     },
@@ -10177,9 +10177,9 @@
     },
     "p3272": {
         "id": 3272,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03272.txt",
         "md5": "6efe45d1a27a5842266206cf4c7a9885"
     },
@@ -10193,9 +10193,9 @@
     },
     "p3369": {
         "id": 3369,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/03369.txt",
         "md5": "274f23d8eb32352d6e878807ae4951b2"
     },
@@ -10209,9 +10209,9 @@
     },
     "p3400": {
         "id": 3400,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03400.txt",
         "md5": "b7b9e1bf2b7b8d1192c52f3a36e82904"
     },
@@ -10265,9 +10265,9 @@
     },
     "p3528": {
         "id": 3528,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/03528.txt",
         "md5": "8228b798f1aac3b0d9d54c63d0692ac3"
     },
@@ -10289,9 +10289,9 @@
     },
     "p3546": {
         "id": 3546,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03546.txt",
         "md5": "88e2e7086fa4a7823773af0c5373a8ed"
     },
@@ -10337,9 +10337,9 @@
     },
     "p3578": {
         "id": 3578,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03578.txt",
         "md5": "2618de8fcb4d4d77ca1ebfb5085c9ae2"
     },
@@ -10465,9 +10465,9 @@
     },
     "p1426": {
         "id": 1426,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01426.txt",
         "md5": "4b0b95d2a6113717259d4904765bdc96"
     },
@@ -10513,9 +10513,9 @@
     },
     "p1725": {
         "id": 1725,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01725.txt",
         "md5": "7720d45440bd81a5d40024ad77561644"
     },
@@ -10577,9 +10577,9 @@
     },
     "p2420": {
         "id": 2420,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02420.txt",
         "md5": "d1fc9c801bb71969096c18c75a7c917b"
     },
@@ -10657,9 +10657,9 @@
     },
     "p2825": {
         "id": 2825,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02825.txt",
         "md5": "dcb4491d0795b3c868db9da88ea20f2a"
     },
@@ -10761,9 +10761,9 @@
     },
     "p3281": {
         "id": 3281,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03281.txt",
         "md5": "56d45287977282bdf3b81bdad6d3dfab"
     },
@@ -10793,9 +10793,9 @@
     },
     "p3401": {
         "id": 3401,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03401.txt",
         "md5": "5232f8e7e1c2ef81769db47a22286f6b"
     },
@@ -10809,17 +10809,17 @@
     },
     "p3565": {
         "id": 3565,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03565.txt",
         "md5": "ab3e877099f17fa942a4a5d5f1e2c763"
     },
     "p3588": {
         "id": 3588,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03588.txt",
         "md5": "1e47111124a5d79346e968ff9aae605f"
     },
@@ -10841,9 +10841,9 @@
     },
     "p3706": {
         "id": 3706,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03706.txt",
         "md5": "f16b71cceb6804b2f604315f22437834"
     },
@@ -10977,9 +10977,9 @@
     },
     "p3852": {
         "id": 3852,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03852.txt",
         "md5": "4ab45a63d8d67f010f9a868ac384e986"
     },
@@ -11009,9 +11009,9 @@
     },
     "p3871": {
         "id": 3871,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03871.txt",
         "md5": "c7fd1595f6f539cb089cef8d9b74805c"
     },
@@ -11073,9 +11073,9 @@
     },
     "p1420": {
         "id": 1420,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01420.txt",
         "md5": "849fbea5246dd1827c9b3ba66985acf2"
     },
@@ -11113,9 +11113,9 @@
     },
     "p1726": {
         "id": 1726,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01726.txt",
         "md5": "762e3d364c2e928aeeb0a876b5dc0603"
     },
@@ -11137,17 +11137,17 @@
     },
     "p2120": {
         "id": 2120,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02120.txt",
         "md5": "b4d11dc60bd319886926a488d1977cae"
     },
     "p2265": {
         "id": 2265,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02265.txt",
         "md5": "9203e3a7e66bb175e2d88ce3bee2b5ac"
     },
@@ -11265,9 +11265,9 @@
     },
     "p2868": {
         "id": 2868,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02868.txt",
         "md5": "50ce723e1fdad6286c805fb6d3f09b14"
     },
@@ -11369,9 +11369,9 @@
     },
     "p3402": {
         "id": 3402,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03402.txt",
         "md5": "503c51c4e012ba27246a27b601475330"
     },
@@ -11393,9 +11393,9 @@
     },
     "p3707": {
         "id": 3707,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03707.txt",
         "md5": "eb50329ccd85ebb298c7b46d020c1d66"
     },
@@ -11417,17 +11417,17 @@
     },
     "p3780": {
         "id": 3780,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/03780.txt",
         "md5": "197123c15ab0217de9f21e10048b632a"
     },
     "p3795": {
         "id": 3795,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03795.txt",
         "md5": "f211e64dad48059552ba05a67141c73f"
     },
@@ -11521,9 +11521,9 @@
     },
     "p3973": {
         "id": 3973,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03973.txt",
         "md5": "41a71b4c370450e9d376ee5fa79feb74"
     },
@@ -11577,9 +11577,9 @@
     },
     "p4077": {
         "id": 4077,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04077.txt",
         "md5": "0428190e364c5b2204a9704228c4b582"
     },
@@ -11633,9 +11633,9 @@
     },
     "p4105": {
         "id": 4105,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04105.txt",
         "md5": "1c4639463f0a2cb43ec1ea8ea8e239f8"
     },
@@ -11689,9 +11689,9 @@
     },
     "p1434": {
         "id": 1434,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01434.txt",
         "md5": "5d3f2b19b1fc33ff9ee235b441e5b9d9"
     },
@@ -11737,9 +11737,9 @@
     },
     "p1987": {
         "id": 1987,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01987.txt",
         "md5": "093b13015a8bb8881660ee163614515f"
     },
@@ -11817,17 +11817,17 @@
     },
     "p2828": {
         "id": 2828,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02828.txt",
         "md5": "8216682fdac8ab811064bb0eb9e95374"
     },
     "p2829": {
         "id": 2829,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02829.txt",
         "md5": "2ea351b98c2fa04173b663fba954bad5"
     },
@@ -11897,9 +11897,9 @@
     },
     "p3152": {
         "id": 3152,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03152.txt",
         "md5": "6adfcf68cce40649443ea906fe96a188"
     },
@@ -11969,17 +11969,17 @@
     },
     "p3622": {
         "id": 3622,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03622.txt",
         "md5": "0f4a840266e4f30632df9a02d2f9c9bd"
     },
     "p3636": {
         "id": 3636,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03636.txt",
         "md5": "75922f15470838c5b75b02ae6b5833a7"
     },
@@ -12041,9 +12041,9 @@
     },
     "p3867": {
         "id": 3867,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03867.txt",
         "md5": "3f5b7e1ecc5ed24a0b3e6c6d7d63e251"
     },
@@ -12057,17 +12057,17 @@
     },
     "p3949": {
         "id": 3949,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03949.txt",
         "md5": "d9545f8a8c9a4764c814c3b3013f8565"
     },
     "p3955": {
         "id": 3955,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/03955.txt",
         "md5": "09165890fecaa4bb34cdb8d1f8c0faa1"
     },
@@ -12097,9 +12097,9 @@
     },
     "p4029": {
         "id": 4029,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04029.txt",
         "md5": "53eb6c7d8a9e95284f78580c72ccf4e9"
     },
@@ -12313,9 +12313,9 @@
     },
     "p1638": {
         "id": 1638,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01638.txt",
         "md5": "055a2fbea922299eb88e6ea7d7bccfa0"
     },
@@ -12329,9 +12329,9 @@
     },
     "p1728": {
         "id": 1728,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01728.txt",
         "md5": "0b8abb6ad0b72f9072f53abe1e0ea2d1"
     },
@@ -12425,17 +12425,17 @@
     },
     "p2895": {
         "id": 2895,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02895.txt",
         "md5": "02021d61c727319c05cbff324c89694e"
     },
     "p2917": {
         "id": 2917,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/02917.txt",
         "md5": "f87707d020452b89480a4d35e9e36cb3"
     },
@@ -12457,9 +12457,9 @@
     },
     "p3072": {
         "id": 3072,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03072.txt",
         "md5": "f472ac99a8d0b91f17488cd25455075a"
     },
@@ -12489,9 +12489,9 @@
     },
     "p3303": {
         "id": 3303,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03303.txt",
         "md5": "40819a18838ac03c4c0b17f69270f15e"
     },
@@ -12633,9 +12633,9 @@
     },
     "p3984": {
         "id": 3984,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03984.txt",
         "md5": "6a36e72a8b2a83ea362dae609c6f304d"
     },
@@ -12665,17 +12665,17 @@
     },
     "p4088": {
         "id": 4088,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04088.txt",
         "md5": "81da69373ec302867dfc14095430de19"
     },
     "p4112": {
         "id": 4112,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04112.txt",
         "md5": "3d8a606d2a87ad7f8996549cba8239ee"
     },
@@ -12801,9 +12801,9 @@
     },
     "p4444": {
         "id": 4444,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04444.txt",
         "md5": "2000bd77a250b874fbe47bbe5f211982"
     },
@@ -12913,9 +12913,9 @@
     },
     "p1991": {
         "id": 1991,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01991.txt",
         "md5": "531431a9c1e44afb0dfbe33e26755493"
     },
@@ -13017,17 +13017,17 @@
     },
     "p2918": {
         "id": 2918,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02918.txt",
         "md5": "e779706115bdd25780b074803a8f8a4a"
     },
     "p3113": {
         "id": 3113,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03113.txt",
         "md5": "0cd01e18ea3cbbf809719c54fbb55013"
     },
@@ -13073,9 +13073,9 @@
     },
     "p3378": {
         "id": 3378,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/03378.txt",
         "md5": "16295b31d68bb3acb6330d39383067b4"
     },
@@ -13137,9 +13137,9 @@
     },
     "p3768": {
         "id": 3768,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03768.txt",
         "md5": "f777ecbb2bca67047c823d4c04a31610"
     },
@@ -13153,25 +13153,25 @@
     },
     "p3841": {
         "id": 3841,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03841.txt",
         "md5": "4719879cfb2df65fb4aca595497f4523"
     },
     "p3848": {
         "id": 3848,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03848.txt",
         "md5": "e4184e238c4835c8627750fb78d55bb0"
     },
     "p3897": {
         "id": 3897,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03897.txt",
         "md5": "0bd167112ec3ebcc7ea3fb7484e12857"
     },
@@ -13185,9 +13185,9 @@
     },
     "p3957": {
         "id": 3957,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/03957.txt",
         "md5": "ffa2d097c97deb9254806d2e0e036dd3"
     },
@@ -13209,33 +13209,33 @@
     },
     "p4010": {
         "id": 4010,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04010.txt",
         "md5": "10c4e726a71d390453ba78af3e778ef7"
     },
     "p4031": {
         "id": 4031,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04031.txt",
         "md5": "1d5de0b9016280453782eff20057b647"
     },
     "p4157": {
         "id": 4157,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04157.txt",
         "md5": "2b363990bee5941aa9aa044406d3babd"
     },
     "p4212": {
         "id": 4212,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04212.txt",
         "md5": "0ffed5a8f4ba84812d0a31eabee3a1ec"
     },
@@ -13297,9 +13297,9 @@
     },
     "p4383": {
         "id": 4383,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04383.txt",
         "md5": "c3f15d3aace9014c77e9b1fe27929f95"
     },
@@ -13337,9 +13337,9 @@
     },
     "p4472": {
         "id": 4472,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04472.txt",
         "md5": "a4748e8c3d2071374d9456e845fc4637"
     },
@@ -13401,9 +13401,9 @@
     },
     "p4550": {
         "id": 4550,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04550.txt",
         "md5": "76f850411cb145f27356bb6ce0dc680a"
     },
@@ -13417,9 +13417,9 @@
     },
     "p4572": {
         "id": 4572,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04572.txt",
         "md5": "a7cffa510e938314dad85a63b028ee58"
     },
@@ -13529,9 +13529,9 @@
     },
     "p1730": {
         "id": 1730,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01730.txt",
         "md5": "5547554911ec86944ccf19cf1e003686"
     },
@@ -13545,9 +13545,9 @@
     },
     "p2124": {
         "id": 2124,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02124.txt",
         "md5": "745ad5d7b3649ffaf7a5d3fa29d21702"
     },
@@ -13641,17 +13641,17 @@
     },
     "p3155": {
         "id": 3155,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03155.txt",
         "md5": "9c0fe5b8e67ca68ab0574b20f3b54c9e"
     },
     "p3194": {
         "id": 3194,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03194.txt",
         "md5": "847996ebcde92033b6e6932de627c5ae"
     },
@@ -13673,9 +13673,9 @@
     },
     "p3345": {
         "id": 3345,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03345.txt",
         "md5": "0f1e84b297085c1a04b859d7764271de"
     },
@@ -13721,9 +13721,9 @@
     },
     "p3690": {
         "id": 3690,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03690.txt",
         "md5": "043dc33ee7ccbc9b415b1c30cd5cfc73"
     },
@@ -13769,9 +13769,9 @@
     },
     "p3846": {
         "id": 3846,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03846.txt",
         "md5": "dd6503537f9d714ec264d9d7849f51ea"
     },
@@ -13817,9 +13817,9 @@
     },
     "p4032": {
         "id": 4032,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04032.txt",
         "md5": "740e99a10eed6d4de70928aa0a4c883e"
     },
@@ -13953,9 +13953,9 @@
     },
     "p4599": {
         "id": 4599,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04599.txt",
         "md5": "4c5fd0dae6c7266069f8ef7d2ec58b04"
     },
@@ -13993,9 +13993,9 @@
     },
     "p4656": {
         "id": 4656,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04656.txt",
         "md5": "813233cb6ae72c1ed7c51356bd4fc2c4"
     },
@@ -14041,9 +14041,9 @@
     },
     "p4788": {
         "id": 4788,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/04788.txt",
         "md5": "1d4bdc68173f269bc7acbf3acaf5281f"
     },
@@ -14073,9 +14073,9 @@
     },
     "p4816": {
         "id": 4816,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04816.txt",
         "md5": "725ad4990e0f6cde9c63286692b2fb7a"
     },
@@ -14153,9 +14153,9 @@
     },
     "p1664": {
         "id": 1664,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01664.txt",
         "md5": "481a948c7381ba7ce3e87da0158519c1"
     },
@@ -14249,9 +14249,9 @@
     },
     "p3151": {
         "id": 3151,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03151.txt",
         "md5": "3efadb61e672250d01858a8f88e05515"
     },
@@ -14297,9 +14297,9 @@
     },
     "p3549": {
         "id": 3549,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03549.txt",
         "md5": "bc2e8796dae7b1e71cb62e048a3a72aa"
     },
@@ -14329,9 +14329,9 @@
     },
     "p3668": {
         "id": 3668,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03668.txt",
         "md5": "cdda0ab46408984499e43b8f168d4028"
     },
@@ -14489,9 +14489,9 @@
     },
     "p4384": {
         "id": 4384,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04384.txt",
         "md5": "ed506e17f85ad4c3dcfd87d976b52bed"
     },
@@ -14561,9 +14561,9 @@
     },
     "p4657": {
         "id": 4657,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04657.txt",
         "md5": "cb5dd26d6c968a1bc8b3f3c4e333dae8"
     },
@@ -14625,9 +14625,9 @@
     },
     "p4874": {
         "id": 4874,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04874.txt",
         "md5": "38d067053ff5f831677c8b63d739fd14"
     },
@@ -14665,9 +14665,9 @@
     },
     "p4906": {
         "id": 4906,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04906.txt",
         "md5": "76b3c0f31bffb7b45be295e0dba5e5a1"
     },
@@ -14785,9 +14785,9 @@
     },
     "p1733": {
         "id": 1733,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01733.txt",
         "md5": "af4dc666efd6947a085171b09b8f9e56"
     },
@@ -14857,17 +14857,17 @@
     },
     "p2921": {
         "id": 2921,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02921.txt",
         "md5": "ea3629a028619bea290f2820495c17a2"
     },
     "p3036": {
         "id": 3036,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03036.txt",
         "md5": "4e0992c226dc75945ecf8b82baa504e0"
     },
@@ -14889,9 +14889,9 @@
     },
     "p3291": {
         "id": 3291,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03291.txt",
         "md5": "3e8a90d6d56295500dfbe22a42add06e"
     },
@@ -14929,9 +14929,9 @@
     },
     "p3642": {
         "id": 3642,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03642.txt",
         "md5": "a1327d4f76805cbd7f9d60982c4a3cad"
     },
@@ -14977,41 +14977,41 @@
     },
     "p3863": {
         "id": 3863,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03863.txt",
         "md5": "b4ba9c32efb231c9bd9e7c51f8531230"
     },
     "p3869": {
         "id": 3869,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/03869.txt",
         "md5": "b08ee35a4dc0c5a9d614f97b1dd108f6"
     },
     "p3901": {
         "id": 3901,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03901.txt",
         "md5": "657b1d8f85feda3aa9ee2565bb661622"
     },
     "p3962": {
         "id": 3962,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03962.txt",
         "md5": "e908c862ba73f1ddb5975f00f914067a"
     },
     "p4026": {
         "id": 4026,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04026.txt",
         "md5": "a12eea20160be5f12b40d6d9f63f87e9"
     },
@@ -15185,9 +15185,9 @@
     },
     "p4790": {
         "id": 4790,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/04790.txt",
         "md5": "603200c839df99db68dc3895cac0c465"
     },
@@ -15209,9 +15209,9 @@
     },
     "p4818": {
         "id": 4818,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04818.txt",
         "md5": "f50ef58976f11c22b29bd027fbc02f69"
     },
@@ -15241,9 +15241,9 @@
     },
     "p4909": {
         "id": 4909,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04909.txt",
         "md5": "3cac95d957f4f0f9abd2e3a579e49819"
     },
@@ -15281,9 +15281,9 @@
     },
     "p4972": {
         "id": 4972,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04972.txt",
         "md5": "ecce0d861e591abf5febdeda5c1a9410"
     },
@@ -15297,17 +15297,17 @@
     },
     "p4977": {
         "id": 4977,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04977.txt",
         "md5": "c725e82897efa5bf7bd411c85973b251"
     },
     "p4979": {
         "id": 4979,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04979.txt",
         "md5": "644c71ca3b0f9d03c068a33b38277332"
     },
@@ -15393,9 +15393,9 @@
     },
     "p1427": {
         "id": 1427,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01427.txt",
         "md5": "a164b6e956b77a2177f84720951efeb8"
     },
@@ -15489,17 +15489,17 @@
     },
     "p3176": {
         "id": 3176,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03176.txt",
         "md5": "3b7db48eb30d105819851a562ae97adb"
     },
     "p3274": {
         "id": 3274,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03274.txt",
         "md5": "3e2a48f99bb4901ecc0d7050fc59a52a"
     },
@@ -15617,9 +15617,9 @@
     },
     "p4114": {
         "id": 4114,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04114.txt",
         "md5": "6cff14cd66ceb7a2fae38411ffb23f6c"
     },
@@ -15649,9 +15649,9 @@
     },
     "p4275": {
         "id": 4275,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04275.txt",
         "md5": "ef03ac49706366715b5521ac83654401"
     },
@@ -15761,9 +15761,9 @@
     },
     "p4645": {
         "id": 4645,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04645.txt",
         "md5": "3e232ac2f774a089e679db905efb8050"
     },
@@ -15937,9 +15937,9 @@
     },
     "p5036": {
         "id": 5036,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05036.txt",
         "md5": "d265c4da11b490b5274eae0fe12bb262"
     },
@@ -16137,17 +16137,17 @@
     },
     "p3585": {
         "id": 3585,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03585.txt",
         "md5": "c71daf1dddd60e37c87ced16e7818b6b"
     },
     "p3681": {
         "id": 3681,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03681.txt",
         "md5": "d2ee4469581849fdd341ce2753f54d41"
     },
@@ -16177,9 +16177,9 @@
     },
     "p3885": {
         "id": 3885,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03885.txt",
         "md5": "2c393eff2480ba26dcd567d0dfea38c8"
     },
@@ -16209,25 +16209,25 @@
     },
     "p4036": {
         "id": 4036,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04036.txt",
         "md5": "a50c359eacb2344b0ce23daa576dd591"
     },
     "p4121": {
         "id": 4121,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04121.txt",
         "md5": "6cff14cd66ceb7a2fae38411ffb23f6c"
     },
     "p4221": {
         "id": 4221,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04221.txt",
         "md5": "ae51bde902dc8a1f77c33e7a8222d494"
     },
@@ -16241,9 +16241,9 @@
     },
     "p4281": {
         "id": 4281,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04281.txt",
         "md5": "0af1d620ad2b349e0c453467836dbaac"
     },
@@ -16353,9 +16353,9 @@
     },
     "p4651": {
         "id": 4651,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04651.txt",
         "md5": "f1f3f9701a689fd2143681afa10a1b8e"
     },
@@ -16377,17 +16377,17 @@
     },
     "p4792": {
         "id": 4792,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/04792.txt",
         "md5": "de26e199723d627da7b822d53f8945b5"
     },
     "p4820": {
         "id": 4820,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04820.txt",
         "md5": "9771bc89b643b8a18afd941ee50c3ec8"
     },
@@ -16425,9 +16425,9 @@
     },
     "p4927": {
         "id": 4927,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04927.txt",
         "md5": "c014adc9e4d7d04e29d4ccd5b9c780b6"
     },
@@ -16457,9 +16457,9 @@
     },
     "p4995": {
         "id": 4995,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04995.txt",
         "md5": "e526de1fd96dc98f899eec8f2aec73c8"
     },
@@ -16545,17 +16545,17 @@
     },
     "p5128": {
         "id": 5128,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05128.txt",
         "md5": "5e1ae9f1d42d4fb51de2f9f53349e63b"
     },
     "p5136": {
         "id": 5136,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05136.txt",
         "md5": "8d10396d58a6b4598f0f7e9332b585b1"
     },
@@ -16593,9 +16593,9 @@
     },
     "p5143": {
         "id": 5143,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05143.txt",
         "md5": "b884ffc3a8205039156cbc4fde1b0670"
     },
@@ -16609,9 +16609,9 @@
     },
     "p5152": {
         "id": 5152,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05152.txt",
         "md5": "6553a85833214328610580eaaa911de6"
     },
@@ -16633,9 +16633,9 @@
     },
     "p382": {
         "id": 382,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00382.txt",
         "md5": "bf2e243303be04d602a511024dffac6a"
     },
@@ -16665,9 +16665,9 @@
     },
     "p1448": {
         "id": 1448,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01448.txt",
         "md5": "4a980afad978fccd21cf2faf874273b0"
     },
@@ -16769,9 +16769,9 @@
     },
     "p3716": {
         "id": 3716,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03716.txt",
         "md5": "0a2f3b32716f151464eb4cf8631e09fc"
     },
@@ -16809,9 +16809,9 @@
     },
     "p3966": {
         "id": 3966,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03966.txt",
         "md5": "c2807f069aa72a5bb264e8dd955e83b6"
     },
@@ -16825,9 +16825,9 @@
     },
     "p4037": {
         "id": 4037,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04037.txt",
         "md5": "71e5801d47b3c23e0f36f220c79f0b6c"
     },
@@ -16841,9 +16841,9 @@
     },
     "p4282": {
         "id": 4282,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04282.txt",
         "md5": "6ee1aa654f453ed4aabb94ed3b96b0b4"
     },
@@ -16857,9 +16857,9 @@
     },
     "p4345": {
         "id": 4345,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04345.txt",
         "md5": "8b4c01a6d4cb0a8e3510fe5657e97278"
     },
@@ -16953,17 +16953,17 @@
     },
     "p4652": {
         "id": 4652,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04652.txt",
         "md5": "5a6cf572e979a275a32201c9caf50bb2"
     },
     "p4667": {
         "id": 4667,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04667.txt",
         "md5": "ec59d6b305bd94e9e83091eae17fc36a"
     },
@@ -17025,9 +17025,9 @@
     },
     "p4931": {
         "id": 4931,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/04931.txt",
         "md5": "a467515b3dadcce4e4fcfef6623f7603"
     },
@@ -17041,9 +17041,9 @@
     },
     "p4960": {
         "id": 4960,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04960.txt",
         "md5": "f8c9c9560ce1b233ee9af5076d9cbf7f"
     },
@@ -17081,17 +17081,17 @@
     },
     "p5042": {
         "id": 5042,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05042.txt",
         "md5": "4b669cc9ac84a2371c7721c89e470825"
     },
     "p5045": {
         "id": 5045,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05045.txt",
         "md5": "af9e79e9add54ff02901659e69df2570"
     },
@@ -17161,9 +17161,9 @@
     },
     "p5176": {
         "id": 5176,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/05176.txt",
         "md5": "3da4b0cdd6b2090a037cd38541c913a8"
     },
@@ -17217,9 +17217,9 @@
     },
     "p5241": {
         "id": 5241,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05241.txt",
         "md5": "298f86c59dd4cd0920c7603a58674081"
     },
@@ -17313,9 +17313,9 @@
     },
     "p1737": {
         "id": 1737,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01737.txt",
         "md5": "1833cdcbefc19df6e27083738a37698d"
     },
@@ -17481,9 +17481,9 @@
     },
     "p4038": {
         "id": 4038,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04038.txt",
         "md5": "24f10b377790170b2133d06ba1530ee0"
     },
@@ -17553,9 +17553,9 @@
     },
     "p4487": {
         "id": 4487,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04487.txt",
         "md5": "d0a49d1639b59988daa1a307eaae96e6"
     },
@@ -17593,9 +17593,9 @@
     },
     "p4670": {
         "id": 4670,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04670.txt",
         "md5": "ac2f1d9a91587edf09678ad0e31a1a81"
     },
@@ -17625,17 +17625,17 @@
     },
     "p4794": {
         "id": 4794,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04794.txt",
         "md5": "a9000931d6864da956bd8d14d74804ac"
     },
     "p4822": {
         "id": 4822,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04822.txt",
         "md5": "de2bb826b1f0ed51137402dc20d12c27"
     },
@@ -17713,9 +17713,9 @@
     },
     "p5044": {
         "id": 5044,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05044.txt",
         "md5": "edbe26700a5e7bc9320cfcaef862e495"
     },
@@ -17729,9 +17729,9 @@
     },
     "p5068": {
         "id": 5068,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05068.txt",
         "md5": "f6925f9510d1bd653ebf2114a5dc8d49"
     },
@@ -17777,17 +17777,17 @@
     },
     "p5175": {
         "id": 5175,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05175.txt",
         "md5": "0868f0982944f94c1dfeebccd15e32fa"
     },
     "p5179": {
         "id": 5179,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/05179.txt",
         "md5": "808b4bed15471310b219a0a66a06b8b2"
     },
@@ -17889,9 +17889,9 @@
     },
     "p5334": {
         "id": 5334,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05334.txt",
         "md5": "097257a71d73aee97517ab80a344136a"
     },
@@ -17921,9 +17921,9 @@
     },
     "p384": {
         "id": 384,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00384.txt",
         "md5": "1691b8afb293648f78d2bc4417637112"
     },
@@ -18081,17 +18081,17 @@
     },
     "p3968": {
         "id": 3968,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03968.txt",
         "md5": "4e752e9ac62eff1e93ea72440fea5e96"
     },
     "p3979": {
         "id": 3979,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03979.txt",
         "md5": "f08cbd349316d5e9ceac39632bdbd719"
     },
@@ -18105,9 +18105,9 @@
     },
     "p4302": {
         "id": 4302,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04302.txt",
         "md5": "7186637bd9db620f99d51d42798315b2"
     },
@@ -18209,9 +18209,9 @@
     },
     "p4673": {
         "id": 4673,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04673.txt",
         "md5": "901527dd45fcdf10ab81f91b05468bca"
     },
@@ -18225,9 +18225,9 @@
     },
     "p4688": {
         "id": 4688,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04688.txt",
         "md5": "2c377d1e46220b1aeaaf1184a92c219a"
     },
@@ -18329,17 +18329,17 @@
     },
     "p5069": {
         "id": 5069,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05069.txt",
         "md5": "b667bee1a14d04cf575ecd5a763f0f66"
     },
     "p5080": {
         "id": 5080,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05080.txt",
         "md5": "4004e2a843435710ec81ec4d880d4bae"
     },
@@ -18417,9 +18417,9 @@
     },
     "p5260": {
         "id": 5260,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05260.txt",
         "md5": "85253aa210e47e4351d317651cde1433"
     },
@@ -18489,9 +18489,9 @@
     },
     "p5337": {
         "id": 5337,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05337.txt",
         "md5": "951afd14f15f351ef05970ec6ac5767d"
     },
@@ -18513,9 +18513,9 @@
     },
     "p5373": {
         "id": 5373,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05373.txt",
         "md5": "47bd5c70f476e53fa735fd78b261a699"
     },
@@ -18593,17 +18593,17 @@
     },
     "p1438": {
         "id": 1438,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01438.txt",
         "md5": "6b5476e72ac13801a813a5cd55563640"
     },
     "p1739": {
         "id": 1739,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01739.txt",
         "md5": "f3670d267f1cc3b1ff2284c6f994f54a"
     },
@@ -18673,9 +18673,9 @@
     },
     "p3721": {
         "id": 3721,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03721.txt",
         "md5": "be8968c8a93c5d60fe8ca4a4683d42df"
     },
@@ -18713,9 +18713,9 @@
     },
     "p4040": {
         "id": 4040,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04040.txt",
         "md5": "ae713926a9160b68262938c89ee69db0"
     },
@@ -18761,9 +18761,9 @@
     },
     "p4392": {
         "id": 4392,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04392.txt",
         "md5": "bdff557592c3c512e4578dc582dbe4b4"
     },
@@ -18833,17 +18833,17 @@
     },
     "p4676": {
         "id": 4676,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04676.txt",
         "md5": "c329b967341973e9235e8b3cef303cf7"
     },
     "p4691": {
         "id": 4691,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04691.txt",
         "md5": "1ffefc7e562db8b6726c8a255e9e1631"
     },
@@ -18905,9 +18905,9 @@
     },
     "p4969": {
         "id": 4969,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04969.txt",
         "md5": "6038dbadadfd214eedb2b991973aa8d6"
     },
@@ -18961,9 +18961,9 @@
     },
     "p5081": {
         "id": 5081,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05081.txt",
         "md5": "22f03e4841f16306b4f070ab79cc3177"
     },
@@ -18993,9 +18993,9 @@
     },
     "p5184": {
         "id": 5184,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05184.txt",
         "md5": "3ea6ac4e81811c159e551bc1d0a88d1a"
     },
@@ -19041,9 +19041,9 @@
     },
     "p5270": {
         "id": 5270,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05270.txt",
         "md5": "aa3b7e97586009e9ea4a94b443699c59"
     },
@@ -19137,9 +19137,9 @@
     },
     "p5411": {
         "id": 5411,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05411.txt",
         "md5": "c2e328128a4bf58f6fced63677d05637"
     },
@@ -19185,9 +19185,9 @@
     },
     "p5454": {
         "id": 5454,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05454.txt",
         "md5": "2c44ca91b869965ded5208da46ffadca"
     },
@@ -19233,9 +19233,9 @@
     },
     "p387": {
         "id": 387,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00387.txt",
         "md5": "749bb7ea0036c46a16254ff352755a70"
     },
@@ -19329,9 +19329,9 @@
     },
     "p2932": {
         "id": 2932,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02932.txt",
         "md5": "7f04c5c050f4eac51767c410d5cc49a1"
     },
@@ -19369,33 +19369,33 @@
     },
     "p3920": {
         "id": 3920,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03920.txt",
         "md5": "9dbfd4aa550da54169d58765f4cd1b31"
     },
     "p3971": {
         "id": 3971,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03971.txt",
         "md5": "6386901c095b8833de165fe1660efafc"
     },
     "p3989": {
         "id": 3989,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03989.txt",
         "md5": "2e45c9795bc6df2c4c60ede32bf67b7d"
     },
     "p4041": {
         "id": 4041,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04041.txt",
         "md5": "cb34e6d0182b42858312c71b844119a4"
     },
@@ -19425,9 +19425,9 @@
     },
     "p4371": {
         "id": 4371,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04371.txt",
         "md5": "25c1b26d80d4ec4fc4c51eb703c059a0"
     },
@@ -19569,17 +19569,17 @@
     },
     "p5000": {
         "id": 5000,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05000.txt",
         "md5": "cf34930549d12972b2891e90d76d2474"
     },
     "p5050": {
         "id": 5050,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05050.txt",
         "md5": "7030eb29c780f890c61b590df3471070"
     },
@@ -19593,9 +19593,9 @@
     },
     "p5074": {
         "id": 5074,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05074.txt",
         "md5": "57dcede54688137d01f182f63d9570ca"
     },
@@ -19673,9 +19673,9 @@
     },
     "p5234": {
         "id": 5234,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05234.txt",
         "md5": "d97143c4cc3f647f5a934c1e28080c04"
     },
@@ -19689,9 +19689,9 @@
     },
     "p5301": {
         "id": 5301,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05301.txt",
         "md5": "95bfa2bf4fcdd73d7d6f73b4668b2f97"
     },
@@ -19737,9 +19737,9 @@
     },
     "p5393": {
         "id": 5393,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/05393.txt",
         "md5": "30fc050e40c79b65c1b29f5f32ab89bd"
     },
@@ -19785,17 +19785,17 @@
     },
     "p5439": {
         "id": 5439,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05439.txt",
         "md5": "622699e584c691c9b13b1229066c7586"
     },
     "p5460": {
         "id": 5460,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05460.txt",
         "md5": "eaefe4f9e1bff0dda59feecc2e7acf7b"
     },
@@ -19809,9 +19809,9 @@
     },
     "p5473": {
         "id": 5473,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05473.txt",
         "md5": "4bb52116bea8f28ef1be18e4ceee2ce4"
     },
@@ -19865,9 +19865,9 @@
     },
     "p5526": {
         "id": 5526,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05526.txt",
         "md5": "4996d942701dece1ecf0af25fedc2b01"
     },
@@ -20009,9 +20009,9 @@
     },
     "p3974": {
         "id": 3974,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03974.txt",
         "md5": "a2a1adade439b1fba99503669400bdfc"
     },
@@ -20049,9 +20049,9 @@
     },
     "p4306": {
         "id": 4306,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04306.txt",
         "md5": "dc04fb214d2df70477aad703f62edc68"
     },
@@ -20097,9 +20097,9 @@
     },
     "p4491": {
         "id": 4491,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04491.txt",
         "md5": "09940e2bbe927184166b53ae18cba446"
     },
@@ -20129,9 +20129,9 @@
     },
     "p4680": {
         "id": 4680,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04680.txt",
         "md5": "1317498b572a765d2b082eb00e3f36a5"
     },
@@ -20209,9 +20209,9 @@
     },
     "p5075": {
         "id": 5075,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/05075.txt",
         "md5": "793cef1f07b3c42a6dbdd56cfaaafba4"
     },
@@ -20233,9 +20233,9 @@
     },
     "p5115": {
         "id": 5115,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05115.txt",
         "md5": "248b4bdabb2519fcd72f4f1b6278d30a"
     },
@@ -20257,9 +20257,9 @@
     },
     "p5186": {
         "id": 5186,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05186.txt",
         "md5": "a421c3b6ea32b8751b94a22e1a25037e"
     },
@@ -20321,17 +20321,17 @@
     },
     "p5359": {
         "id": 5359,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05359.txt",
         "md5": "35072537464bbd2229b200c065a6e075"
     },
     "p5371": {
         "id": 5371,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05371.txt",
         "md5": "703d19366a3e0ce0d5c24657b5df072b"
     },
@@ -20353,9 +20353,9 @@
     },
     "p5415": {
         "id": 5415,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05415.txt",
         "md5": "dd4232948eb0fa3c32b3787877fc4da6"
     },
@@ -20385,17 +20385,17 @@
     },
     "p5482": {
         "id": 5482,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05482.txt",
         "md5": "1749891f1cbcb0ac97703d1e35210307"
     },
     "p5487": {
         "id": 5487,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/05487.txt",
         "md5": "ea0facc43e9e865841d7bac6562b93ff"
     },
@@ -20457,9 +20457,9 @@
     },
     "p5581": {
         "id": 5581,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05581.txt",
         "md5": "77d3f47c997836554c115f89c6943528"
     },
@@ -20473,9 +20473,9 @@
     },
     "p5591": {
         "id": 5591,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05591.txt",
         "md5": "86c5c0f5c0de7cf3151128b86faa823b"
     },
@@ -20569,9 +20569,9 @@
     },
     "p1443": {
         "id": 1443,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01443.txt",
         "md5": "ebfd1510160738b1bfcdd5435203f235"
     },
@@ -20641,9 +20641,9 @@
     },
     "p3924": {
         "id": 3924,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03924.txt",
         "md5": "8a0133bbd53d39f3a18b718ccc3276c0"
     },
@@ -20673,9 +20673,9 @@
     },
     "p4411": {
         "id": 4411,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04411.txt",
         "md5": "7ba9a4069df7615bf8fb2ec6c9805932"
     },
@@ -20721,9 +20721,9 @@
     },
     "p4702": {
         "id": 4702,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04702.txt",
         "md5": "38823244c29e61b32131b774447fe50e"
     },
@@ -20761,9 +20761,9 @@
     },
     "p4981": {
         "id": 4981,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04981.txt",
         "md5": "b1b7fe92d38ad0a135435cd80859b53c"
     },
@@ -20801,9 +20801,9 @@
     },
     "p5121": {
         "id": 5121,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05121.txt",
         "md5": "252b5270bc51f667ae2470101a7801c1"
     },
@@ -20825,9 +20825,9 @@
     },
     "p5174": {
         "id": 5174,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05174.txt",
         "md5": "4ddcf56b04b3edd27734c237692c8996"
     },
@@ -20945,33 +20945,33 @@
     },
     "p5494": {
         "id": 5494,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/05494.txt",
         "md5": "c6788c31d83cae31237e5931f060f14e"
     },
     "p5507": {
         "id": 5507,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05507.txt",
         "md5": "9db393d157dcc627287b51e3b004e927"
     },
     "p5509": {
         "id": 5509,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05509.txt",
         "md5": "727b19c28edc1afffb8eaff495a81588"
     },
     "p5527": {
         "id": 5527,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05527.txt",
         "md5": "0fa55a40d7b9a38ac10820808d608eb5"
     },
@@ -20985,9 +20985,9 @@
     },
     "p5563": {
         "id": 5563,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/05563.txt",
         "md5": "770c970a454c8a2da67c7274f5afa67f"
     },
@@ -21017,17 +21017,17 @@
     },
     "p5613": {
         "id": 5613,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05613.txt",
         "md5": "382609e6fbe11f1fcb45910a27e08b51"
     },
     "p5617": {
         "id": 5617,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05617.txt",
         "md5": "079c7888e7d3e433de267b9146cdfcdd"
     },
@@ -21049,9 +21049,9 @@
     },
     "p5644": {
         "id": 5644,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/05644.txt",
         "md5": "e765b67aa5048e244fadebf7b3fa4a37"
     },
@@ -21073,9 +21073,9 @@
     },
     "p5672": {
         "id": 5672,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05672.txt",
         "md5": "05b43f19ae861ced3c52331dd8ff33f9"
     },
@@ -21153,9 +21153,9 @@
     },
     "p5776": {
         "id": 5776,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05776.txt",
         "md5": "a10ca2fbfb1de9a25d49560d2967bcfd"
     },
@@ -21257,9 +21257,9 @@
     },
     "p2936": {
         "id": 2936,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02936.txt",
         "md5": "586d993cd1b2d584115f6a28ef606105"
     },
@@ -21273,9 +21273,9 @@
     },
     "p3925": {
         "id": 3925,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03925.txt",
         "md5": "889e5766f0ea04db5a874e207d98af9d"
     },
@@ -21361,9 +21361,9 @@
     },
     "p4722": {
         "id": 4722,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04722.txt",
         "md5": "f8fcf653e715a6a648a5a03db408cea7"
     },
@@ -21425,9 +21425,9 @@
     },
     "p5085": {
         "id": 5085,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05085.txt",
         "md5": "43c2cc90ba88561022ebe8f558eb1163"
     },
@@ -21449,9 +21449,9 @@
     },
     "p5160": {
         "id": 5160,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05160.txt",
         "md5": "a0318dd0ad7fc81368fbed9d4ab5d688"
     },
@@ -21521,9 +21521,9 @@
     },
     "p5351": {
         "id": 5351,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05351.txt",
         "md5": "26b78a90019cd61a941cc71d3064fbce"
     },
@@ -21569,9 +21569,9 @@
     },
     "p5484": {
         "id": 5484,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05484.txt",
         "md5": "bb4710f54d4a1073299f9074f5622928"
     },
@@ -21649,17 +21649,17 @@
     },
     "p5614": {
         "id": 5614,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05614.txt",
         "md5": "9befda6940df5ef65d54fa3306fc1d07"
     },
     "p5619": {
         "id": 5619,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05619.txt",
         "md5": "cb5460a25c5b1c60caa82464a5763cef"
     },
@@ -21673,9 +21673,9 @@
     },
     "p5637": {
         "id": 5637,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05637.txt",
         "md5": "b68cc7072de089a62c32a6330cd6750e"
     },
@@ -21697,9 +21697,9 @@
     },
     "p5745": {
         "id": 5745,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05745.txt",
         "md5": "0737004f1c2e90873af4d3e76a68aa9d"
     },
@@ -21761,9 +21761,9 @@
     },
     "p5799": {
         "id": 5799,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05799.txt",
         "md5": "a4d5ab159976232a20c284bc64040271"
     },
@@ -21833,9 +21833,9 @@
     },
     "p5824": {
         "id": 5824,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05824.txt",
         "md5": "90bb605ff3db88941288d37d9cee42ff"
     },
@@ -21881,9 +21881,9 @@
     },
     "p1392": {
         "id": 1392,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01392.txt",
         "md5": "fdc7bbe6aac2d5b19465cd6d7a1be18e"
     },
@@ -21937,9 +21937,9 @@
     },
     "p2937": {
         "id": 2937,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/02937.txt",
         "md5": "060873c9f49d5162648e77f854b276a7"
     },
@@ -21985,9 +21985,9 @@
     },
     "p4415": {
         "id": 4415,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04415.txt",
         "md5": "f7f8b83038f875255244ed055e80a519"
     },
@@ -22105,9 +22105,9 @@
     },
     "p5086": {
         "id": 5086,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05086.txt",
         "md5": "0e39aaef8e8c0b09d8adbf85d5f70bec"
     },
@@ -22193,9 +22193,9 @@
     },
     "p5362": {
         "id": 5362,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05362.txt",
         "md5": "5aff89817f2a08af2ff3eabb2182e017"
     },
@@ -22265,9 +22265,9 @@
     },
     "p5580": {
         "id": 5580,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05580.txt",
         "md5": "d0036e1d07262f5a83bb36f85e61d525"
     },
@@ -22289,9 +22289,9 @@
     },
     "p5615": {
         "id": 5615,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05615.txt",
         "md5": "428c6f129871017bf4b369d8388c1cd3"
     },
@@ -22305,25 +22305,25 @@
     },
     "p5640": {
         "id": 5640,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05640.txt",
         "md5": "37377a581006a0d3c37e994ad3805348"
     },
     "p5643": {
         "id": 5643,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05643.txt",
         "md5": "adccf1ffe2dfff6e97f9bc3b059aed95"
     },
     "p5671": {
         "id": 5671,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05671.txt",
         "md5": "88487f023df9012158f3dfff84a70929"
     },
@@ -22345,9 +22345,9 @@
     },
     "p5783": {
         "id": 5783,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05783.txt",
         "md5": "40b7e04072b12f3f55a7f6a3310af63d"
     },
@@ -22361,9 +22361,9 @@
     },
     "p5812": {
         "id": 5812,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05812.txt",
         "md5": "6b26a3b79a486f6a6ee266d83e9334ce"
     },
@@ -22377,17 +22377,17 @@
     },
     "p5833": {
         "id": 5833,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05833.txt",
         "md5": "65a688ac9cbe6cd4696b6ff52ecc921b"
     },
     "p5837": {
         "id": 5837,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/05837.txt",
         "md5": "a6899f3e201228b7d0ca05381fbb874e"
     },
@@ -22553,9 +22553,9 @@
     },
     "p1746": {
         "id": 1746,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01746.txt",
         "md5": "207c72ecd7b4701358bc0ff726fb330e"
     },
@@ -22601,17 +22601,17 @@
     },
     "p2938": {
         "id": 2938,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02938.txt",
         "md5": "04c38af0b7c9dfc879d820d37e04f224"
     },
     "p3929": {
         "id": 3929,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03929.txt",
         "md5": "2fcdf77b51f567d9307e13bd9bfa2325"
     },
@@ -22753,25 +22753,25 @@
     },
     "p5087": {
         "id": 5087,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05087.txt",
         "md5": "71a8d46c9d90586b91514e29f0d7cc49"
     },
     "p5144": {
         "id": 5144,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05144.txt",
         "md5": "6c6859fbe00fd13f24a80b03d935aae2"
     },
     "p5162": {
         "id": 5162,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05162.txt",
         "md5": "356a3f6bbbc66803d9cf8f893ee355b5"
     },
@@ -22873,9 +22873,9 @@
     },
     "p5497": {
         "id": 5497,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05497.txt",
         "md5": "5eea16e388e14302929e4d981ef8aad1"
     },
@@ -22889,9 +22889,9 @@
     },
     "p5530": {
         "id": 5530,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05530.txt",
         "md5": "fef99f16622102edb9731100ab3a67d0"
     },
@@ -22937,9 +22937,9 @@
     },
     "p5641": {
         "id": 5641,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05641.txt",
         "md5": "71b4dfde7082c0c6d9e223fb4d293032"
     },
@@ -23049,9 +23049,9 @@
     },
     "p5907": {
         "id": 5907,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05907.txt",
         "md5": "3d5815e6157d2a3cf43c601d3579f08e"
     },
@@ -23361,9 +23361,9 @@
     },
     "p4803": {
         "id": 4803,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04803.txt",
         "md5": "1460486b1ebc3dc35333d5cdf9656774"
     },
@@ -23393,9 +23393,9 @@
     },
     "p5006": {
         "id": 5006,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05006.txt",
         "md5": "136584cf5a5672edde61d257e0369ff3"
     },
@@ -23417,9 +23417,9 @@
     },
     "p5088": {
         "id": 5088,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05088.txt",
         "md5": "3309375d405adc2b9fad9eb9b0985cb4"
     },
@@ -23473,9 +23473,9 @@
     },
     "p5364": {
         "id": 5364,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05364.txt",
         "md5": "c49eb1e196699fd0629aa7751127a97d"
     },
@@ -23497,17 +23497,17 @@
     },
     "p5489": {
         "id": 5489,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05489.txt",
         "md5": "b58340ecfec72e9d39bf0f744354b8c4"
     },
     "p5498": {
         "id": 5498,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05498.txt",
         "md5": "76a5369e71f080dcbb0f2e150bc6ca6d"
     },
@@ -23593,9 +23593,9 @@
     },
     "p5865": {
         "id": 5865,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05865.txt",
         "md5": "b87072a5e28c122a62283b1644db0ac9"
     },
@@ -23609,9 +23609,9 @@
     },
     "p5884": {
         "id": 5884,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05884.txt",
         "md5": "0066ae64640b9c69df54ec98f5d4662c"
     },
@@ -23641,9 +23641,9 @@
     },
     "p5910": {
         "id": 5910,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05910.txt",
         "md5": "237d11ba2e958bed6c447b38ea931cde"
     },
@@ -23681,9 +23681,9 @@
     },
     "p5956": {
         "id": 5956,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05956.txt",
         "md5": "f282833be3af6ae6e829cf20cd896e27"
     },
@@ -23849,9 +23849,9 @@
     },
     "p991": {
         "id": 991,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/00991.txt",
         "md5": "d972e7fb909563f8549ce0ad8666cdc5"
     },
@@ -23929,9 +23929,9 @@
     },
     "p2941": {
         "id": 2941,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02941.txt",
         "md5": "dd62e9e52fa5e8b3d742951849556545"
     },
@@ -23945,17 +23945,17 @@
     },
     "p3933": {
         "id": 3933,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03933.txt",
         "md5": "0e3df71dbe79ffa35cd45f318306b759"
     },
     "p4049": {
         "id": 4049,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04049.txt",
         "md5": "ffac85c6c7ae289980582f4b621d7fbd"
     },
@@ -24001,9 +24001,9 @@
     },
     "p4563": {
         "id": 4563,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04563.txt",
         "md5": "cb00363b69b39aa960142928a9ccea39"
     },
@@ -24025,9 +24025,9 @@
     },
     "p4732": {
         "id": 4732,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04732.txt",
         "md5": "41b446e116d109563eb7464a93deb31f"
     },
@@ -24057,9 +24057,9 @@
     },
     "p4864": {
         "id": 4864,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04864.txt",
         "md5": "fcf50b3d7a12db5083e51136f64f0bd4"
     },
@@ -24105,9 +24105,9 @@
     },
     "p5164": {
         "id": 5164,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05164.txt",
         "md5": "1b79c501201d8c14393b9fcda1bcb494"
     },
@@ -24137,17 +24137,17 @@
     },
     "p5313": {
         "id": 5313,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05313.txt",
         "md5": "abebac4143b3e14675a83b53a4fe1cb3"
     },
     "p5326": {
         "id": 5326,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05326.txt",
         "md5": "441a01b8f34a1135f9bd44b6b71f9497"
     },
@@ -24161,9 +24161,9 @@
     },
     "p5365": {
         "id": 5365,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05365.txt",
         "md5": "48c44ff5cd8b546999195f4b2e2cbfe0"
     },
@@ -24177,9 +24177,9 @@
     },
     "p5450": {
         "id": 5450,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05450.txt",
         "md5": "9187db4d773d8a797266cc4c918a43ec"
     },
@@ -24209,17 +24209,17 @@
     },
     "p5589": {
         "id": 5589,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05589.txt",
         "md5": "02b1610a79cc612df1b8c97989aa4fa8"
     },
     "p5623": {
         "id": 5623,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05623.txt",
         "md5": "ce288372c2baf56e457d1ef65c3a8907"
     },
@@ -24241,25 +24241,25 @@
     },
     "p5792": {
         "id": 5792,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/05792.txt",
         "md5": "2b6f0d0c9c5368c7e7032a50b202413b"
     },
     "p5795": {
         "id": 5795,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05795.txt",
         "md5": "b88eacde332fc9898d76777232cb9336"
     },
     "p5806": {
         "id": 5806,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05806.txt",
         "md5": "642bbb5285ffdeed14345761952126bb"
     },
@@ -24273,17 +24273,17 @@
     },
     "p5852": {
         "id": 5852,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05852.txt",
         "md5": "694411a769dad6993b4ede3a245b7363"
     },
     "p5886": {
         "id": 5886,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05886.txt",
         "md5": "a5b9a926c913cfd419052ca7aed7aac9"
     },
@@ -24305,9 +24305,9 @@
     },
     "p5901": {
         "id": 5901,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05901.txt",
         "md5": "168ac2ee6b0665dc3b4f80323b941893"
     },
@@ -24321,9 +24321,9 @@
     },
     "p5934": {
         "id": 5934,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05934.txt",
         "md5": "dba74b911d5709999004c2b254d908b6"
     },
@@ -24377,9 +24377,9 @@
     },
     "p5992": {
         "id": 5992,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05992.txt",
         "md5": "a6051cc74f5a571c5cd3c01a97ce2231"
     },
@@ -24393,9 +24393,9 @@
     },
     "p6023": {
         "id": 6023,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06023.txt",
         "md5": "d9c064fcf82cdca6d4edd56f1ec996a3"
     },
@@ -24417,9 +24417,9 @@
     },
     "p6038": {
         "id": 6038,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06038.txt",
         "md5": "d64e75527f8fcdebc280bcf4570fa497"
     },
@@ -24457,9 +24457,9 @@
     },
     "p6056": {
         "id": 6056,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06056.txt",
         "md5": "6c1c4041f9659312737d56b8d8001c57"
     },
@@ -24473,17 +24473,17 @@
     },
     "p6061": {
         "id": 6061,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06061.txt",
         "md5": "ef8059ff39c9a497e3bd531af5831b8d"
     },
     "p6066": {
         "id": 6066,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06066.txt",
         "md5": "0718f42c429a48290cd993465504eb02"
     },
@@ -24553,25 +24553,25 @@
     },
     "p1441": {
         "id": 1441,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01441.txt",
         "md5": "57f10f168d4033125d4ca92ec3c7e8b9"
     },
     "p1749": {
         "id": 1749,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/01749.txt",
         "md5": "347c61ba827871f27c045338f3d4cd0f"
     },
     "p2060": {
         "id": 2060,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02060.txt",
         "md5": "429fef0439e94a1a068e57d2cbefc802"
     },
@@ -24593,9 +24593,9 @@
     },
     "p2701": {
         "id": 2701,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/02701.txt",
         "md5": "c5f77770a12ddf5ac603c5dce228ed57"
     },
@@ -24625,9 +24625,9 @@
     },
     "p3935": {
         "id": 3935,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/03935.txt",
         "md5": "062fd2e84e1a4eef0affa449bc21b38d"
     },
@@ -24649,9 +24649,9 @@
     },
     "p4403": {
         "id": 4403,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04403.txt",
         "md5": "cde925ee1a4ac4a2de20e91b7e60f4d7"
     },
@@ -24665,9 +24665,9 @@
     },
     "p4469": {
         "id": 4469,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04469.txt",
         "md5": "f13c3195ea1ff763b2e0926dfae9037b"
     },
@@ -24681,9 +24681,9 @@
     },
     "p4564": {
         "id": 4564,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04564.txt",
         "md5": "6028a706270126bf1d912570db6bf920"
     },
@@ -24697,33 +24697,33 @@
     },
     "p4752": {
         "id": 4752,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04752.txt",
         "md5": "c23bde556ac49d56d4c980079fada2e9"
     },
     "p4757": {
         "id": 4757,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04757.txt",
         "md5": "2b720f7c26c431af5cdd76f7469b2f55"
     },
     "p4759": {
         "id": 4759,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04759.txt",
         "md5": "ad81172f2d0260894d4d05309e4acba2"
     },
     "p4805": {
         "id": 4805,
-        "tried": false,
-        "solved": false,
-        "version": null,
+        "tried": true,
+        "solved": true,
+        "version": "v17",
         "spec-file": "../all-problems/04805.txt",
         "md5": "abc2ebc6f3d0709662fc2930368ffb08"
     },
@@ -24737,17 +24737,17 @@
     },
     "p4865": {
         "id": 4865,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04865.txt",
         "md5": "fcf50b3d7a12db5083e51136f64f0bd4"
     },
     "p4951": {
         "id": 4951,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/04951.txt",
         "md5": "ec9924898a67851817450718915ed73b"
     },
@@ -24785,25 +24785,25 @@
     },
     "p5166": {
         "id": 5166,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05166.txt",
         "md5": "0c45ff69b519e6b66ed69fb99431b73e"
     },
     "p5200": {
         "id": 5200,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05200.txt",
         "md5": "8526e0c11de9552f691b18d42c78d9e6"
     },
     "p5219": {
         "id": 5219,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05219.txt",
         "md5": "ec9924898a67851817450718915ed73b"
     },
@@ -24817,33 +24817,33 @@
     },
     "p5327": {
         "id": 5327,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05327.txt",
         "md5": "441a01b8f34a1135f9bd44b6b71f9497"
     },
     "p5345": {
         "id": 5345,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05345.txt",
         "md5": "737e9adc201e518a22bb0bc577dc7901"
     },
     "p5366": {
         "id": 5366,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05366.txt",
         "md5": "5dc8fbce892f027b5df96bf465b5c248"
     },
     "p5383": {
         "id": 5383,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05383.txt",
         "md5": "45f737f2dae9b4929803bb30863e3b7d"
     },
@@ -24881,25 +24881,25 @@
     },
     "p5624": {
         "id": 5624,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05624.txt",
         "md5": "9bf2cb544d5071a21dd69a93b3622891"
     },
     "p5650": {
         "id": 5650,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05650.txt",
         "md5": "e2d5e625d14a280c7e46eaad614d1b04"
     },
     "p5796": {
         "id": 5796,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05796.txt",
         "md5": "d9eb376972949942daaf729b44ff7549"
     },
@@ -24913,9 +24913,9 @@
     },
     "p5853": {
         "id": 5853,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05853.txt",
         "md5": "ecd46ef06683cd1352c78d4f7062667b"
     },
@@ -24945,9 +24945,9 @@
     },
     "p5902": {
         "id": 5902,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05902.txt",
         "md5": "fffa963b5402b363c45276240802cc98"
     },
@@ -24969,33 +24969,33 @@
     },
     "p5948": {
         "id": 5948,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05948.txt",
         "md5": "8cb9dd5d006457890878435f3fe360a9"
     },
     "p5970": {
         "id": 5970,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05970.txt",
         "md5": "19f48b34064dff16b086fde7e195668a"
     },
     "p5984": {
         "id": 5984,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05984.txt",
         "md5": "d5a594d1c627488abb3c2cfd7480a587"
     },
     "p5990": {
         "id": 5990,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/05990.txt",
         "md5": "4e4b75cf2fbfb2b0775fdc42be7b9139"
     },
@@ -25009,81 +25009,81 @@
     },
     "p6004": {
         "id": 6004,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06004.txt",
         "md5": "8245e832cc167ceed028d8e56a1e0994"
     },
     "p6025": {
         "id": 6025,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06025.txt",
         "md5": "210de941a09c30e19c70fb0b4cf06ce9"
     },
     "p6041": {
         "id": 6041,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06041.txt",
         "md5": "b8a46a300aa01b7247f6ef2f41004d29"
     },
     "p6052": {
         "id": 6052,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06052.txt",
         "md5": "706beb0dee8342b448e8dc465f216a28"
     },
     "p6058": {
         "id": 6058,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06058.txt",
         "md5": "159224cec93cae5dac2530259750c5bb"
     },
     "p6083": {
         "id": 6083,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06083.txt",
         "md5": "da31fd44d5fec7359571a7d52636062b"
     },
     "p6084": {
         "id": 6084,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06084.txt",
         "md5": "2604c4f477eb7a3f29c9387396a89147"
     },
     "p6095": {
         "id": 6095,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06095.txt",
         "md5": "72635a95102abcc95674686479ec95d6"
     },
     "p6099": {
         "id": 6099,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06099.txt",
         "md5": "c8d6d906527672b0ca8e2102998327b7"
     },
     "p6112": {
         "id": 6112,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06112.txt",
         "md5": "ba30873b6d383e424c6575a6b4ca8910"
     },
@@ -25105,9 +25105,9 @@
     },
     "p6117": {
         "id": 6117,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06117.txt",
         "md5": "a12f6312d548a97984a2069748b9b3d8"
     },
@@ -25137,9 +25137,9 @@
     },
     "p6124": {
         "id": 6124,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06124.txt",
         "md5": "278a7d845e3f3da549229dfa64d2faf0"
     },
@@ -25161,9 +25161,9 @@
     },
     "p6135": {
         "id": 6135,
-        "tried": false,
+        "tried": true,
         "solved": false,
-        "version": null,
+        "version": "v17",
         "spec-file": "../all-problems/06135.txt",
         "md5": "ed08f095e80b7df859a0577ffa6c1212"
     }

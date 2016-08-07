@@ -3,6 +3,25 @@
 <meta charset="utf-8">
 </head>
 <style>
+* { box-sizing: border-box }
+.head {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 90px;
+    width:100%;
+    border-bottom: 1px solid #ccc;;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 8px;
+}
+
+table {
+    margin-top: 100px;
+}
+p.links {
+    margin: 0;
+    color: #333;
+}
 .imp {
  display: inline-block; width: 40px; text-align: left; color:#777;
 font-size: 80%;
@@ -66,13 +85,15 @@ $txt_missing = 0;
 
 $solution_status = json_decode(file_get_contents('../submissionary/stats.json'), true);
 
+echo '<div class="head">';
+
 if ($show_thumbs) {
     echo '<a class="show-thumbs" href="?">Fuck thumbs</a>';
 }  else {
     echo '<a class="show-thumbs" href="?thumbs">show thumbs</a>';
 }
 
-echo '<p>supported url params: <a href="?tried&thumbs">tried</a>, <a href="?solved&thumbs">solved</a>, <a href="?hard">hard</a>, <a href="?easy">easy</a>, <a href="?thumbs">thumbs</a></p>';
+echo '<p class="links">supported url params: <a href="?tried&thumbs">tried</a>, <a href="?solved&thumbs">solved</a>, <a href="?hard">hard</a>, <a href="?easy">easy</a>, <a href="?thumbs">thumbs</a></p>';
 
 $b = json_decode(file_get_contents('../blob/blob.json'), $assoc = true);
 
@@ -96,7 +117,6 @@ echo '<tr>
     <th>ID</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
-    <th>Published</th>
     <th>size</th>
     <th>solvers.</th>
     <th>bounty</th>
@@ -178,9 +198,6 @@ foreach($b['problems'] as $p) {
         $txt_missing += 1;
         echo '<td><span style="color:#999">text</span></td>';
     }
-    printf('<td>%s</td>',
-        date('d.m.Y H:i', $p['publish_time'])
-    );
     printf('<td class="r">%s <span class="imp">/ %s</span></td>'
         , $p['problem_size']
         , $p['solution_size']
@@ -211,8 +228,12 @@ foreach($b['problems'] as $p) {
 echo '</table>';
 
 $g = ob_get_clean();
-printf('<h1>%d problems</h1>', $n_problems);
+printf('<h3>%d problems</h3>', $n_problems);
+
+echo '</div>'; // .head
+
 echo $g;
+
 
 if ($txt_missing) {
     echo '<p>';

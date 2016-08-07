@@ -253,4 +253,6 @@
 			     summing (dot-product (vertex- vertex2 vertex) (vertex- vertex1 vertex))))))
 
 (defun pipe-start ()
-  (origami/sandman::start :call-cers t))
+  (ignore-errors
+    (origami/sandman::start :call-cers t))
+  (sb-ext:exit))

@@ -4,9 +4,10 @@
   (:export :vertex :make-vertex :vertex-point :vertex-adjacent-vertices
 	   :edge :make-edge :edge-vertex1 :edge-vertex2
 	   :graph :make-graph :build-graph :graph-vertices :graph-edges
-	   :graph-add-vertex :graph-add-edge
+	   :graph-add-vertex :graph-add-edge :visualise-graph
 	   :vertex- :vertex+ :vertex-on-edge-p :vertex-signum :vertex-polygon-area
-	   :find-outer-path :vect-angle :vect-pseudoangle))
+	   :find-outer-path :vect-angle :vect-pseudoangle
+	   :total-dot-product :check-square))
 
 (in-package :origami/polygon-flipper)
 
@@ -37,6 +38,17 @@
 	    (setf (edge-vertex2 edge) vertex)
 	    (graph-add-edge graph (vertex-point vertex) (vertex-point vertex2))))))
     graph))
+
+(defun visualise-graph (graph)
+  (let ((outer-edge (find-outer-path graph)))
+    (format t "~&1~%~A~%" (length outer-edge))
+    (format t "~{~{~A~^,~}~%~}" (mapcar #'vertex-point outer-edge))
+    (format t "~A~%" (length (graph-edges graph)))
+    (format t "~{~{~{~A~^,~}~^ ~}~%~}" (mapcar (lambda (edge)
+						 (with-slots (vertex1 vertex2) edge
+						   (list (vertex-point vertex1)
+							 (vertex-point vertex2))))
+					       (graph-edges graph)))))
 
 (defmethod print-object ((vertex vertex) stream)
   (print-unreadable-object (vertex stream :type t)
@@ -144,6 +156,33 @@
 				  :initial-value nil)))
 	(cons vertex1 (find-left-path1 vertex2 next-vertex start-vertex)))))
 
+(defun check-square (graph)
+  (let ((lowest-left (first (graph-vertices graph)))
+	(rightest-low (first (graph-vertices graph))))
+    (loop as vertex in (graph-vertices graph)
+       do (destructuring-bind (lx1 ly1) (vertex-point lowest-left)
+	    (destructuring-bind (rx1 ry1) (vertex-point rightest-low)
+	      (destructuring-bind (x y) (vertex-point vertex)
+		(if (eql ly1 y)
+		    (when (> lx1 x)
+		      (setf lowest-left vertex))
+		    (when (> ly1 y)
+		      (setf lowest-left vertex)))
+		(if (eql rx1 x)
+		    (when (> ry1 y)
+		      (setf rightest-low vertex))
+		    (when (< rx1 x)
+		      (setf rightest-low vertex)))))))
+    (loop with diagl = nil and diagr = nil
+       as vertex in (graph-vertices graph)
+       do (let ((lvect (vertex- vertex lowest-left))
+		(rvect (vertex- vertex rightest-low)))
+	    (when (eql 2 (dot-product lvect lvect))
+	      (setf diagl t))
+	    (when (eql 2 (dot-product rvect rvect))
+	      (setf diagr t)))
+       finally (return (and diagl diagr)))))
+
 (defun find-outer-path (graph)
   (let ((lowest-vertex (reduce (lambda (v1 v2)
 				  (destructuring-bind (x1 y1) (vertex-point v1)
@@ -172,3 +211,9 @@
     (if (eq next-vertex start-vertex)
 	result
 	(find-outer-path1 next-vertex direction (cons next-vertex result) start-vertex))))
+
+(defun total-dot-product (graph)
+  (loop as vertex in (graph-vertices graph)
+     summing (loop as vertex1 in (vertex-adjacent-vertices vertex)
+		summing (loop as vertex2 in (vertex-adjacent-vertices vertex)
+			     summing (dot-product (vertex- vertex2 vertex) (vertex- vertex1 vertex))))))

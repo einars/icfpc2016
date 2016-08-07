@@ -9,28 +9,51 @@
       (either (first list) (any-element (rest list)))
       (fail)))
 
-(defun unfold (graph)
-  (declare (special *trace*))
-  (setf *trace* nil)
-  (local
-    (multiple-value-bind (edge subgraph) (find-fold graph)
-      (unfold1 edge subgraph))
-    (let ((new-area (vertex-polygon-area (find-outer-path graph))))
-      (cond
-	((=  new-area 1) (values graph *trace*))
-	((< new-area 1) (unfold graph))
-	(t (fail))))))
+(defun archa-solve ()
+  (multiple-value-bind (new-graph solution) (one-value (unfold (build-graph)))
+    (declare (ignore new-graph))
+    solution))
 
-(defun unfold1 (edge subgraph)
+(defun unfold (graph)
+  (let ((*trace*)
+	(*area* 0)
+	(*dot-product* (total-dot-product graph)))
+    (declare (special *trace* *area* *dot-product*))
+    (local (unfold1 graph))))
+
+(defun unfold1 (graph)
+  (declare (special *trace* *area* *dot-product*))
+  (format t "DP: ~F~%" (total-dot-product graph))
+  (multiple-value-bind (edge subgraph) (find-fold graph)
+    (unfold2 edge subgraph))
+  (let ((new-area (vertex-polygon-area (find-outer-path graph)))
+	(new-dot-product (total-dot-product graph)))
+    (format t "Is square: ~A~%" (check-square graph))
+    (cond
+      ((=  new-area 1) (values graph (reverse *trace*)))
+      ((< new-dot-product *dot-product*)
+       (setf *area* new-area)
+       (setf *dot-product* new-dot-product)
+       (unfold1 graph))
+      (t (fail)))))
+
+(defun unfold2 (edge subgraph)
   (declare (special *trace*))
   (let* ((polygon (mapcar #'vertex-point subgraph))
 	 (folded-polygon (fold-over-edge polygon
 					 (origami/structures:make-edge (vertex-point (edge-vertex1 edge))
 								       (vertex-point (edge-vertex2 edge))))))
     (push (list (vertex-point (edge-vertex1 edge)) (vertex-point (edge-vertex2 edge)) polygon) *trace*)
+    #+nil(cerror "ok?" "Moving ~A to ~A" polygon folded-polygon)
     (loop as vertex in subgraph
        as new-point in folded-polygon
-       do (setf (vertex-point vertex) new-point))))
+       do (setf (vertex-point vertex) new-point))
+    (trail (lambda ()
+	     #+nil(cerror "ok?" "Returning ~A to ~A" folded-polygon polygon)
+	     (pop *trace*)
+	     (loop as vertex in subgraph
+		as point in polygon
+		do (setf (vertex-point vertex) point))))))
 
 (defun find-fold (graph)
   (let ((max-onside (- (length (graph-vertices graph)) 2)))

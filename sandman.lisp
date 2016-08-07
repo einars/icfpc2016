@@ -15,6 +15,8 @@
 (defvar *outer-silhouette* nil)
 (defvar *silhouette-vertices* nil)
 (defvar *cers-solutions* nil)
+(defvar *cers-vertices* nil)
+(defvar *cers-edges* nil)
 (defvar *debug* nil)
 
 (defvar *solved-vertices* nil)
@@ -367,6 +369,8 @@
 
 (defun start (&key call-cers debug)
   (let ((*cers-solutions* nil)
+	(*cers-vertices* nil)
+	(*cers-edges* nil)
 	(*debug* nil)
 	(*vertices* nil)
 	(*edges* nil))

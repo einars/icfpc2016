@@ -19,8 +19,8 @@ global $stats;
 // 3646 congruent
 
 // define('SOLVER', './cers.bin');
-define('SOLVER', 'timeout 20 ./cers.bin');
-define('VERSION', 'v26');
+define('SOLVER', 'timeout 5 ./cers.bin');
+define('VERSION', 'v27');
 define('RMT_ID', '28');
 
 $lock_file = fopen('.lock', 'w+');
@@ -151,10 +151,11 @@ function solve($key, $force = false)
     system($cmd);
     $out = ob_get_clean();
 
-    if ( ! $out || strpos($out, 'SOLUTION: NIL') || strpos($out, 'absent')) {
+    if ( ! $out || strpos($out, 'SOLUTION: NIL') || strpos($out, 'RROR:')) {
         $reason = '';
         if (strpos($out, 'SOLUTION: NIL')) $reason = ' (NIL)';
         if (strpos($out, 'absent')) $reason = ' (Candidates)';
+        if (strpos($out, 'max steps')) $reason = ' max steps';
         echo "Failed$reason\n";
         foreach(array_keys($stats) as $k) {
             $v = $stats[$k];
@@ -176,6 +177,7 @@ function solve($key, $force = false)
                 do {
                     $retry = false;
                     ob_start();
+                    sleep(3);
                     system('curl --silent --compressed -L -H Expect: -H "X-API-Key: 28-b27a5c60566badcfc5d975f3dffdb627" -F "problem_id=' . $v['id'] . '" -F "solution_spec=@/tmp/solution.txt" http://2016sv.icfpcontest.org/api/solution/submit');
                     $sub_res = ob_get_clean();
 

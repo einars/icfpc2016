@@ -211,9 +211,10 @@ foreach($b['problems'] as $p) {
     $bounty_perfect = $p['solution_size'] / ($n_perfect + 1 + 1);
     $bounty_imperfect = ($p['solution_size'] / ($n_perfect + 1)) / ($imp_share + 0.999999);
 
-    printf('<td class="r"><b>%d</b> <span class="imp">/ %d</span></td>'
+    printf('<td class="r"><b>%d</b> <span class="imp">/ %d</span><span class="imp">∑ <span style="color:#111">%.1f</span></span></td>'
         , $bounty_perfect
         , $bounty_imperfect
+        , $imp_share
     );
 
     printf('<td>%s</td>',

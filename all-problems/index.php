@@ -3,6 +3,15 @@
 <meta charset="utf-8">
 </head>
 <style>
+.show-thumbs {
+    float: right;
+    padding: 8px 16px;
+    background: #eee;
+    border-radius: 4px;
+}
+.show-thumbs:hover {
+    background: #ddd;
+}
 table {
     border-collapse: collapse;
 }
@@ -28,6 +37,15 @@ td b {
 <?php
 
 $team_id = 28;
+
+$show_thumbs = isset($_GET['thumbs']);
+
+if ($show_thumbs) {
+    echo '<a class="show-thumbs" href="?">Fuck thumbs</a>';
+}  else {
+    echo '<a class="show-thumbs" href="?thumbs">show thumbs</a>';
+}
+
 
 $b = json_decode(file_get_contents('../blob/blob.json'), $assoc = true);
 
@@ -75,7 +93,7 @@ foreach($b['problems'] as $p) {
 
     $t = sprintf('../problems/t%05d.png', $id);
 
-    if (file_exists($t)) {
+    if ($show_thumbs and file_exists($t)) {
         printf('<img width="50" height="50" src="%s">', $t);
     }
 

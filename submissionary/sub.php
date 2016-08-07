@@ -20,7 +20,7 @@ global $stats;
 
 // define('SOLVER', './cers.bin');
 define('SOLVER', 'timeout 30 ./cers.bin');
-define('VERSION', 'v22');
+define('VERSION', 'v23');
 define('RMT_ID', '28');
 
 $lock_file = fopen('.lock', 'w+');

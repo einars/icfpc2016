@@ -8,7 +8,7 @@ for($i = 1; $i < 10000; $i++) {
     }
 
     if (file_exists("t$id.png")) {
-        continue;
+        // continue;
     }
 
     echo $id . "\n";

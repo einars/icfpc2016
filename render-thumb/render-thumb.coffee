@@ -13,9 +13,9 @@ draw_canvas = (ctx, spec, fit) ->
 
   p = parse spec
 
-  ctx.fillStyle = '#eee'
-  ctx.fillRect 0, 0, w, h
-  ctx.fillStyle = undefined
+  #ctx.fillStyle = '#eee'
+  #ctx.fillRect 0, 0, w, h
+  #ctx.fillStyle = undefined
 
 
   if fit
@@ -70,12 +70,14 @@ draw_canvas = (ctx, spec, fit) ->
     ctx_lineto ctx, pts[0]
     ctx.stroke()
 
+  ###
   ctx.beginPath()
   ctx.fillStyle = '#333333'
   for line in p.skels
     ctx_arc ctx, line.p1
     ctx_arc ctx, line.p2
   ctx.fill()
+  ###
 
 
 

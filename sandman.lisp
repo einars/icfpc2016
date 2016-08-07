@@ -372,7 +372,7 @@
     (print-positions (get-original pos-map))
     (when *debug* (dump-solution-as-problem pos-map))))
 
-(defun start (&key call-cers (debug t))
+(defun start (&key call-cers debug)
   (let ((*cers-solutions* nil)
 	(*cers-vertices* nil)
 	(*cers-edges* nil)

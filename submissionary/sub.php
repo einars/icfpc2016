@@ -19,8 +19,8 @@ global $stats;
 // 3646 congruent
 
 // define('SOLVER', './cers.bin');
-define('SOLVER', 'timeout --kill-after=10 15 ./cers.bin');
-define('VERSION', 'v17');
+define('SOLVER', 'timeout 30 ./cers.bin');
+define('VERSION', 'v21');
 define('RMT_ID', '28');
 
 function save()
@@ -103,15 +103,15 @@ function solve($key, $force = false)
     global $stats;
     $spec = $stats[$key];
     $md5 = $spec['md5'];
-    echo "Solving {$spec['id']}\n";
+    printf('%-5s... ', $spec['id']);
     foreach($stats as $k=>$v) {
         if ($v['md5'] == $md5) {
             if ($v['solved'] && $k != $key) {
-                if ($force) {
+                // if ($force) {
                     echo("Heresy: $key is already solved as $k!\n");
-                } else {
-                    die("What is this heresy? $key is already solved as $k!");
-                }
+                // } else {
+                    // die("What is this heresy? $key is already solved as $k!");
+                // }
             }
             $stats[$k]['tried'] = true;
             $stats[$k]['version'] = VERSION;
@@ -124,8 +124,11 @@ function solve($key, $force = false)
     system($cmd);
     $out = ob_get_clean();
 
-    if ( ! $out || strpos($out, 'SOLUTION: NIL') || strpos($out, 'RROR: ')) {
-        echo "Solving failed\n";
+    if ( ! $out || strpos($out, 'SOLUTION: NIL') || strpos($out, 'absent')) {
+        $reason = '';
+        if (strpos($out, 'SOLUTION: NIL')) $reason = ' (NIL)';
+        if (strpos($out, 'absent')) $reason = ' (Candidates)';
+        echo "Failed$reason\n";
         foreach($stats as $k=>$v) {
             if ($v['md5'] == $md5) {
                 $v['tried'] = true;
@@ -149,6 +152,7 @@ function solve($key, $force = false)
                 if ($res['ok']) {
                     $stats[$k]['solved'] = true;
                     save();
+                    show_numbers();
                 } else {
                     echo "Submission failed, check it out:\n";
                     echo $sub_res, "\n";
@@ -160,9 +164,6 @@ function solve($key, $force = false)
                         die();
                     }
                 }
-
-                show_numbers();
-
             }
         }
     }
@@ -173,7 +174,7 @@ function solve_something_random()
     global $stats;
     do {
         $key = array_rand($stats);
-    } while($stats[$key]['tried'] && $stats[$key]['version'] == VERSION);
+    } while( $stats[$key]['solved'] || ($stats[$key]['tried'] && $stats[$key]['version'] == VERSION));
 
     return solve($key);
 }
@@ -183,12 +184,27 @@ function solve_easiest()
     global $stats;
     $flt = array();
     foreach($stats as $k=>$v) {
+        if ($v['solved']) continue;
         if ($v['tried'] && $v['version'] == VERSION) continue;
         $flt[$k] = filesize($v['spec-file']);
     }
     asort($flt);
     $keys = array_keys($flt);
     solve($keys[0]);
+}
+
+
+function solve_sequentially()
+{
+    global $stats;
+    $flt = array();
+    foreach($stats as $k=>$v) {
+        if ($v['solved']) continue;
+        if ($v['tried'] && $v['version'] == VERSION) continue;
+        $flt[] = $v['id'];
+    }
+    sort($flt);
+    solve('p' . $flt[0]);
 }
 
 
@@ -208,6 +224,7 @@ if (isset($argv[1])) {
     show_numbers();
     do {
         // solve_easiest();
+        // solve_sequentially();
         solve_something_random();
     } while(true);
 }
